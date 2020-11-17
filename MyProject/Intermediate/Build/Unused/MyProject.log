@@ -1,0 +1,21 @@
+﻿  Creating makefile for MyProjectEditor (ini files are newer than makefile)
+  Parsing headers for MyProjectEditor
+    Running UnrealHeaderTool "C:\Users\1804824\Desktop\cakes\MyProject\MyProject.uproject" "C:\Users\1804824\Desktop\cakes\MyProject\Intermediate\Build\Win64\MyProjectEditor\Development\MyProjectEditor.uhtmanifest" -LogCmds="loginit warning, logexit warning, logdatabase error" -Unattended -WarningsAsErrors -installed
+  Reflection code generated for MyProjectEditor in 4.8869475 seconds
+  Using Visual Studio 2019 14.22.27905 toolchain (C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905) and Windows 10.0.18362.0 SDK (C:\Program Files (x86)\Windows Kits\10).
+  Building 7 actions with 16 processes...
+    [1/7] MyProject.init.gen.cpp
+    [2/7] MyProjectGameMode.cpp
+    [3/7] MyProjectCharacter.gen.cpp
+    [4/7] MyProjectCharacter.cpp
+C:\Users\1804824\Desktop\cakes\MyProject\Source\MyProject\MyProjectCharacter.cpp(162): warning C4459: declaration of 'LogLevel' hides global declaration
+    C:\UE_4.22\UE_4.22\Engine\Source\Runtime\Engine\Public\EngineLogs.h(18): note: see declaration of 'LogLevel'
+C:\Users\1804824\Desktop\cakes\MyProject\Source\MyProject\MyProjectCharacter.cpp(167): warning C4459: declaration of 'LogLevel' hides global declaration
+    C:\UE_4.22\UE_4.22\Engine\Source\Runtime\Engine\Public\EngineLogs.h(18): note: see declaration of 'LogLevel'
+    [5/7] UE4Editor-MyProject.lib
+       Creating library C:\Users\1804824\Desktop\cakes\MyProject\Intermediate\Build\Win64\UE4Editor\Development\MyProject\UE4Editor-MyProject.lib and object C:\Users\1804824\Desktop\cakes\MyProject\Intermediate\Build\Win64\UE4Editor\Development\MyProject\UE4Editor-MyProject.exp
+    [6/7] UE4Editor-MyProject.dll
+       Creating library C:\Users\1804824\Desktop\cakes\MyProject\Intermediate\Build\Win64\UE4Editor\Development\MyProject\UE4Editor-MyProject.suppressed.lib and object C:\Users\1804824\Desktop\cakes\MyProject\Intermediate\Build\Win64\UE4Editor\Development\MyProject\UE4Editor-MyProject.suppressed.exp
+    [7/7] MyProjectEditor.target
+  Total time in Parallel executor: 1.31 seconds
+  Total execution time: 7.51 seconds
