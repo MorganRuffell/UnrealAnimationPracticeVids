@@ -1,5 +1,7 @@
 // Copyright 1998-2019 Epic Games, Inc. All Rights Reserved.
 
+#pragma once
+
 #include "MyProjectCharacter.h"
 #include "Camera/CameraComponent.h"
 #include "Components/CapsuleComponent.h"
@@ -56,8 +58,43 @@ AMyProjectCharacter::AMyProjectCharacter()
 	{
 		MeleeFistAttackMontage = MeleeFistAttackMontageObject.Object;
 	}
+
+	//Including intialisation directives for our collision boxes, these are intialised to a subObject	
+	LeftFistCollisionBox = CreateDefaultSubobject<UBoxComponent>(TEXT("LeftFistCollsionBox"));
+	RightFistCollisionBox = CreateDefaultSubobject<UBoxComponent>(TEXT("RightFistCollsionBox"));
+
+	//We like we do with the camera access the setup attachment method through a pointer.
+	LeftFistCollisionBox->SetupAttachment(RootComponent);
+	RightFistCollisionBox->SetupAttachment(RootComponent);
+
+	//Set both to be hidden in game - No point doing it in BP
+	LeftFistCollisionBox->SetHiddenInGame(false);
+	RightFistCollisionBox->SetHiddenInGame(false);
+	
+	//Based on what we set up in project settings we need to add these collision profiles.
+	//Go to the project settings and read through this, if you're stuck!
+	LeftFistCollisionBox->SetCollisionProfileName("NoCollision");
+	RightFistCollisionBox->SetCollisionProfileName("NoCollision");
+
+
+
 }
 
+//Begin play is essentially awake. 
+void AMyProjectCharacter::BeginPlay()
+{
+	//Passing a call to the super class iteration before we start playing.
+	Super::BeginPlay();
+	
+	//Attach Collision Components to sockets based on transformation definitions.
+	//Sockets are little collider locations set up on the bone structure which is imported into unreal.
+	//Look into this and see the different params that this takes. 15:10 on video to see how this works. WATCH IT.
+	FAttachmentTransformRules AttachmentRules(EAttachmentRule::SnapToTarget, EAttachmentRule::SnapToTarget, EAttachmentRule::KeepWorld, false);
+
+	LeftFistCollisionBox->AttachToComponent(GetMesh(),AttachmentRules,"LSocket_Collider");
+	RightFistCollisionBox->AttachToComponent(GetMesh(), AttachmentRules, "RSocket_Collider");
+
+}
 
 //////////////////////////////////////////////////////////////////////////
 // Input
@@ -73,9 +110,8 @@ void AMyProjectCharacter::SetupPlayerInputComponent(class UInputComponent* Playe
 	PlayerInputComponent->BindAxis("MoveRight", this, &AMyProjectCharacter::MoveRight);
 
 	//Attack input
-	PlayerInputComponent->BindAction("Attack", IE_Pressed, this, &AMyProjectCharacter::AttackStart);
+	PlayerInputComponent->BindAction("Attack", IE_Pressed, this, &AMyProjectCharacter::AttackInput);
 	PlayerInputComponent->BindAction("Attack", IE_Pressed, this, &AMyProjectCharacter::AttackEnd);
-
 
 
 	// We have 2 versions of the rotation bindings to handle different kinds of devices differently
@@ -129,12 +165,28 @@ void AMyProjectCharacter::MoveRight(float Value)
 		// add movement in that direction
 		AddMovementInput(Direction, Value);
 	}
-	
 }
 
 
 void AMyProjectCharacter::AttackStart()
 {
+	//You've seen __Function before, this is a helper method that allows us to print out where something is coming from!
+	Log(ELogLevel::INFO, __FUNCTION__);
+
+	//Whenever the Attack is started the Collision profile is changed to weapon and the colliders are live.
+	
+	LeftFistCollisionBox->SetCollisionProfileName("Weapon");
+	RightFistCollisionBox->SetCollisionProfileName("Weapon");
+	
+
+}
+
+
+void AMyProjectCharacter::AttackInput()
+{
+	//In order to solve a weird firing bug we are going to refactor the method to have everything in here. 
+
+
 	//You've seen __Function before, this is a helper method that allows us to print out where something is coming from!
 	Log(ELogLevel::INFO, __FUNCTION__);
 
@@ -156,6 +208,11 @@ void AMyProjectCharacter::AttackEnd()
 	//You've seen __Function before, this is a helper method that allows us to print out where something is coming from!
 	Log(ELogLevel::INFO, __FUNCTION__);
 
+		
+	//Then when attack end is called post attack. We then make the colliders not live. Think of them like
+	//live wires, on enemies die. Off Enemies don't die.
+	LeftFistCollisionBox->SetCollisionProfileName("NoCollision");
+	RightFistCollisionBox->SetCollisionProfileName("NoCollision");
 }
 
 

@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
+#include "Components/BoxComponent.h"
 #include "MyProjectCharacter.generated.h"
 
 UENUM(BlueprintType)
@@ -51,8 +52,19 @@ class AMyProjectCharacter : public ACharacter
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Animation, meta = (AllowPrivateAccess = "true"))
 	class UAnimMontage* MeleeFistAttackMontage;
 
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Collision, meta = (AllowPrivateAccess = "true"))
+	class UBoxComponent* LeftFistCollisionBox;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Collision, meta = (AllowPrivateAccess = "true"))
+	class UBoxComponent* RightFistCollisionBox;
+
+
 public:
 	AMyProjectCharacter();
+	
+	//This is declaring the begin play method, this is called when the game begins.
+	//This is how it is declared. This is becuase Characters inherit from AActor which contains the abstract definition
+	virtual void BeginPlay() override;
 
 
 	/** Base turn rate, in deg/sec. Other scaling may affect final turn rate. */
@@ -116,6 +128,10 @@ public:
 
 	//Called when the player ends an attack
 	void AttackEnd();
+
+	//Triggers attack animation based on user input/.
+	void AttackInput();
+
 
 	/** Returns CameraBoom subobject **/
 	FORCEINLINE class USpringArmComponent* GetCameraBoom() const { return CameraBoom; }

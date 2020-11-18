@@ -1,9 +1,13 @@
-C:\Users\1804824\Desktop\cakes\MyProject\Intermediate\Build\Win64\UE4Editor\Development\MyProject\Definitions.MyProject.h
+C:\Users\1804824\Desktop\UnrealYouTubeRepo\UnrealAnimationPracticeVids\MyProject\Intermediate\Build\Win64\UE4Editor\Development\MyProject\Definitions.MyProject.h
 C:\UE_4.22\UE_4.22\Engine\Source\Runtime\CoreUObject\Public\UObject/GeneratedCppIncludes.h
 C:\UE_4.22\UE_4.22\Engine\Source\Runtime\CoreUObject\Public\UObject/MetaData.h
-C:\Users\1804824\Desktop\cakes\MyProject\Source\MyProject/MyProjectCharacter.h
+C:\Users\1804824\Desktop\UnrealYouTubeRepo\UnrealAnimationPracticeVids\MyProject\Source\MyProject/MyProjectCharacter.h
 C:\UE_4.22\UE_4.22\Engine\Source\Runtime\Engine\Classes\GameFramework/Character.h
 C:\UE_4.22\UE_4.22\Engine\Source\Runtime\Engine\Classes\GameFramework/RootMotionSource.h
 C:\UE_4.22\UE_4.22\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\RootMotionSource.generated.h
 C:\UE_4.22\UE_4.22\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\Character.generated.h
-C:\Users\1804824\Desktop\cakes\MyProject\Intermediate\Build\Win64\UE4Editor\Inc\MyProject\MyProjectCharacter.generated.h
+C:\UE_4.22\UE_4.22\Engine\Source\Runtime\Engine\Classes\Components/BoxComponent.h
+C:\UE_4.22\UE_4.22\Engine\Source\Runtime\Engine\Classes\Components/ShapeComponent.h
+C:\UE_4.22\UE_4.22\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\ShapeComponent.generated.h
+C:\UE_4.22\UE_4.22\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\BoxComponent.generated.h
+C:\Users\1804824\Desktop\UnrealYouTubeRepo\UnrealAnimationPracticeVids\MyProject\Intermediate\Build\Win64\UE4Editor\Inc\MyProject\MyProjectCharacter.generated.h
