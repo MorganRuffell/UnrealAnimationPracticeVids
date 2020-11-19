@@ -103,13 +103,6 @@ void AMyProjectCharacter::BeginPlay()
 	LeftFistCollisionBox->OnComponentHit.AddDynamic(this, &AMyProjectCharacter::OnAttackHit);
 	RightFistCollisionBox->OnComponentHit.AddDynamic(this, &AMyProjectCharacter::OnAttackHit);
 
-	//Checking to see where the overlap begins.
-	LeftFistCollisionBox->OnComponentBeginOverlap.AddDynamic(this, &AMyProjectCharacter::OnAttackOverlapBegin);
-	RightFistCollisionBox->OnComponentBeginOverlap.AddDynamic(this, &AMyProjectCharacter::OnAttackOverlapBegin);
-
-	//Checking to see where the overlap ends.
-	LeftFistCollisionBox->OnComponentEndOverlap.AddDynamic(this, &AMyProjectCharacter::OnAttackOverlapEnd);
-	RightFistCollisionBox->OnComponentEndOverlap.AddDynamic(this, &AMyProjectCharacter::OnAttackOverlapEnd);
 
 }
 
@@ -264,17 +257,6 @@ void AMyProjectCharacter::OnAttackHit(UPrimitiveComponent* HitComponent, AActor*
 {
 	Log(ELogLevel::TRACE, __FUNCTION__);
 	Log(ELogLevel::TRACE, Hit.GetActor()->GetName());
-}
-
-//Paramater List
-void AMyProjectCharacter::OnAttackOverlapBegin(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
-{
-	Log(ELogLevel::TRACE, __FUNCTION__);
-}
-
-void AMyProjectCharacter::OnAttackOverlapEnd(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex)
-{
-	Log(ELogLevel::TRACE, __FUNCTION__);
 }
 
 
