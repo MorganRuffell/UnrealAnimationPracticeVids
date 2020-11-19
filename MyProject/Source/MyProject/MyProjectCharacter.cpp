@@ -67,6 +67,7 @@ AMyProjectCharacter::AMyProjectCharacter()
 	LeftFistCollisionBox->SetupAttachment(RootComponent);
 	RightFistCollisionBox->SetupAttachment(RootComponent);
 
+
 	//Set both to be hidden in game - No point doing it in BP
 	LeftFistCollisionBox->SetHiddenInGame(false);
 	RightFistCollisionBox->SetHiddenInGame(false);
@@ -75,6 +76,7 @@ AMyProjectCharacter::AMyProjectCharacter()
 	//Go to the project settings and read through this, if you're stuck!
 	LeftFistCollisionBox->SetCollisionProfileName("NoCollision");
 	RightFistCollisionBox->SetCollisionProfileName("NoCollision");
+
 
 
 
@@ -111,7 +113,7 @@ void AMyProjectCharacter::SetupPlayerInputComponent(class UInputComponent* Playe
 
 	//Attack input
 	PlayerInputComponent->BindAction("Attack", IE_Pressed, this, &AMyProjectCharacter::AttackInput);
-	PlayerInputComponent->BindAction("Attack", IE_Pressed, this, &AMyProjectCharacter::AttackEnd);
+	PlayerInputComponent->BindAction("Attack", IE_Released, this, &AMyProjectCharacter::AttackEnd);
 
 
 	// We have 2 versions of the rotation bindings to handle different kinds of devices differently
@@ -121,9 +123,7 @@ void AMyProjectCharacter::SetupPlayerInputComponent(class UInputComponent* Playe
 	PlayerInputComponent->BindAxis("TurnRate", this, &AMyProjectCharacter::TurnAtRate);
 	PlayerInputComponent->BindAxis("LookUp", this, &APawn::AddControllerPitchInput);
 	PlayerInputComponent->BindAxis("LookUpRate", this, &AMyProjectCharacter::LookUpAtRate);
-
 }
-
 
 
 void AMyProjectCharacter::TurnAtRate(float Rate)
@@ -200,6 +200,7 @@ void AMyProjectCharacter::AttackInput()
 
 	//Then play the result
 	PlayAnimMontage(MeleeFistAttackMontage, AnimationMontageSpeed, FName(*MontageSection));
+
 
 }
 

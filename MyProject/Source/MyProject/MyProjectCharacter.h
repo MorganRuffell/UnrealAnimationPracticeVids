@@ -59,6 +59,7 @@ class AMyProjectCharacter : public ACharacter
 	class UBoxComponent* RightFistCollisionBox;
 
 
+
 public:
 	AMyProjectCharacter();
 	
@@ -73,7 +74,6 @@ public:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Animation)
 	float AnimationMontageSpeed;
-
 
 	/** Base look up/down rate, in deg/sec. Other scaling may affect final rate. */
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category=Camera)
