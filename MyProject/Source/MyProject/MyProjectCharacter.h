@@ -123,14 +123,29 @@ protected:
 
 
 public:
+	//Triggers attack animation based on user input/.
+	void AttackInput();
+
+
 	//Triggered when the player intiates an attack
 	void AttackStart();
 
 	//Called when the player ends an attack
 	void AttackEnd();
 
-	//Triggers attack animation based on user input/.
-	void AttackInput();
+	//Triggers when the collider hits an enemy entity
+	UFUNCTION()
+	void OnAttackHit(UPrimitiveComponent* HitComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, FVector NormalImpulse, const FHitResult& Hit);
+
+	//Triggered when a collider overlaps another components
+
+	UFUNCTION()
+	void OnAttackOverlapBegin(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);
+
+	//Triggered when this stops
+
+	UFUNCTION()
+	void OnAttackOverlapEnd(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex);
 
 
 	/** Returns CameraBoom subobject **/

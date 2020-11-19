@@ -71,14 +71,16 @@ AMyProjectCharacter::AMyProjectCharacter()
 	//Set both to be hidden in game - No point doing it in BP
 	LeftFistCollisionBox->SetHiddenInGame(false);
 	RightFistCollisionBox->SetHiddenInGame(false);
+
+	//This is forcing it to ensure that rigidbody collsion notifications are setup correctly.
+	LeftFistCollisionBox->SetNotifyRigidBodyCollision(false);
+	RightFistCollisionBox->SetNotifyRigidBodyCollision(false);
+
 	
 	//Based on what we set up in project settings we need to add these collision profiles.
 	//Go to the project settings and read through this, if you're stuck!
 	LeftFistCollisionBox->SetCollisionProfileName("NoCollision");
 	RightFistCollisionBox->SetCollisionProfileName("NoCollision");
-
-
-
 
 }
 
@@ -93,8 +95,21 @@ void AMyProjectCharacter::BeginPlay()
 	//Look into this and see the different params that this takes. 15:10 on video to see how this works. WATCH IT.
 	FAttachmentTransformRules AttachmentRules(EAttachmentRule::SnapToTarget, EAttachmentRule::SnapToTarget, EAttachmentRule::KeepWorld, false);
 
+	//Attaching to the sockets that we defined on the skeleton
 	LeftFistCollisionBox->AttachToComponent(GetMesh(),AttachmentRules,"LSocket_Collider");
 	RightFistCollisionBox->AttachToComponent(GetMesh(), AttachmentRules, "RSocket_Collider");
+
+	//OnComponent hit, similar to bp we are creating this implementation inside our begin play.
+	LeftFistCollisionBox->OnComponentHit.AddDynamic(this, &AMyProjectCharacter::OnAttackHit);
+	RightFistCollisionBox->OnComponentHit.AddDynamic(this, &AMyProjectCharacter::OnAttackHit);
+
+	//Checking to see where the overlap begins.
+	LeftFistCollisionBox->OnComponentBeginOverlap.AddDynamic(this, &AMyProjectCharacter::OnAttackOverlapBegin);
+	RightFistCollisionBox->OnComponentBeginOverlap.AddDynamic(this, &AMyProjectCharacter::OnAttackOverlapBegin);
+
+	//Checking to see where the overlap ends.
+	LeftFistCollisionBox->OnComponentEndOverlap.AddDynamic(this, &AMyProjectCharacter::OnAttackOverlapEnd);
+	RightFistCollisionBox->OnComponentEndOverlap.AddDynamic(this, &AMyProjectCharacter::OnAttackOverlapEnd);
 
 }
 
@@ -173,11 +188,20 @@ void AMyProjectCharacter::AttackStart()
 	//You've seen __Function before, this is a helper method that allows us to print out where something is coming from!
 	Log(ELogLevel::INFO, __FUNCTION__);
 
-	//Whenever the Attack is started the Collision profile is changed to weapon and the colliders are live.
-	
+	//Before the attack, we also need to set up the onCollsion logic this is a weird thing by epic. Do this if you
+	//want to force simulates hit to be true.
+	LeftFistCollisionBox->SetNotifyRigidBodyCollision(true);
+	RightFistCollisionBox->SetNotifyRigidBodyCollision(true);
+
+	//Whenever the Attack is started the Collision profile is changed to weapon and the colliders are live.	
 	LeftFistCollisionBox->SetCollisionProfileName("Weapon");
 	RightFistCollisionBox->SetCollisionProfileName("Weapon");
-	
+
+	//Collision boxes we are setting this to generate overlap events.
+	LeftFistCollisionBox->SetGenerateOverlapEvents(true);
+	RightFistCollisionBox->SetGenerateOverlapEvents(true);
+
+
 
 }
 
@@ -209,12 +233,59 @@ void AMyProjectCharacter::AttackEnd()
 	//You've seen __Function before, this is a helper method that allows us to print out where something is coming from!
 	Log(ELogLevel::INFO, __FUNCTION__);
 
-		
+	//Before the attack, we also need to set up the onCollsion logic this is a weird thing by epic. Do this if you
+	//want to force simulates hit to be true.
+	LeftFistCollisionBox->SetNotifyRigidBodyCollision(false);
+	RightFistCollisionBox->SetNotifyRigidBodyCollision(false);
+	
+
 	//Then when attack end is called post attack. We then make the colliders not live. Think of them like
 	//live wires, on enemies die. Off Enemies don't die.
 	LeftFistCollisionBox->SetCollisionProfileName("NoCollision");
 	RightFistCollisionBox->SetCollisionProfileName("NoCollision");
+
+
+	//Collision boxes we are setting this to generate overlap events.
+	LeftFistCollisionBox->SetGenerateOverlapEvents(false);
+	RightFistCollisionBox->SetGenerateOverlapEvents(false);
+
+
 }
+
+//This is a delegate method, it takes a pointer to a UPrimative Component, 
+//A pointer to AAActor*, to overlapping primitive component, an FVector
+
+//Paramater list :
+// 1. The component that is instigating the collision, left or right fist? in this case.
+// 2. The actor that we are interfacing with.
+// 3. The primitive component on the actor we are interfacing with.
+// 4. A struct that contains the normals of the collider?
+// 5. Contains infomation about impact of a trace.
+
+void AMyProjectCharacter::OnAttackHit(UPrimitiveComponent* HitComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, FVector NormalImpulse, const FHitResult& Hit)
+{
+	Log(ELogLevel::TRACE, __FUNCTION__);
+	Log(ELogLevel::TRACE, Hit.GetActor()->GetName());
+
+}
+
+//Paramater List
+
+
+
+void AMyProjectCharacter::OnAttackOverlapBegin(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
+{
+	Log(ELogLevel::TRACE, __FUNCTION__);
+
+}
+
+void AMyProjectCharacter::OnAttackOverlapEnd(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex)
+{
+	Log(ELogLevel::TRACE, __FUNCTION__);
+
+}
+
+
 
 
 void AMyProjectCharacter::Log(ELogLevel LogLevel, FString Message)
