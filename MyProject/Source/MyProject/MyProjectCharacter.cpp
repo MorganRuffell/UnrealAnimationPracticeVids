@@ -201,8 +201,6 @@ void AMyProjectCharacter::AttackStart()
 	LeftFistCollisionBox->SetGenerateOverlapEvents(true);
 	RightFistCollisionBox->SetGenerateOverlapEvents(true);
 
-
-
 }
 
 
@@ -266,26 +264,18 @@ void AMyProjectCharacter::OnAttackHit(UPrimitiveComponent* HitComponent, AActor*
 {
 	Log(ELogLevel::TRACE, __FUNCTION__);
 	Log(ELogLevel::TRACE, Hit.GetActor()->GetName());
-
 }
 
 //Paramater List
-
-
-
 void AMyProjectCharacter::OnAttackOverlapBegin(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
 {
 	Log(ELogLevel::TRACE, __FUNCTION__);
-
 }
 
 void AMyProjectCharacter::OnAttackOverlapEnd(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex)
 {
 	Log(ELogLevel::TRACE, __FUNCTION__);
-
 }
-
-
 
 
 void AMyProjectCharacter::Log(ELogLevel LogLevel, FString Message)
