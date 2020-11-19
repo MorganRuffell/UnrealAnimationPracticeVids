@@ -17,9 +17,13 @@ void EmptyLinkFunctionForGeneratedCodeMyProjectCharacter() {}
 	UPackage* Z_Construct_UPackage__Script_MyProject();
 	MYPROJECT_API UEnum* Z_Construct_UEnum_MyProject_ELogOutput();
 	MYPROJECT_API UEnum* Z_Construct_UEnum_MyProject_ELogLevel();
+	MYPROJECT_API UScriptStruct* Z_Construct_UScriptStruct_FMeleeCollisionProfile();
 	MYPROJECT_API UClass* Z_Construct_UClass_AMyProjectCharacter_NoRegister();
 	MYPROJECT_API UClass* Z_Construct_UClass_AMyProjectCharacter();
 	ENGINE_API UClass* Z_Construct_UClass_ACharacter();
+	MYPROJECT_API UFunction* Z_Construct_UFunction_AMyProjectCharacter_AttackEnd();
+	MYPROJECT_API UFunction* Z_Construct_UFunction_AMyProjectCharacter_AttackInput();
+	MYPROJECT_API UFunction* Z_Construct_UFunction_AMyProjectCharacter_AttackStart();
 	MYPROJECT_API UFunction* Z_Construct_UFunction_AMyProjectCharacter_OnAttackHit();
 	ENGINE_API UScriptStruct* Z_Construct_UScriptStruct_FHitResult();
 	COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FVector();
@@ -195,13 +199,181 @@ void EmptyLinkFunctionForGeneratedCodeMyProjectCharacter() {}
 		}
 		return ReturnEnum;
 	}
+class UScriptStruct* FMeleeCollisionProfile::StaticStruct()
+{
+	static class UScriptStruct* Singleton = NULL;
+	if (!Singleton)
+	{
+		extern MYPROJECT_API uint32 Get_Z_Construct_UScriptStruct_FMeleeCollisionProfile_Hash();
+		Singleton = GetStaticStruct(Z_Construct_UScriptStruct_FMeleeCollisionProfile, Z_Construct_UPackage__Script_MyProject(), TEXT("MeleeCollisionProfile"), sizeof(FMeleeCollisionProfile), Get_Z_Construct_UScriptStruct_FMeleeCollisionProfile_Hash());
+	}
+	return Singleton;
+}
+template<> MYPROJECT_API UScriptStruct* StaticStruct<FMeleeCollisionProfile>()
+{
+	return FMeleeCollisionProfile::StaticStruct();
+}
+static FCompiledInDeferStruct Z_CompiledInDeferStruct_UScriptStruct_FMeleeCollisionProfile(FMeleeCollisionProfile::StaticStruct, TEXT("/Script/MyProject"), TEXT("MeleeCollisionProfile"), false, nullptr, nullptr);
+static struct FScriptStruct_MyProject_StaticRegisterNativesFMeleeCollisionProfile
+{
+	FScriptStruct_MyProject_StaticRegisterNativesFMeleeCollisionProfile()
+	{
+		UScriptStruct::DeferCppStructOps(FName(TEXT("MeleeCollisionProfile")),new UScriptStruct::TCppStructOps<FMeleeCollisionProfile>);
+	}
+} ScriptStruct_MyProject_StaticRegisterNativesFMeleeCollisionProfile;
+	struct Z_Construct_UScriptStruct_FMeleeCollisionProfile_Statics
+	{
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Struct_MetaDataParams[];
+#endif
+		static void* NewStructOps();
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_Disabled_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FNamePropertyParams NewProp_Disabled;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_Enabled_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FNamePropertyParams NewProp_Enabled;
+		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
+		static const UE4CodeGen_Private::FStructParams ReturnStructParams;
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FMeleeCollisionProfile_Statics::Struct_MetaDataParams[] = {
+		{ "BlueprintType", "true" },
+		{ "ModuleRelativePath", "MyProjectCharacter.h" },
+	};
+#endif
+	void* Z_Construct_UScriptStruct_FMeleeCollisionProfile_Statics::NewStructOps()
+	{
+		return (UScriptStruct::ICppStructOps*)new UScriptStruct::TCppStructOps<FMeleeCollisionProfile>();
+	}
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FMeleeCollisionProfile_Statics::NewProp_Disabled_MetaData[] = {
+		{ "Category", "MeleeCollisionProfile" },
+		{ "ModuleRelativePath", "MyProjectCharacter.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FNamePropertyParams Z_Construct_UScriptStruct_FMeleeCollisionProfile_Statics::NewProp_Disabled = { "Disabled", nullptr, (EPropertyFlags)0x0010000000000005, UE4CodeGen_Private::EPropertyGenFlags::Name, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(FMeleeCollisionProfile, Disabled), METADATA_PARAMS(Z_Construct_UScriptStruct_FMeleeCollisionProfile_Statics::NewProp_Disabled_MetaData, ARRAY_COUNT(Z_Construct_UScriptStruct_FMeleeCollisionProfile_Statics::NewProp_Disabled_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FMeleeCollisionProfile_Statics::NewProp_Enabled_MetaData[] = {
+		{ "Category", "MeleeCollisionProfile" },
+		{ "ModuleRelativePath", "MyProjectCharacter.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FNamePropertyParams Z_Construct_UScriptStruct_FMeleeCollisionProfile_Statics::NewProp_Enabled = { "Enabled", nullptr, (EPropertyFlags)0x0010000000000005, UE4CodeGen_Private::EPropertyGenFlags::Name, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(FMeleeCollisionProfile, Enabled), METADATA_PARAMS(Z_Construct_UScriptStruct_FMeleeCollisionProfile_Statics::NewProp_Enabled_MetaData, ARRAY_COUNT(Z_Construct_UScriptStruct_FMeleeCollisionProfile_Statics::NewProp_Enabled_MetaData)) };
+	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UScriptStruct_FMeleeCollisionProfile_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FMeleeCollisionProfile_Statics::NewProp_Disabled,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FMeleeCollisionProfile_Statics::NewProp_Enabled,
+	};
+	const UE4CodeGen_Private::FStructParams Z_Construct_UScriptStruct_FMeleeCollisionProfile_Statics::ReturnStructParams = {
+		(UObject* (*)())Z_Construct_UPackage__Script_MyProject,
+		nullptr,
+		&NewStructOps,
+		"MeleeCollisionProfile",
+		sizeof(FMeleeCollisionProfile),
+		alignof(FMeleeCollisionProfile),
+		Z_Construct_UScriptStruct_FMeleeCollisionProfile_Statics::PropPointers,
+		ARRAY_COUNT(Z_Construct_UScriptStruct_FMeleeCollisionProfile_Statics::PropPointers),
+		RF_Public|RF_Transient|RF_MarkAsNative,
+		EStructFlags(0x00000001),
+		METADATA_PARAMS(Z_Construct_UScriptStruct_FMeleeCollisionProfile_Statics::Struct_MetaDataParams, ARRAY_COUNT(Z_Construct_UScriptStruct_FMeleeCollisionProfile_Statics::Struct_MetaDataParams))
+	};
+	UScriptStruct* Z_Construct_UScriptStruct_FMeleeCollisionProfile()
+	{
+#if WITH_HOT_RELOAD
+		extern uint32 Get_Z_Construct_UScriptStruct_FMeleeCollisionProfile_Hash();
+		UPackage* Outer = Z_Construct_UPackage__Script_MyProject();
+		static UScriptStruct* ReturnStruct = FindExistingStructIfHotReloadOrDynamic(Outer, TEXT("MeleeCollisionProfile"), sizeof(FMeleeCollisionProfile), Get_Z_Construct_UScriptStruct_FMeleeCollisionProfile_Hash(), false);
+#else
+		static UScriptStruct* ReturnStruct = nullptr;
+#endif
+		if (!ReturnStruct)
+		{
+			UE4CodeGen_Private::ConstructUScriptStruct(ReturnStruct, Z_Construct_UScriptStruct_FMeleeCollisionProfile_Statics::ReturnStructParams);
+		}
+		return ReturnStruct;
+	}
+	uint32 Get_Z_Construct_UScriptStruct_FMeleeCollisionProfile_Hash() { return 3471415192U; }
 	void AMyProjectCharacter::StaticRegisterNativesAMyProjectCharacter()
 	{
 		UClass* Class = AMyProjectCharacter::StaticClass();
 		static const FNameNativePtrPair Funcs[] = {
+			{ "AttackEnd", &AMyProjectCharacter::execAttackEnd },
+			{ "AttackInput", &AMyProjectCharacter::execAttackInput },
+			{ "AttackStart", &AMyProjectCharacter::execAttackStart },
 			{ "OnAttackHit", &AMyProjectCharacter::execOnAttackHit },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, ARRAY_COUNT(Funcs));
+	}
+	struct Z_Construct_UFunction_AMyProjectCharacter_AttackEnd_Statics
+	{
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AMyProjectCharacter_AttackEnd_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "MyProjectCharacter.h" },
+		{ "ToolTip", "Called when the player ends an attack" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_AMyProjectCharacter_AttackEnd_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AMyProjectCharacter, nullptr, "AttackEnd", 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AMyProjectCharacter_AttackEnd_Statics::Function_MetaDataParams, ARRAY_COUNT(Z_Construct_UFunction_AMyProjectCharacter_AttackEnd_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_AMyProjectCharacter_AttackEnd()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_AMyProjectCharacter_AttackEnd_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_AMyProjectCharacter_AttackInput_Statics
+	{
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AMyProjectCharacter_AttackInput_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "MyProjectCharacter.h" },
+		{ "ToolTip", "Triggers attack animation based on user input/." },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_AMyProjectCharacter_AttackInput_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AMyProjectCharacter, nullptr, "AttackInput", 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AMyProjectCharacter_AttackInput_Statics::Function_MetaDataParams, ARRAY_COUNT(Z_Construct_UFunction_AMyProjectCharacter_AttackInput_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_AMyProjectCharacter_AttackInput()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_AMyProjectCharacter_AttackInput_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_AMyProjectCharacter_AttackStart_Statics
+	{
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AMyProjectCharacter_AttackStart_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "MyProjectCharacter.h" },
+		{ "ToolTip", "Triggered when the player intiates an attack" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_AMyProjectCharacter_AttackStart_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AMyProjectCharacter, nullptr, "AttackStart", 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AMyProjectCharacter_AttackStart_Statics::Function_MetaDataParams, ARRAY_COUNT(Z_Construct_UFunction_AMyProjectCharacter_AttackStart_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_AMyProjectCharacter_AttackStart()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_AMyProjectCharacter_AttackStart_Statics::FuncParams);
+		}
+		return ReturnFunction;
 	}
 	struct Z_Construct_UFunction_AMyProjectCharacter_OnAttackHit_Statics
 	{
@@ -328,6 +500,9 @@ void EmptyLinkFunctionForGeneratedCodeMyProjectCharacter() {}
 		(UObject* (*)())Z_Construct_UPackage__Script_MyProject,
 	};
 	const FClassFunctionLinkInfo Z_Construct_UClass_AMyProjectCharacter_Statics::FuncInfo[] = {
+		{ &Z_Construct_UFunction_AMyProjectCharacter_AttackEnd, "AttackEnd" }, // 575287497
+		{ &Z_Construct_UFunction_AMyProjectCharacter_AttackInput, "AttackInput" }, // 1257899537
+		{ &Z_Construct_UFunction_AMyProjectCharacter_AttackStart, "AttackStart" }, // 789878311
 		{ &Z_Construct_UFunction_AMyProjectCharacter_OnAttackHit, "OnAttackHit" }, // 1747191310
 	};
 #if WITH_METADATA
@@ -444,7 +619,7 @@ void EmptyLinkFunctionForGeneratedCodeMyProjectCharacter() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AMyProjectCharacter, 1313787496);
+	IMPLEMENT_CLASS(AMyProjectCharacter, 978783430);
 	template<> MYPROJECT_API UClass* StaticClass<AMyProjectCharacter>()
 	{
 		return AMyProjectCharacter::StaticClass();

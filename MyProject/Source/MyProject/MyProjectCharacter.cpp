@@ -79,8 +79,8 @@ AMyProjectCharacter::AMyProjectCharacter()
 	
 	//Based on what we set up in project settings we need to add these collision profiles.
 	//Go to the project settings and read through this, if you're stuck!
-	LeftFistCollisionBox->SetCollisionProfileName("NoCollision");
-	RightFistCollisionBox->SetCollisionProfileName("NoCollision");
+	LeftFistCollisionBox->SetCollisionProfileName(MeleeCollisionProfile.Disabled);
+	RightFistCollisionBox->SetCollisionProfileName(MeleeCollisionProfile.Disabled);
 
 }
 
@@ -187,8 +187,8 @@ void AMyProjectCharacter::AttackStart()
 	RightFistCollisionBox->SetNotifyRigidBodyCollision(true);
 
 	//Whenever the Attack is started the Collision profile is changed to weapon and the colliders are live.	
-	LeftFistCollisionBox->SetCollisionProfileName("Weapon");
-	RightFistCollisionBox->SetCollisionProfileName("Weapon");
+	LeftFistCollisionBox->SetCollisionProfileName(MeleeCollisionProfile.Enabled);
+	RightFistCollisionBox->SetCollisionProfileName(MeleeCollisionProfile.Enabled);
 
 	//Collision boxes we are setting this to generate overlap events.
 	LeftFistCollisionBox->SetGenerateOverlapEvents(true);
@@ -232,8 +232,8 @@ void AMyProjectCharacter::AttackEnd()
 
 	//Then when attack end is called post attack. We then make the colliders not live. Think of them like
 	//live wires, on enemies die. Off Enemies don't die.
-	LeftFistCollisionBox->SetCollisionProfileName("NoCollision");
-	RightFistCollisionBox->SetCollisionProfileName("NoCollision");
+	LeftFistCollisionBox->SetCollisionProfileName(MeleeCollisionProfile.Disabled);
+	RightFistCollisionBox->SetCollisionProfileName(MeleeCollisionProfile.Disabled);
 
 
 	//Collision boxes we are setting this to generate overlap events.

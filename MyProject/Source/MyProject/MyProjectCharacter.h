@@ -7,6 +7,28 @@
 #include "Components/BoxComponent.h"
 #include "MyProjectCharacter.generated.h"
 
+USTRUCT(BlueprintType)
+struct FMeleeCollisionProfile
+{
+	GENERATED_BODY()
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	FName Enabled;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	FName Disabled;
+
+	//default constructor
+
+	FMeleeCollisionProfile()
+	{
+		Enabled = FName(TEXT("Weapon"));
+		Disabled = FName(TEXT("NoCollision"));
+		//You can use this with alternate ones as well! Experiment and find a solution.
+	}
+
+};
+
 UENUM(BlueprintType)
 enum class ELogLevel : uint8
 {
@@ -101,6 +123,8 @@ protected:
 
 private:
 
+	FMeleeCollisionProfile MeleeCollisionProfile;
+
 	//Log Enum Decleration
 	// param LogLevel affects the color of the log
 	// param FString the message for display
@@ -124,13 +148,16 @@ protected:
 
 public:
 	//Triggers attack animation based on user input/.
+	UFUNCTION()
 	void AttackInput();
 
 
 	//Triggered when the player intiates an attack
+	UFUNCTION()
 	void AttackStart();
 
 	//Called when the player ends an attack
+	UFUNCTION()
 	void AttackEnd();
 
 	//Triggers when the collider hits an enemy entity

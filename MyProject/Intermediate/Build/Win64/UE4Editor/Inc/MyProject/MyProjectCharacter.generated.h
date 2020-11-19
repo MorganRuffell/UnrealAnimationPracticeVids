@@ -17,7 +17,14 @@ struct FHitResult;
 #endif
 #define MYPROJECT_MyProjectCharacter_generated_h
 
-#define MyProject_Source_MyProject_MyProjectCharacter_h_41_RPC_WRAPPERS \
+#define MyProject_Source_MyProject_MyProjectCharacter_h_13_GENERATED_BODY \
+	friend struct Z_Construct_UScriptStruct_FMeleeCollisionProfile_Statics; \
+	MYPROJECT_API static class UScriptStruct* StaticStruct();
+
+
+template<> MYPROJECT_API UScriptStruct* StaticStruct<struct FMeleeCollisionProfile>();
+
+#define MyProject_Source_MyProject_MyProjectCharacter_h_62_RPC_WRAPPERS \
  \
 	DECLARE_FUNCTION(execOnAttackHit) \
 	{ \
@@ -30,10 +37,34 @@ struct FHitResult;
 		P_NATIVE_BEGIN; \
 		P_THIS->OnAttackHit(Z_Param_HitComponent,Z_Param_OtherActor,Z_Param_OtherComp,Z_Param_NormalImpulse,Z_Param_Out_Hit); \
 		P_NATIVE_END; \
+	} \
+ \
+	DECLARE_FUNCTION(execAttackEnd) \
+	{ \
+		P_FINISH; \
+		P_NATIVE_BEGIN; \
+		P_THIS->AttackEnd(); \
+		P_NATIVE_END; \
+	} \
+ \
+	DECLARE_FUNCTION(execAttackStart) \
+	{ \
+		P_FINISH; \
+		P_NATIVE_BEGIN; \
+		P_THIS->AttackStart(); \
+		P_NATIVE_END; \
+	} \
+ \
+	DECLARE_FUNCTION(execAttackInput) \
+	{ \
+		P_FINISH; \
+		P_NATIVE_BEGIN; \
+		P_THIS->AttackInput(); \
+		P_NATIVE_END; \
 	}
 
 
-#define MyProject_Source_MyProject_MyProjectCharacter_h_41_RPC_WRAPPERS_NO_PURE_DECLS \
+#define MyProject_Source_MyProject_MyProjectCharacter_h_62_RPC_WRAPPERS_NO_PURE_DECLS \
  \
 	DECLARE_FUNCTION(execOnAttackHit) \
 	{ \
@@ -46,10 +77,34 @@ struct FHitResult;
 		P_NATIVE_BEGIN; \
 		P_THIS->OnAttackHit(Z_Param_HitComponent,Z_Param_OtherActor,Z_Param_OtherComp,Z_Param_NormalImpulse,Z_Param_Out_Hit); \
 		P_NATIVE_END; \
+	} \
+ \
+	DECLARE_FUNCTION(execAttackEnd) \
+	{ \
+		P_FINISH; \
+		P_NATIVE_BEGIN; \
+		P_THIS->AttackEnd(); \
+		P_NATIVE_END; \
+	} \
+ \
+	DECLARE_FUNCTION(execAttackStart) \
+	{ \
+		P_FINISH; \
+		P_NATIVE_BEGIN; \
+		P_THIS->AttackStart(); \
+		P_NATIVE_END; \
+	} \
+ \
+	DECLARE_FUNCTION(execAttackInput) \
+	{ \
+		P_FINISH; \
+		P_NATIVE_BEGIN; \
+		P_THIS->AttackInput(); \
+		P_NATIVE_END; \
 	}
 
 
-#define MyProject_Source_MyProject_MyProjectCharacter_h_41_INCLASS_NO_PURE_DECLS \
+#define MyProject_Source_MyProject_MyProjectCharacter_h_62_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesAMyProjectCharacter(); \
 	friend struct Z_Construct_UClass_AMyProjectCharacter_Statics; \
@@ -58,7 +113,7 @@ public: \
 	DECLARE_SERIALIZER(AMyProjectCharacter)
 
 
-#define MyProject_Source_MyProject_MyProjectCharacter_h_41_INCLASS \
+#define MyProject_Source_MyProject_MyProjectCharacter_h_62_INCLASS \
 private: \
 	static void StaticRegisterNativesAMyProjectCharacter(); \
 	friend struct Z_Construct_UClass_AMyProjectCharacter_Statics; \
@@ -67,7 +122,7 @@ public: \
 	DECLARE_SERIALIZER(AMyProjectCharacter)
 
 
-#define MyProject_Source_MyProject_MyProjectCharacter_h_41_STANDARD_CONSTRUCTORS \
+#define MyProject_Source_MyProject_MyProjectCharacter_h_62_STANDARD_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
 	NO_API AMyProjectCharacter(const FObjectInitializer& ObjectInitializer); \
 	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(AMyProjectCharacter) \
@@ -80,7 +135,7 @@ private: \
 public:
 
 
-#define MyProject_Source_MyProject_MyProjectCharacter_h_41_ENHANCED_CONSTRUCTORS \
+#define MyProject_Source_MyProject_MyProjectCharacter_h_62_ENHANCED_CONSTRUCTORS \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	NO_API AMyProjectCharacter(AMyProjectCharacter&&); \
@@ -91,7 +146,7 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(AMyProjectCharacter); \
 	DEFINE_DEFAULT_CONSTRUCTOR_CALL(AMyProjectCharacter)
 
 
-#define MyProject_Source_MyProject_MyProjectCharacter_h_41_PRIVATE_PROPERTY_OFFSET \
+#define MyProject_Source_MyProject_MyProjectCharacter_h_62_PRIVATE_PROPERTY_OFFSET \
 	FORCEINLINE static uint32 __PPO__CameraBoom() { return STRUCT_OFFSET(AMyProjectCharacter, CameraBoom); } \
 	FORCEINLINE static uint32 __PPO__FollowCamera() { return STRUCT_OFFSET(AMyProjectCharacter, FollowCamera); } \
 	FORCEINLINE static uint32 __PPO__MeleeFistAttackMontage() { return STRUCT_OFFSET(AMyProjectCharacter, MeleeFistAttackMontage); } \
@@ -99,25 +154,25 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(AMyProjectCharacter); \
 	FORCEINLINE static uint32 __PPO__RightFistCollisionBox() { return STRUCT_OFFSET(AMyProjectCharacter, RightFistCollisionBox); }
 
 
-#define MyProject_Source_MyProject_MyProjectCharacter_h_38_PROLOG
-#define MyProject_Source_MyProject_MyProjectCharacter_h_41_GENERATED_BODY_LEGACY \
+#define MyProject_Source_MyProject_MyProjectCharacter_h_59_PROLOG
+#define MyProject_Source_MyProject_MyProjectCharacter_h_62_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	MyProject_Source_MyProject_MyProjectCharacter_h_41_PRIVATE_PROPERTY_OFFSET \
-	MyProject_Source_MyProject_MyProjectCharacter_h_41_RPC_WRAPPERS \
-	MyProject_Source_MyProject_MyProjectCharacter_h_41_INCLASS \
-	MyProject_Source_MyProject_MyProjectCharacter_h_41_STANDARD_CONSTRUCTORS \
+	MyProject_Source_MyProject_MyProjectCharacter_h_62_PRIVATE_PROPERTY_OFFSET \
+	MyProject_Source_MyProject_MyProjectCharacter_h_62_RPC_WRAPPERS \
+	MyProject_Source_MyProject_MyProjectCharacter_h_62_INCLASS \
+	MyProject_Source_MyProject_MyProjectCharacter_h_62_STANDARD_CONSTRUCTORS \
 public: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
 
-#define MyProject_Source_MyProject_MyProjectCharacter_h_41_GENERATED_BODY \
+#define MyProject_Source_MyProject_MyProjectCharacter_h_62_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	MyProject_Source_MyProject_MyProjectCharacter_h_41_PRIVATE_PROPERTY_OFFSET \
-	MyProject_Source_MyProject_MyProjectCharacter_h_41_RPC_WRAPPERS_NO_PURE_DECLS \
-	MyProject_Source_MyProject_MyProjectCharacter_h_41_INCLASS_NO_PURE_DECLS \
-	MyProject_Source_MyProject_MyProjectCharacter_h_41_ENHANCED_CONSTRUCTORS \
+	MyProject_Source_MyProject_MyProjectCharacter_h_62_PRIVATE_PROPERTY_OFFSET \
+	MyProject_Source_MyProject_MyProjectCharacter_h_62_RPC_WRAPPERS_NO_PURE_DECLS \
+	MyProject_Source_MyProject_MyProjectCharacter_h_62_INCLASS_NO_PURE_DECLS \
+	MyProject_Source_MyProject_MyProjectCharacter_h_62_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
