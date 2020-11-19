@@ -11,6 +11,12 @@ C:\UE_4.22\UE_4.22\Engine\Source\Runtime\Engine\Classes\Components/BoxComponent.
 C:\UE_4.22\UE_4.22\Engine\Source\Runtime\Engine\Classes\Components/ShapeComponent.h
 C:\UE_4.22\UE_4.22\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\ShapeComponent.generated.h
 C:\UE_4.22\UE_4.22\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\BoxComponent.generated.h
+C:\UE_4.22\UE_4.22\Engine\Source\Runtime\Engine\Classes\Components/AudioComponent.h
+C:\UE_4.22\UE_4.22\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\AudioComponent.generated.h
+C:\UE_4.22\UE_4.22\Engine\Source\Runtime\Engine\Classes\Sound/SoundCue.h
+C:\UE_4.22\UE_4.22\Engine\Source\Runtime\Engine\Classes\Sound/SoundNode.h
+C:\UE_4.22\UE_4.22\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\SoundNode.generated.h
+C:\UE_4.22\UE_4.22\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\SoundCue.generated.h
 C:\Users\1804824\Desktop\UnrealYouTubeRepo\UnrealAnimationPracticeVids\MyProject\Intermediate\Build\Win64\UE4Editor\Inc\MyProject\MyProjectCharacter.generated.h
 C:\Users\1804824\Desktop\UnrealYouTubeRepo\UnrealAnimationPracticeVids\MyProject\Intermediate\Build\Win64\UE4Editor\Inc\MyProject\AttackStartNotifyState.generated.h
 C:\UE_4.22\UE_4.22\Engine\Source\Runtime\Engine\Public\Engine.h
@@ -168,8 +174,6 @@ C:\UE_4.22\UE_4.22\Engine\Source\Runtime\Engine\Classes\Components/CapsuleCompon
 C:\UE_4.22\UE_4.22\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\CapsuleComponent.generated.h
 C:\UE_4.22\UE_4.22\Engine\Source\Runtime\Engine\Classes\Components/SphereComponent.h
 C:\UE_4.22\UE_4.22\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\SphereComponent.generated.h
-C:\UE_4.22\UE_4.22\Engine\Source\Runtime\Engine\Classes\Components/AudioComponent.h
-C:\UE_4.22\UE_4.22\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\AudioComponent.generated.h
 C:\UE_4.22\UE_4.22\Engine\Source\Runtime\Engine\Classes\Camera/CameraComponent.h
 C:\UE_4.22\UE_4.22\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\CameraComponent.generated.h
 C:\UE_4.22\UE_4.22\Engine\Source\Runtime\Engine\Classes\GameFramework/SpringArmComponent.h
@@ -547,10 +551,6 @@ C:\UE_4.22\UE_4.22\Engine\Source\Runtime\Engine\Classes\Engine/SkeletalMeshSocke
 C:\UE_4.22\UE_4.22\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\SkeletalMeshSocket.generated.h
 C:\UE_4.22\UE_4.22\Engine\Source\Runtime\Engine\Classes\Sound/DialogueSoundWaveProxy.h
 C:\UE_4.22\UE_4.22\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\DialogueSoundWaveProxy.generated.h
-C:\UE_4.22\UE_4.22\Engine\Source\Runtime\Engine\Classes\Sound/SoundCue.h
-C:\UE_4.22\UE_4.22\Engine\Source\Runtime\Engine\Classes\Sound/SoundNode.h
-C:\UE_4.22\UE_4.22\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\SoundNode.generated.h
-C:\UE_4.22\UE_4.22\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\SoundCue.generated.h
 C:\UE_4.22\UE_4.22\Engine\Source\Runtime\Engine\Classes\Sound/SoundMix.h
 C:\UE_4.22\UE_4.22\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\SoundMix.generated.h
 C:\UE_4.22\UE_4.22\Engine\Source\Runtime\Engine\Classes\Engine/StaticMeshSocket.h

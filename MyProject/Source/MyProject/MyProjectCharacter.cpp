@@ -27,6 +27,10 @@ AMyProjectCharacter::AMyProjectCharacter()
 	// set our animation montage play speed
 	AnimationMontageSpeed = 1.0f;
 
+	// Set our upper and lower punching sound pitch rate
+	LowerPitchBound = 0.9f;
+	UpperPitchBound = 1.3f;
+
 	// Don't rotate when the controller rotates. Let that just affect the camera.
 	bUseControllerRotationPitch = false;
 	bUseControllerRotationYaw = false;
@@ -59,6 +63,21 @@ AMyProjectCharacter::AMyProjectCharacter()
 		MeleeFistAttackMontage = MeleeFistAttackMontageObject.Object;
 	}
 
+	//Load the sound Cue Object
+	static ConstructorHelpers::FObjectFinder<USoundCue> PunchSoundCueObject(TEXT("SoundCue'/Game/Anim/Audio/PunchSoundCue.PunchSoundCue'"));
+	
+	if (PunchSoundCueObject.Succeeded())
+	{
+		PunchSoundCue = PunchSoundCueObject.Object;
+
+		PunchAudioComponent = CreateDefaultSubobject<UAudioComponent>(TEXT("PunchAudioComponent"));
+		PunchAudioComponent->SetupAttachment(RootComponent);
+
+		//Do not do this, It will play on beginplay
+		//PunchAudioComponent->SetSound(PunchSoundCue);
+	}
+
+
 	//Including intialisation directives for our collision boxes, these are intialised to a subObject	
 	LeftFistCollisionBox = CreateDefaultSubobject<UBoxComponent>(TEXT("LeftFistCollsionBox"));
 	RightFistCollisionBox = CreateDefaultSubobject<UBoxComponent>(TEXT("RightFistCollsionBox"));
@@ -82,6 +101,8 @@ AMyProjectCharacter::AMyProjectCharacter()
 	LeftFistCollisionBox->SetCollisionProfileName("NoCollision");
 	RightFistCollisionBox->SetCollisionProfileName("NoCollision");
 
+
+
 }
 
 //Begin play is essentially awake. 
@@ -103,7 +124,12 @@ void AMyProjectCharacter::BeginPlay()
 	LeftFistCollisionBox->OnComponentHit.AddDynamic(this, &AMyProjectCharacter::OnAttackHit);
 	RightFistCollisionBox->OnComponentHit.AddDynamic(this, &AMyProjectCharacter::OnAttackHit);
 
-
+	//Linking our sound on begin play rather than in the constructor.
+	//This if statement checks to ensure that they are not null.
+	if (PunchAudioComponent && PunchSoundCue)
+	{
+		PunchAudioComponent->SetSound(PunchSoundCue);
+	}
 }
 
 //////////////////////////////////////////////////////////////////////////
@@ -257,6 +283,15 @@ void AMyProjectCharacter::OnAttackHit(UPrimitiveComponent* HitComponent, AActor*
 {
 	Log(ELogLevel::TRACE, __FUNCTION__);
 	Log(ELogLevel::TRACE, Hit.GetActor()->GetName());
+
+	if (PunchAudioComponent && !PunchAudioComponent->IsPlaying())
+	{
+		//Default value is 1.0.
+		PunchAudioComponent->SetPitchMultiplier(FMath::RandRange(LowerPitchBound, UpperPitchBound));
+		PunchAudioComponent->Play(0.1f);
+	}
+
+
 }
 
 

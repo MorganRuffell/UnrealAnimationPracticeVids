@@ -5,6 +5,8 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
 #include "Components/BoxComponent.h"
+#include "Components/AudioComponent.h"
+#include "Sound/SoundCue.h"
 #include "MyProjectCharacter.generated.h"
 
 UENUM(BlueprintType)
@@ -52,6 +54,9 @@ class AMyProjectCharacter : public ACharacter
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Animation, meta = (AllowPrivateAccess = "true"))
 	class UAnimMontage* MeleeFistAttackMontage;
 
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = Sounds, meta = (AllowPrivateAccess = "true"))
+	class USoundCue* PunchSoundCue;
+
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Collision, meta = (AllowPrivateAccess = "true"))
 	class UBoxComponent* LeftFistCollisionBox;
 
@@ -78,6 +83,16 @@ public:
 	/** Base look up/down rate, in deg/sec. Other scaling may affect final rate. */
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category=Camera)
 	float BaseLookUpRate;
+
+	//Upper & Lower pitch bounds for our sound manipulation.
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Sound)
+	float LowerPitchBound;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Sound)
+	float UpperPitchBound;
+
+
+
 
 protected:
 
@@ -114,6 +129,12 @@ private:
 	//Param 3 ELogOutput - All, Output log or screen
 
 	void Log(ELogLevel LogLevel, FString Message, ELogOutput LogOutput);
+
+
+
+	UAudioComponent* PunchAudioComponent;
+
+
 
 
 protected:
