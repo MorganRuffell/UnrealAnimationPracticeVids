@@ -5,7 +5,32 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
 #include "Components/BoxComponent.h"
+
+#include "Engine/DataTable.h"
+
 #include "MyProjectCharacter.generated.h"
+
+//Data Tables are essentially structs with more stuff, and they inherit from FTableRowBase.
+//The combonation of these allow unreal to get this infomation from the base implementation and the FTable struct.
+USTRUCT(BlueprintType)
+struct FPlayerAttackMontage : public FTableRowBase
+{
+	GENERATED_BODY()
+
+	//Attack Animation Montage
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	UAnimMontage* AnimMontage;
+
+	//Amount of sections marked start in our montage
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	int32 AnimSectionCount;
+
+	//Description.
+	UPROPERTY(EditAnywhere, BlueprintReadOnly)
+	FString Description;
+
+};
+
 
 USTRUCT(BlueprintType)
 struct FMeleeCollisionProfile
@@ -79,6 +104,9 @@ class AMyProjectCharacter : public ACharacter
 	//Attack Animation Montage
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Animation, meta = (AllowPrivateAccess = "true"))
 	class UAnimMontage* MeleeFistAttackMontage;
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = DataTable, meta = (AllowPrivateAccess = "true"))
+	class UDataTable* PlayerAttackDataTable;
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Collision, meta = (AllowPrivateAccess = "true"))
 	class UBoxComponent* LeftFistCollisionBox;

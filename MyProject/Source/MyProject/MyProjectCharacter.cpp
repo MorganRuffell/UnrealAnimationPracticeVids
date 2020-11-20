@@ -59,6 +59,15 @@ AMyProjectCharacter::AMyProjectCharacter()
 		MeleeFistAttackMontage = MeleeFistAttackMontageObject.Object;
 	}
 
+	//Load player attack montage datatable
+	//You can load the  CSV and JSON implementations of this as well.
+	//As they both come in as datatables. 20:21 on the video.
+	static ConstructorHelpers::FObjectFinder<UDataTable>PlayerAttackMontageDataObject(TEXT("DataTable'/Game/Anim/DataTables/PlayAttackMontageDataTable.PlayAttackMontageDataTable'"));
+	if (PlayerAttackMontageDataObject.Succeeded())
+	{
+		PlayerAttackDataTable = PlayerAttackMontageDataObject.Object;
+	}
+	
 	//Including intialisation directives for our collision boxes, these are intialised to a subObject	
 	LeftFistCollisionBox = CreateDefaultSubobject<UBoxComponent>(TEXT("LeftFistCollsionBox"));
 	RightFistCollisionBox = CreateDefaultSubobject<UBoxComponent>(TEXT("RightFistCollsionBox"));
@@ -81,6 +90,7 @@ AMyProjectCharacter::AMyProjectCharacter()
 	//Go to the project settings and read through this, if you're stuck!
 	LeftFistCollisionBox->SetCollisionProfileName(MeleeCollisionProfile.Disabled);
 	RightFistCollisionBox->SetCollisionProfileName(MeleeCollisionProfile.Disabled);
+
 
 }
 

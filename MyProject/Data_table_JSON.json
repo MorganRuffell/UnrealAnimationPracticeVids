@@ -1,0 +1,20 @@
+[
+	{
+		"Name": "AnimationMontage0",
+		"AnimMontage": "AnimMontage'/Game/Anim/Animations/MeleeFistAttackMontage.MeleeFistAttackMontage'",
+		"AnimSectionCount": 3,
+		"Description": "Can have a desciption for these."
+	},
+	{
+		"Name": "AnimationMontage1",
+		"AnimMontage": "AnimMontage'/Game/Anim/Animations/MeleeFistAttackMontage_2.MeleeFistAttackMontage_2'",
+		"AnimSectionCount": 3,
+		"Description": ""
+	},
+	{
+		"Name": "AnimationMontage2",
+		"AnimMontage": "AnimMontage'/Game/Anim/Animations/MeleeFistAttackMontage3.MeleeFistAttackMontage3'",
+		"AnimSectionCount": 2,
+		"Description": ""
+	}
+]

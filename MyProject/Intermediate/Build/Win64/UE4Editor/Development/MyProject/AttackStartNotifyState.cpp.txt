@@ -11,6 +11,9 @@ C:\UE_4.22\UE_4.22\Engine\Source\Runtime\Engine\Classes\Components/BoxComponent.
 C:\UE_4.22\UE_4.22\Engine\Source\Runtime\Engine\Classes\Components/ShapeComponent.h
 C:\UE_4.22\UE_4.22\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\ShapeComponent.generated.h
 C:\UE_4.22\UE_4.22\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\BoxComponent.generated.h
+C:\UE_4.22\UE_4.22\Engine\Source\Runtime\Engine\Classes\Engine/DataTable.h
+C:\UE_4.22\UE_4.22\Engine\Source\Runtime\Engine\Public\DataTableUtils.h
+C:\UE_4.22\UE_4.22\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\DataTable.generated.h
 C:\Users\1804824\Desktop\UnrealYouTubeRepo\UnrealAnimationPracticeVids\MyProject\Intermediate\Build\Win64\UE4Editor\Inc\MyProject\MyProjectCharacter.generated.h
 C:\Users\1804824\Desktop\UnrealYouTubeRepo\UnrealAnimationPracticeVids\MyProject\Intermediate\Build\Win64\UE4Editor\Inc\MyProject\AttackStartNotifyState.generated.h
 C:\UE_4.22\UE_4.22\Engine\Source\Runtime\Engine\Public\Engine.h
@@ -424,9 +427,6 @@ C:\UE_4.22\UE_4.22\Engine\Source\Runtime\Engine\Classes\Engine/CurveTable.h
 C:\UE_4.22\UE_4.22\Engine\Source\Runtime\Engine\Classes\Curves/SimpleCurve.h
 C:\UE_4.22\UE_4.22\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\SimpleCurve.generated.h
 C:\UE_4.22\UE_4.22\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\CurveTable.generated.h
-C:\UE_4.22\UE_4.22\Engine\Source\Runtime\Engine\Public\DataTableUtils.h
-C:\UE_4.22\UE_4.22\Engine\Source\Runtime\Engine\Classes\Engine/DataTable.h
-C:\UE_4.22\UE_4.22\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\DataTable.generated.h
 C:\UE_4.22\UE_4.22\Engine\Source\Runtime\Engine\Classes\Sound/DialogueVoice.h
 C:\UE_4.22\UE_4.22\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\DialogueVoice.generated.h
 C:\UE_4.22\UE_4.22\Engine\Source\Runtime\Engine\Classes\Sound/DialogueWave.h
