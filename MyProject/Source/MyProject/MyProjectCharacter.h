@@ -27,6 +27,12 @@ struct FMeleeCollisionProfile
 		//You can use this with alternate ones as well! Experiment and find a solution.
 	}
 
+	
+	~FMeleeCollisionProfile()
+	{
+
+	}
+
 };
 
 UENUM(BlueprintType)
