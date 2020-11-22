@@ -12,6 +12,7 @@
 
 //Data Tables are essentially structs with more stuff, and they inherit from FTableRowBase.
 //The combonation of these allow unreal to get this infomation from the base implementation and the FTable struct.
+
 USTRUCT(BlueprintType)
 struct FPlayerAttackMontage : public FTableRowBase
 {
@@ -31,7 +32,6 @@ struct FPlayerAttackMontage : public FTableRowBase
 
 };
 
-
 USTRUCT(BlueprintType)
 struct FMeleeCollisionProfile
 {
@@ -44,20 +44,12 @@ struct FMeleeCollisionProfile
 	FName Disabled;
 
 	//default constructor
-
 	FMeleeCollisionProfile()
 	{
 		Enabled = FName(TEXT("Weapon"));
 		Disabled = FName(TEXT("NoCollision"));
 		//You can use this with alternate ones as well! Experiment and find a solution.
 	}
-
-	
-	~FMeleeCollisionProfile()
-	{
-
-	}
-
 };
 
 UENUM(BlueprintType)
@@ -135,6 +127,7 @@ public:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category=Camera)
 	float BaseLookUpRate;
 
+
 protected:
 
 	/** Called for forwards/backward input */
@@ -155,6 +148,11 @@ protected:
 	 */
 	void LookUpAtRate(float Rate);
 
+	// APawn interface
+	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
+	// End of APawn interface
+
+
 private:
 
 	FMeleeCollisionProfile MeleeCollisionProfile;
@@ -174,17 +172,11 @@ private:
 	void Log(ELogLevel LogLevel, FString Message, ELogOutput LogOutput);
 
 
-protected:
-	// APawn interface
-	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
-	// End of APawn interface
-
-
 public:
+
 	//Triggers attack animation based on user input/.
 	UFUNCTION()
 	void AttackInput();
-
 
 	//Triggered when the player intiates an attack
 	UFUNCTION()
@@ -197,7 +189,6 @@ public:
 	//Triggers when the collider hits an enemy entity
 	UFUNCTION()
 	void OnAttackHit(UPrimitiveComponent* HitComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, FVector NormalImpulse, const FHitResult& Hit);
-
 
 
 	/** Returns CameraBoom subobject **/

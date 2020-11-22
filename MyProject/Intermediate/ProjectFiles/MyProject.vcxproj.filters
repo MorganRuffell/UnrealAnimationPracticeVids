@@ -3,7 +3,7 @@
   <ItemGroup>
     <None Include="..\..\MyProject.uproject" />
     <Filter Include="Source">
-      <UniqueIdentifier>{F0921FCC-9D60-40F6-B71E-28A720E06C73}</UniqueIdentifier>
+      <UniqueIdentifier>{DE233436-F33A-496D-A4E5-14030B4D0A2A}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\MyProject.Target.cs">
       <Filter>Source</Filter>
@@ -11,8 +11,10 @@
     <None Include="..\..\Source\MyProjectEditor.Target.cs">
       <Filter>Source</Filter>
     </None>
+    <None Include="..\..\data_table_CSV.csv" />
+    <None Include="..\..\Data_table_JSON.json" />
     <Filter Include="Config">
-      <UniqueIdentifier>{440FB011-B0D2-4144-B9FA-33DF30D4755F}</UniqueIdentifier>
+      <UniqueIdentifier>{2F218E9A-38B8-4705-91E1-72FDBBAB26E0}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Config\DefaultEditor.ini">
       <Filter>Config</Filter>
@@ -30,8 +32,14 @@
       <Filter>Config</Filter>
     </None>
     <Filter Include="Source\MyProject">
-      <UniqueIdentifier>{FB2A4C61-B0C6-4D01-86D4-47D3F4E830A5}</UniqueIdentifier>
+      <UniqueIdentifier>{CF2BE99C-6308-4A70-A8C3-00DFD4A04A6B}</UniqueIdentifier>
     </Filter>
+    <ClCompile Include="..\..\Source\MyProject\AttackStartNotifyState.cpp">
+      <Filter>Source\MyProject</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\MyProject\AttackStartNotifyState.h">
+      <Filter>Source\MyProject</Filter>
+    </ClInclude>
     <None Include="..\..\Source\MyProject\MyProject.Build.cs">
       <Filter>Source\MyProject</Filter>
     </None>
@@ -53,15 +61,5 @@
     <ClInclude Include="..\..\Source\MyProject\MyProjectGameMode.h">
       <Filter>Source\MyProject</Filter>
     </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="..\..\Source\MyProject\AttackStartNotifyState.h">
-      <Filter>Source\MyProject</Filter>
-    </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="..\..\Source\MyProject\AttackStartNotifyState.cpp">
-      <Filter>Source\MyProject</Filter>
-    </ClCompile>
   </ItemGroup>
 </Project>

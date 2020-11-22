@@ -10,6 +10,8 @@
 #include "GameFramework/Controller.h"
 #include "UObject/ConstructorHelpers.h"
 #include "GameFramework/SpringArmComponent.h"
+
+#include "GameFramework/Pawn.h"
  
 
 //////////////////////////////////////////////////////////////////////////
@@ -90,7 +92,6 @@ AMyProjectCharacter::AMyProjectCharacter()
 	//Go to the project settings and read through this, if you're stuck!
 	LeftFistCollisionBox->SetCollisionProfileName(MeleeCollisionProfile.Disabled);
 	RightFistCollisionBox->SetCollisionProfileName(MeleeCollisionProfile.Disabled);
-
 
 }
 
