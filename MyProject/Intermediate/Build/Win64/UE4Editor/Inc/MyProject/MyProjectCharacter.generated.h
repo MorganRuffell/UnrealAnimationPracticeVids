@@ -17,6 +17,7 @@ struct FHitResult;
 #endif
 #define MYPROJECT_MyProjectCharacter_generated_h
 
+<<<<<<< HEAD
 #define MyProject_Source_MyProject_MyProjectCharacter_h_38_GENERATED_BODY \
 	friend struct Z_Construct_UScriptStruct_FMeleeCollisionProfile_Statics; \
 	MYPROJECT_API static class UScriptStruct* StaticStruct();
@@ -33,6 +34,9 @@ template<> MYPROJECT_API UScriptStruct* StaticStruct<struct FMeleeCollisionProfi
 template<> MYPROJECT_API UScriptStruct* StaticStruct<struct FPlayerAttackMontage>();
 
 #define MyProject_Source_MyProject_MyProjectCharacter_h_86_RPC_WRAPPERS \
+=======
+#define MyProject_Source_MyProject_MyProjectCharacter_h_43_RPC_WRAPPERS \
+>>>>>>> AudioImplementation
  \
 	DECLARE_FUNCTION(execOnAttackHit) \
 	{ \
@@ -72,7 +76,11 @@ template<> MYPROJECT_API UScriptStruct* StaticStruct<struct FPlayerAttackMontage
 	}
 
 
+<<<<<<< HEAD
 #define MyProject_Source_MyProject_MyProjectCharacter_h_86_RPC_WRAPPERS_NO_PURE_DECLS \
+=======
+#define MyProject_Source_MyProject_MyProjectCharacter_h_43_RPC_WRAPPERS_NO_PURE_DECLS \
+>>>>>>> AudioImplementation
  \
 	DECLARE_FUNCTION(execOnAttackHit) \
 	{ \
@@ -112,7 +120,11 @@ template<> MYPROJECT_API UScriptStruct* StaticStruct<struct FPlayerAttackMontage
 	}
 
 
+<<<<<<< HEAD
 #define MyProject_Source_MyProject_MyProjectCharacter_h_86_INCLASS_NO_PURE_DECLS \
+=======
+#define MyProject_Source_MyProject_MyProjectCharacter_h_43_INCLASS_NO_PURE_DECLS \
+>>>>>>> AudioImplementation
 private: \
 	static void StaticRegisterNativesAMyProjectCharacter(); \
 	friend struct Z_Construct_UClass_AMyProjectCharacter_Statics; \
@@ -121,7 +133,11 @@ public: \
 	DECLARE_SERIALIZER(AMyProjectCharacter)
 
 
+<<<<<<< HEAD
 #define MyProject_Source_MyProject_MyProjectCharacter_h_86_INCLASS \
+=======
+#define MyProject_Source_MyProject_MyProjectCharacter_h_43_INCLASS \
+>>>>>>> AudioImplementation
 private: \
 	static void StaticRegisterNativesAMyProjectCharacter(); \
 	friend struct Z_Construct_UClass_AMyProjectCharacter_Statics; \
@@ -130,7 +146,11 @@ public: \
 	DECLARE_SERIALIZER(AMyProjectCharacter)
 
 
+<<<<<<< HEAD
 #define MyProject_Source_MyProject_MyProjectCharacter_h_86_STANDARD_CONSTRUCTORS \
+=======
+#define MyProject_Source_MyProject_MyProjectCharacter_h_43_STANDARD_CONSTRUCTORS \
+>>>>>>> AudioImplementation
 	/** Standard constructor, called after all reflected properties have been initialized */ \
 	NO_API AMyProjectCharacter(const FObjectInitializer& ObjectInitializer); \
 	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(AMyProjectCharacter) \
@@ -143,7 +163,11 @@ private: \
 public:
 
 
+<<<<<<< HEAD
 #define MyProject_Source_MyProject_MyProjectCharacter_h_86_ENHANCED_CONSTRUCTORS \
+=======
+#define MyProject_Source_MyProject_MyProjectCharacter_h_43_ENHANCED_CONSTRUCTORS \
+>>>>>>> AudioImplementation
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	NO_API AMyProjectCharacter(AMyProjectCharacter&&); \
@@ -154,15 +178,24 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(AMyProjectCharacter); \
 	DEFINE_DEFAULT_CONSTRUCTOR_CALL(AMyProjectCharacter)
 
 
+<<<<<<< HEAD
 #define MyProject_Source_MyProject_MyProjectCharacter_h_86_PRIVATE_PROPERTY_OFFSET \
 	FORCEINLINE static uint32 __PPO__CameraBoom() { return STRUCT_OFFSET(AMyProjectCharacter, CameraBoom); } \
 	FORCEINLINE static uint32 __PPO__FollowCamera() { return STRUCT_OFFSET(AMyProjectCharacter, FollowCamera); } \
 	FORCEINLINE static uint32 __PPO__MeleeFistAttackMontage() { return STRUCT_OFFSET(AMyProjectCharacter, MeleeFistAttackMontage); } \
 	FORCEINLINE static uint32 __PPO__PlayerAttackDataTable() { return STRUCT_OFFSET(AMyProjectCharacter, PlayerAttackDataTable); } \
+=======
+#define MyProject_Source_MyProject_MyProjectCharacter_h_43_PRIVATE_PROPERTY_OFFSET \
+	FORCEINLINE static uint32 __PPO__CameraBoom() { return STRUCT_OFFSET(AMyProjectCharacter, CameraBoom); } \
+	FORCEINLINE static uint32 __PPO__FollowCamera() { return STRUCT_OFFSET(AMyProjectCharacter, FollowCamera); } \
+	FORCEINLINE static uint32 __PPO__MeleeFistAttackMontage() { return STRUCT_OFFSET(AMyProjectCharacter, MeleeFistAttackMontage); } \
+	FORCEINLINE static uint32 __PPO__PunchSoundCue() { return STRUCT_OFFSET(AMyProjectCharacter, PunchSoundCue); } \
+>>>>>>> AudioImplementation
 	FORCEINLINE static uint32 __PPO__LeftFistCollisionBox() { return STRUCT_OFFSET(AMyProjectCharacter, LeftFistCollisionBox); } \
 	FORCEINLINE static uint32 __PPO__RightFistCollisionBox() { return STRUCT_OFFSET(AMyProjectCharacter, RightFistCollisionBox); }
 
 
+<<<<<<< HEAD
 #define MyProject_Source_MyProject_MyProjectCharacter_h_83_PROLOG
 #define MyProject_Source_MyProject_MyProjectCharacter_h_86_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
@@ -171,10 +204,21 @@ public: \
 	MyProject_Source_MyProject_MyProjectCharacter_h_86_RPC_WRAPPERS \
 	MyProject_Source_MyProject_MyProjectCharacter_h_86_INCLASS \
 	MyProject_Source_MyProject_MyProjectCharacter_h_86_STANDARD_CONSTRUCTORS \
+=======
+#define MyProject_Source_MyProject_MyProjectCharacter_h_40_PROLOG
+#define MyProject_Source_MyProject_MyProjectCharacter_h_43_GENERATED_BODY_LEGACY \
+PRAGMA_DISABLE_DEPRECATION_WARNINGS \
+public: \
+	MyProject_Source_MyProject_MyProjectCharacter_h_43_PRIVATE_PROPERTY_OFFSET \
+	MyProject_Source_MyProject_MyProjectCharacter_h_43_RPC_WRAPPERS \
+	MyProject_Source_MyProject_MyProjectCharacter_h_43_INCLASS \
+	MyProject_Source_MyProject_MyProjectCharacter_h_43_STANDARD_CONSTRUCTORS \
+>>>>>>> AudioImplementation
 public: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
 
+<<<<<<< HEAD
 #define MyProject_Source_MyProject_MyProjectCharacter_h_86_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
@@ -182,6 +226,15 @@ public: \
 	MyProject_Source_MyProject_MyProjectCharacter_h_86_RPC_WRAPPERS_NO_PURE_DECLS \
 	MyProject_Source_MyProject_MyProjectCharacter_h_86_INCLASS_NO_PURE_DECLS \
 	MyProject_Source_MyProject_MyProjectCharacter_h_86_ENHANCED_CONSTRUCTORS \
+=======
+#define MyProject_Source_MyProject_MyProjectCharacter_h_43_GENERATED_BODY \
+PRAGMA_DISABLE_DEPRECATION_WARNINGS \
+public: \
+	MyProject_Source_MyProject_MyProjectCharacter_h_43_PRIVATE_PROPERTY_OFFSET \
+	MyProject_Source_MyProject_MyProjectCharacter_h_43_RPC_WRAPPERS_NO_PURE_DECLS \
+	MyProject_Source_MyProject_MyProjectCharacter_h_43_INCLASS_NO_PURE_DECLS \
+	MyProject_Source_MyProject_MyProjectCharacter_h_43_ENHANCED_CONSTRUCTORS \
+>>>>>>> AudioImplementation
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 

@@ -5,9 +5,14 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
 #include "Components/BoxComponent.h"
+<<<<<<< HEAD
 
 #include "Engine/DataTable.h"
 
+=======
+#include "Components/AudioComponent.h"
+#include "Sound/SoundCue.h"
+>>>>>>> AudioImplementation
 #include "MyProjectCharacter.generated.h"
 
 //Data Tables are essentially structs with more stuff, and they inherit from FTableRowBase.
@@ -97,8 +102,13 @@ class AMyProjectCharacter : public ACharacter
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Animation, meta = (AllowPrivateAccess = "true"))
 	class UAnimMontage* MeleeFistAttackMontage;
 
+<<<<<<< HEAD
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = DataTable, meta = (AllowPrivateAccess = "true"))
 	class UDataTable* PlayerAttackDataTable;
+=======
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = Sounds, meta = (AllowPrivateAccess = "true"))
+	class USoundCue* PunchSoundCue;
+>>>>>>> AudioImplementation
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Collision, meta = (AllowPrivateAccess = "true"))
 	class UBoxComponent* LeftFistCollisionBox;
@@ -127,6 +137,18 @@ public:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category=Camera)
 	float BaseLookUpRate;
 
+<<<<<<< HEAD
+=======
+	//Upper & Lower pitch bounds for our sound manipulation.
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Sound)
+	float LowerPitchBound;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Sound)
+	float UpperPitchBound;
+
+
+
+>>>>>>> AudioImplementation
 
 protected:
 
@@ -172,6 +194,21 @@ private:
 	void Log(ELogLevel LogLevel, FString Message, ELogOutput LogOutput);
 
 
+<<<<<<< HEAD
+=======
+
+	UAudioComponent* PunchAudioComponent;
+
+
+
+
+protected:
+	// APawn interface
+	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
+	// End of APawn interface
+
+
+>>>>>>> AudioImplementation
 public:
 
 	//Triggers attack animation based on user input/.
