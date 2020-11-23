@@ -3,7 +3,7 @@
   <ItemGroup>
     <None Include="..\..\MyProject.uproject" />
     <Filter Include="Source">
-      <UniqueIdentifier>{2172932E-C2D8-4FB4-8226-4CDFA30123F5}</UniqueIdentifier>
+      <UniqueIdentifier>{F65A8BED-11BE-4E44-B0CE-E2EC09A450EB}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\MyProject.Target.cs">
       <Filter>Source</Filter>
@@ -14,7 +14,7 @@
     <None Include="..\..\data_table_CSV.csv" />
     <None Include="..\..\Data_table_JSON.json" />
     <Filter Include="Config">
-      <UniqueIdentifier>{97C709A8-68D5-4CAC-9EF3-9C3A68B7D3AF}</UniqueIdentifier>
+      <UniqueIdentifier>{71C42B5C-02D0-46D3-AD22-D7FDD0F687F5}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Config\DefaultEditor.ini">
       <Filter>Config</Filter>
@@ -32,12 +32,18 @@
       <Filter>Config</Filter>
     </None>
     <Filter Include="Source\MyProject">
-      <UniqueIdentifier>{22F5A6AA-ED4B-4515-A7D8-303C25E862F3}</UniqueIdentifier>
+      <UniqueIdentifier>{0E7BE621-3A20-4A17-B899-3698784D60D6}</UniqueIdentifier>
     </Filter>
     <ClCompile Include="..\..\Source\MyProject\AttackStartNotifyState.cpp">
       <Filter>Source\MyProject</Filter>
     </ClCompile>
     <ClInclude Include="..\..\Source\MyProject\AttackStartNotifyState.h">
+      <Filter>Source\MyProject</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\MyProject\MyAttackAnimNotify.cpp">
+      <Filter>Source\MyProject</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\MyProject\MyAttackAnimNotify.h">
       <Filter>Source\MyProject</Filter>
     </ClInclude>
     <None Include="..\..\Source\MyProject\MyProject.Build.cs">
@@ -61,5 +67,15 @@
     <ClInclude Include="..\..\Source\MyProject\MyProjectGameMode.h">
       <Filter>Source\MyProject</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\Source\MyProject\MyAnimNotifyState.h">
+      <Filter>Source\MyProject</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\Source\MyProject\MyAnimNotifyState.cpp">
+      <Filter>Source\MyProject</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

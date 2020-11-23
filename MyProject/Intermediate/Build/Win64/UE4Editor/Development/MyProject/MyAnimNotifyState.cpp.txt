@@ -1,0 +1,5 @@
+C:\Users\1804824\Desktop\UnrealYouTubeRepo\UnrealAnimationPracticeVids\MyProject\Intermediate\Build\Win64\UE4Editor\Development\MyProject\Definitions.MyProject.h
+C:\Users\1804824\Desktop\UnrealYouTubeRepo\UnrealAnimationPracticeVids\MyProject\Source\MyProject\MyAnimNotifyState.h
+C:\UE_4.22\UE_4.22\Engine\Source\Runtime\Engine\Classes\Animation/AnimNotifies/AnimNotifyState.h
+C:\UE_4.22\UE_4.22\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\AnimNotifyState.generated.h
+C:\Users\1804824\Desktop\UnrealYouTubeRepo\UnrealAnimationPracticeVids\MyProject\Intermediate\Build\Win64\UE4Editor\Inc\MyProject\MyAnimNotifyState.generated.h
