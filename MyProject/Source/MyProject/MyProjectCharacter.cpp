@@ -65,7 +65,7 @@ AMyProjectCharacter::AMyProjectCharacter()
 		MeleeFistAttackMontage = MeleeFistAttackMontageObject.Object;
 	}
 
-<<<<<<< HEAD
+
 	//Load player attack montage datatable
 	//You can load the  CSV and JSON implementations of this as well.
 	//As they both come in as datatables. 20:21 on the video.
@@ -75,7 +75,6 @@ AMyProjectCharacter::AMyProjectCharacter()
 		PlayerAttackDataTable = PlayerAttackMontageDataObject.Object;
 	}
 	
-=======
 	//Load the sound Cue Object
 	static ConstructorHelpers::FObjectFinder<USoundCue> PunchSoundCueObject(TEXT("SoundCue'/Game/Anim/Audio/PunchSoundCue.PunchSoundCue'"));
 	
@@ -91,7 +90,22 @@ AMyProjectCharacter::AMyProjectCharacter()
 	}
 
 
->>>>>>> AudioImplementation
+	static ConstructorHelpers::FObjectFinder<USoundCue> PunchThrowSoundCueObject(TEXT("SoundCue'/Game/Anim/Audio/PunchThrowSoundCue.PunchThrowSoundCue'"));
+
+	if (PunchSoundCueObject.Succeeded())
+	{
+		PunchThrowSoundCue = PunchSoundCueObject.Object;
+
+		PunchThrowAudioComponent = CreateDefaultSubobject<UAudioComponent>(TEXT("PunchThrowSoundCueAudioComponent"));
+		PunchThrowAudioComponent->SetupAttachment(RootComponent);
+
+		//Do not do this, It will play on beginplay
+		//PunchAudioComponent->SetSound(PunchSoundCue);
+	}
+
+
+
+
 	//Including intialisation directives for our collision boxes, these are intialised to a subObject	
 	LeftFistCollisionBox = CreateDefaultSubobject<UBoxComponent>(TEXT("LeftFistCollsionBox"));
 	RightFistCollisionBox = CreateDefaultSubobject<UBoxComponent>(TEXT("RightFistCollsionBox"));
@@ -138,7 +152,6 @@ void AMyProjectCharacter::BeginPlay()
 	LeftFistCollisionBox->OnComponentHit.AddDynamic(this, &AMyProjectCharacter::OnAttackHit);
 	RightFistCollisionBox->OnComponentHit.AddDynamic(this, &AMyProjectCharacter::OnAttackHit);
 
-<<<<<<< HEAD
 
 	//You can read and write to your data table within code. In this case it allows us to add data through the code to 
 	//the data asset.
@@ -155,14 +168,24 @@ void AMyProjectCharacter::BeginPlay()
 	}
 
 
-=======
 	//Linking our sound on begin play rather than in the constructor.
 	//This if statement checks to ensure that they are not null.
 	if (PunchAudioComponent && PunchSoundCue)
 	{
 		PunchAudioComponent->SetSound(PunchSoundCue);
 	}
->>>>>>> AudioImplementation
+
+	//Linking our sound on begin play rather than in the constructor.
+	//This if statement checks to ensure that they are not null.
+	if (PunchThrowAudioComponent && PunchThrowSoundCue)
+	{
+		PunchAudioComponent->SetSound(PunchThrowSoundCue);
+	}
+
+
+
+
+
 }
 
 //////////////////////////////////////////////////////////////////////////

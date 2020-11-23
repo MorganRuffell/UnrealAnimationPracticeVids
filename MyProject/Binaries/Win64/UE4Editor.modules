@@ -2,10 +2,6 @@
 	"BuildId": "5660361",
 	"Modules": 
 	{
-<<<<<<< HEAD
-		"MyProject": "UE4Editor-MyProject-3504.dll"
-=======
-		"MyProject": "UE4Editor-MyProject-9990.dll"
->>>>>>> AudioImplementation
+		"MyProject": "UE4Editor-MyProject-3161.dll"
 	}
 }

@@ -21,13 +21,8 @@ void EmptyLinkFunctionForGeneratedCodeMyProject_init() {}
 				nullptr,
 				0,
 				PKG_CompiledIn | 0x00000000,
-<<<<<<< HEAD
-				0x9484A47B,
-				0x9ED1AD20,
-=======
-				0xDB859467,
-				0xC454A4B8,
->>>>>>> AudioImplementation
+				0x9F073001,
+				0xDFF7DF28,
 				METADATA_PARAMS(nullptr, 0)
 			};
 			UE4CodeGen_Private::ConstructUPackage(ReturnPackage, PackageParams);

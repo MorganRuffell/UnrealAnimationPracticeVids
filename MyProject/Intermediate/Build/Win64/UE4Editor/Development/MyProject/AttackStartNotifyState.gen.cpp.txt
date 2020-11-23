@@ -13,17 +13,14 @@ C:\UE_4.22\UE_4.22\Engine\Source\Runtime\Engine\Classes\Components/BoxComponent.
 C:\UE_4.22\UE_4.22\Engine\Source\Runtime\Engine\Classes\Components/ShapeComponent.h
 C:\UE_4.22\UE_4.22\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\ShapeComponent.generated.h
 C:\UE_4.22\UE_4.22\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\BoxComponent.generated.h
-<<<<<<< HEAD
 C:\UE_4.22\UE_4.22\Engine\Source\Runtime\Engine\Classes\Engine/DataTable.h
 C:\UE_4.22\UE_4.22\Engine\Source\Runtime\Engine\Public\DataTableUtils.h
 C:\UE_4.22\UE_4.22\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\DataTable.generated.h
-=======
 C:\UE_4.22\UE_4.22\Engine\Source\Runtime\Engine\Classes\Components/AudioComponent.h
 C:\UE_4.22\UE_4.22\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\AudioComponent.generated.h
 C:\UE_4.22\UE_4.22\Engine\Source\Runtime\Engine\Classes\Sound/SoundCue.h
 C:\UE_4.22\UE_4.22\Engine\Source\Runtime\Engine\Classes\Sound/SoundNode.h
 C:\UE_4.22\UE_4.22\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\SoundNode.generated.h
 C:\UE_4.22\UE_4.22\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\SoundCue.generated.h
->>>>>>> AudioImplementation
 C:\Users\1804824\Desktop\UnrealYouTubeRepo\UnrealAnimationPracticeVids\MyProject\Intermediate\Build\Win64\UE4Editor\Inc\MyProject\MyProjectCharacter.generated.h
 C:\Users\1804824\Desktop\UnrealYouTubeRepo\UnrealAnimationPracticeVids\MyProject\Intermediate\Build\Win64\UE4Editor\Inc\MyProject\AttackStartNotifyState.generated.h

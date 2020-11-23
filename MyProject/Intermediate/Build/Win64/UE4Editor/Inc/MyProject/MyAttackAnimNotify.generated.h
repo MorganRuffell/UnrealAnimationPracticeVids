@@ -8,13 +8,39 @@
 #include "UObject/ScriptMacros.h"
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
+class USkeletalMeshComponent;
+class UAnimSequenceBase;
 #ifdef MYPROJECT_MyAttackAnimNotify_generated_h
 #error "MyAttackAnimNotify.generated.h already included, missing '#pragma once' in MyAttackAnimNotify.h"
 #endif
 #define MYPROJECT_MyAttackAnimNotify_generated_h
 
-#define MyProject_Source_MyProject_MyAttackAnimNotify_h_15_RPC_WRAPPERS
-#define MyProject_Source_MyProject_MyAttackAnimNotify_h_15_RPC_WRAPPERS_NO_PURE_DECLS
+#define MyProject_Source_MyProject_MyAttackAnimNotify_h_15_RPC_WRAPPERS \
+ \
+	DECLARE_FUNCTION(execNotify) \
+	{ \
+		P_GET_OBJECT(USkeletalMeshComponent,Z_Param_MeshComp); \
+		P_GET_OBJECT(UAnimSequenceBase,Z_Param_Animation); \
+		P_FINISH; \
+		P_NATIVE_BEGIN; \
+		P_THIS->Notify(Z_Param_MeshComp,Z_Param_Animation); \
+		P_NATIVE_END; \
+	}
+
+
+#define MyProject_Source_MyProject_MyAttackAnimNotify_h_15_RPC_WRAPPERS_NO_PURE_DECLS \
+ \
+	DECLARE_FUNCTION(execNotify) \
+	{ \
+		P_GET_OBJECT(USkeletalMeshComponent,Z_Param_MeshComp); \
+		P_GET_OBJECT(UAnimSequenceBase,Z_Param_Animation); \
+		P_FINISH; \
+		P_NATIVE_BEGIN; \
+		P_THIS->Notify(Z_Param_MeshComp,Z_Param_Animation); \
+		P_NATIVE_END; \
+	}
+
+
 #define MyProject_Source_MyProject_MyAttackAnimNotify_h_15_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesUMyAttackAnimNotify(); \
@@ -35,7 +61,7 @@ public: \
 
 #define MyProject_Source_MyProject_MyAttackAnimNotify_h_15_STANDARD_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
-	NO_API UMyAttackAnimNotify(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get()); \
+	NO_API UMyAttackAnimNotify(const FObjectInitializer& ObjectInitializer); \
 	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(UMyAttackAnimNotify) \
 	DECLARE_VTABLE_PTR_HELPER_CTOR(NO_API, UMyAttackAnimNotify); \
 DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(UMyAttackAnimNotify); \
@@ -47,8 +73,6 @@ public:
 
 
 #define MyProject_Source_MyProject_MyAttackAnimNotify_h_15_ENHANCED_CONSTRUCTORS \
-	/** Standard constructor, called after all reflected properties have been initialized */ \
-	NO_API UMyAttackAnimNotify(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get()) : Super(ObjectInitializer) { }; \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	NO_API UMyAttackAnimNotify(UMyAttackAnimNotify&&); \
@@ -56,7 +80,7 @@ private: \
 public: \
 	DECLARE_VTABLE_PTR_HELPER_CTOR(NO_API, UMyAttackAnimNotify); \
 DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(UMyAttackAnimNotify); \
-	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(UMyAttackAnimNotify)
+	DEFINE_DEFAULT_CONSTRUCTOR_CALL(UMyAttackAnimNotify)
 
 
 #define MyProject_Source_MyProject_MyAttackAnimNotify_h_15_PRIVATE_PROPERTY_OFFSET

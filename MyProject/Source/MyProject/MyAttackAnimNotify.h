@@ -14,4 +14,17 @@ class MYPROJECT_API UMyAttackAnimNotify : public UAnimNotify
 {
 	GENERATED_BODY()
 	
+	UMyAttackAnimNotify();
+	~UMyAttackAnimNotify();
+
+
+public:
+
+	UFUNCTION()
+	virtual void Notify(USkeletalMeshComponent* MeshComp, UAnimSequenceBase* Animation) override;
+
+	//This implementation is used inside of the blueprint implementation. We need to use another type for C++	
+	//UFUNCTION(BlueprintImplementableEvent)
+	//bool Received_Notify(USkeletalMeshComponent* MeshComp, UAnimSequenceBase* Animation) const;
+
 };
