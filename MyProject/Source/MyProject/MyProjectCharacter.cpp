@@ -115,6 +115,21 @@ void AMyProjectCharacter::BeginPlay()
 	RightFistCollisionBox->OnComponentHit.AddDynamic(this, &AMyProjectCharacter::OnAttackHit);
 
 
+	//You can read and write to your data table within code. In this case it allows us to add data through the code to 
+	//the data asset.
+
+	if (PlayerAttackDataTable)
+	{
+		FPlayerAttackMontage AttackMontage;
+		AttackMontage.AnimMontage = NULL;
+		AttackMontage.Description = "Created From BeginPlay";
+		AttackMontage.AnimSectionCount = 10;
+
+		PlayerAttackDataTable->AddRow(FName(TEXT("New Row")), AttackMontage);
+
+	}
+
+
 }
 
 //////////////////////////////////////////////////////////////////////////
@@ -212,21 +227,33 @@ void AMyProjectCharacter::AttackInput()
 {
 	//In order to solve a weird firing bug we are going to refactor the method to have everything in here. 
 
-
 	//You've seen __Function before, this is a helper method that allows us to print out where something is coming from!
 	Log(ELogLevel::INFO, __FUNCTION__);
 
-	//PlayAnimMontage(MeleeFistAttackMontage, AnimationMontageSpeed,FName("start_1"));
 
-	//Generate a random number between 1 & 2
-	int MontageSectionIndex = rand() % 3 + 1;
+	//This whole section is new, we are taking the values from our data driven asset and passing them in to our
+	//Attack montage. This is allowing us to create a solution for data driven gameplay.
 
-	//Create a new fstring reference for the animation section
-	FString MontageSection = "start_" + FString::FromInt(MontageSectionIndex);
 
-	//Then play the result
-	PlayAnimMontage(MeleeFistAttackMontage, AnimationMontageSpeed, FName(*MontageSection));
+	if (PlayerAttackDataTable != NULL)
+	{
+		static const FString ContextString(TEXT("Player Attack Montage Context"));
+		FPlayerAttackMontage* AttackMontage = PlayerAttackDataTable->FindRow<FPlayerAttackMontage>(FName(TEXT("AnimationMontage0")),ContextString,true);
+		
+		if (AttackMontage != NULL)
+		{
+			//Generate a random number between 1 & whatever is defined in the datatable for this montage
+			int MontageSectionIndex = rand() % AttackMontage->AnimSectionCount + 1;
 
+			//Create a new fstring reference for the animation section
+			FString MontageSection = "start_" + FString::FromInt(MontageSectionIndex);	
+		
+			//Then play the result
+			PlayAnimMontage(AttackMontage->AnimMontage, AnimationMontageSpeed, FName(*MontageSection));
+
+		}
+	
+	}
 
 }
 
