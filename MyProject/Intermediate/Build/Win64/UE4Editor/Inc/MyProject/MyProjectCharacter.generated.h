@@ -34,6 +34,22 @@ template<> MYPROJECT_API UScriptStruct* StaticStruct<struct FPlayerAttackMontage
 
 #define MyProject_Source_MyProject_MyProjectCharacter_h_89_RPC_WRAPPERS \
  \
+	DECLARE_FUNCTION(execStopSprinting) \
+	{ \
+		P_FINISH; \
+		P_NATIVE_BEGIN; \
+		P_THIS->StopSprinting(); \
+		P_NATIVE_END; \
+	} \
+ \
+	DECLARE_FUNCTION(execSprint) \
+	{ \
+		P_FINISH; \
+		P_NATIVE_BEGIN; \
+		P_THIS->Sprint(); \
+		P_NATIVE_END; \
+	} \
+ \
 	DECLARE_FUNCTION(execOnAttackHit) \
 	{ \
 		P_GET_OBJECT(UPrimitiveComponent,Z_Param_HitComponent); \
@@ -73,6 +89,22 @@ template<> MYPROJECT_API UScriptStruct* StaticStruct<struct FPlayerAttackMontage
 
 
 #define MyProject_Source_MyProject_MyProjectCharacter_h_89_RPC_WRAPPERS_NO_PURE_DECLS \
+ \
+	DECLARE_FUNCTION(execStopSprinting) \
+	{ \
+		P_FINISH; \
+		P_NATIVE_BEGIN; \
+		P_THIS->StopSprinting(); \
+		P_NATIVE_END; \
+	} \
+ \
+	DECLARE_FUNCTION(execSprint) \
+	{ \
+		P_FINISH; \
+		P_NATIVE_BEGIN; \
+		P_THIS->Sprint(); \
+		P_NATIVE_END; \
+	} \
  \
 	DECLARE_FUNCTION(execOnAttackHit) \
 	{ \

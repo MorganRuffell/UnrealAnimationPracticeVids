@@ -43,7 +43,8 @@ AMyProjectCharacter::AMyProjectCharacter()
 	GetCharacterMovement()->RotationRate = FRotator(0.0f, 540.0f, 0.0f); // ...at this rotation rate
 	GetCharacterMovement()->JumpZVelocity = 600.f;
 	GetCharacterMovement()->AirControl = 0.2f;
-
+	GetCharacterMovement()->MaxWalkSpeed = 640.0f;
+	
 	// Create a camera boom (pulls in towards the player if there is a collision)
 	CameraBoom = CreateDefaultSubobject<USpringArmComponent>(TEXT("CameraBoom"));
 	CameraBoom->SetupAttachment(RootComponent);
@@ -92,7 +93,7 @@ AMyProjectCharacter::AMyProjectCharacter()
 
 	static ConstructorHelpers::FObjectFinder<USoundCue> PunchThrowSoundCueObject(TEXT("SoundCue'/Game/Anim/Audio/PunchThrowSoundCue.PunchThrowSoundCue'"));
 
-	if (PunchSoundCueObject.Succeeded())
+	if (PunchThrowSoundCueObject.Succeeded())
 	{
 		PunchThrowSoundCue = PunchSoundCueObject.Object;
 
@@ -179,13 +180,8 @@ void AMyProjectCharacter::BeginPlay()
 	//This if statement checks to ensure that they are not null.
 	if (PunchThrowAudioComponent && PunchThrowSoundCue)
 	{
-		PunchAudioComponent->SetSound(PunchThrowSoundCue);
+		PunchThrowAudioComponent->SetSound(PunchThrowSoundCue);
 	}
-
-
-
-
-
 }
 
 //////////////////////////////////////////////////////////////////////////
@@ -197,6 +193,9 @@ void AMyProjectCharacter::SetupPlayerInputComponent(class UInputComponent* Playe
 	check(PlayerInputComponent);
 	PlayerInputComponent->BindAction("Jump", IE_Pressed, this, &ACharacter::Jump);
 	PlayerInputComponent->BindAction("Jump", IE_Released, this, &ACharacter::StopJumping);
+
+	PlayerInputComponent->BindAction("Sprint", IE_Pressed,this, &AMyProjectCharacter::Sprint);
+	PlayerInputComponent->BindAction("Sprint", IE_Released, this, &AMyProjectCharacter::StopSprinting);
 
 	PlayerInputComponent->BindAxis("MoveForward", this, &AMyProjectCharacter::MoveForward);
 	PlayerInputComponent->BindAxis("MoveRight", this, &AMyProjectCharacter::MoveRight);
@@ -288,8 +287,7 @@ void AMyProjectCharacter::AttackInput()
 
 
 	//This whole section is new, we are taking the values from our data driven asset and passing them in to our
-	//Attack montage. This is allowing us to create a solution for data driven gameplay.
-
+	//Attack montage. This is allowing us to create a solution to allow data driven gameplay.
 
 	if (PlayerAttackDataTable != NULL)
 	{
@@ -306,6 +304,9 @@ void AMyProjectCharacter::AttackInput()
 		
 			//Then play the result
 			PlayAnimMontage(AttackMontage->AnimMontage, AnimationMontageSpeed, FName(*MontageSection));
+			
+			//Consider using a timer with the animation input.
+			
 
 		}
 	
@@ -358,6 +359,21 @@ void AMyProjectCharacter::OnAttackHit(UPrimitiveComponent* HitComponent, AActor*
 		PunchAudioComponent->SetPitchMultiplier(FMath::RandRange(LowerPitchBound, UpperPitchBound));
 		PunchAudioComponent->Play(0.1f);
 	}
+
+
+}
+
+void AMyProjectCharacter::Sprint()
+{
+	Log(ELogLevel::TRACE, __FUNCTION__);
+	GetCharacterMovement()->MaxWalkSpeed = 810.0f;
+
+}
+
+void AMyProjectCharacter::StopSprinting()
+{
+	Log(ELogLevel::TRACE, __FUNCTION__);
+	GetCharacterMovement()->MaxWalkSpeed = 640.0f;
 
 
 }

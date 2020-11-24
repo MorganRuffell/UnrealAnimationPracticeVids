@@ -143,8 +143,8 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Sound)
 	float UpperPitchBound;
 
-
-
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Movement, meta = (ClampMin = "0", UIMin = "0"))
+	float MaxWalkSpeed;
 
 protected:
 
@@ -173,7 +173,6 @@ protected:
 
 private:
 
-	FMeleeCollisionProfile MeleeCollisionProfile;
 
 	//Log Enum Decleration
 	// param LogLevel affects the color of the log
@@ -189,14 +188,12 @@ private:
 
 	void Log(ELogLevel LogLevel, FString Message, ELogOutput LogOutput);
 
-
 	//Punch throw audio componenents
-
 	UAudioComponent* PunchAudioComponent;
-	UAudioComponent* PunchThrowAudioComponent;
-
 
 public:
+	UAudioComponent* PunchThrowAudioComponent;
+	FMeleeCollisionProfile MeleeCollisionProfile;
 
 	//Triggers attack animation based on user input/.
 	UFUNCTION()
@@ -213,6 +210,13 @@ public:
 	//Triggers when the collider hits an enemy entity
 	UFUNCTION()
 	void OnAttackHit(UPrimitiveComponent* HitComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, FVector NormalImpulse, const FHitResult& Hit);
+
+	UFUNCTION()
+	void Sprint();
+
+	UFUNCTION()
+	void StopSprinting();
+
 
 
 	/** Returns CameraBoom subobject **/
