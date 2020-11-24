@@ -43,7 +43,7 @@ AMyProjectCharacter::AMyProjectCharacter()
 	GetCharacterMovement()->RotationRate = FRotator(0.0f, 540.0f, 0.0f); // ...at this rotation rate
 	GetCharacterMovement()->JumpZVelocity = 600.f;
 	GetCharacterMovement()->AirControl = 0.2f;
-	GetCharacterMovement()->MaxWalkSpeed = 640.0f;
+	GetCharacterMovement()->MaxWalkSpeed = 600.0f;
 	
 	// Create a camera boom (pulls in towards the player if there is a collision)
 	CameraBoom = CreateDefaultSubobject<USpringArmComponent>(TEXT("CameraBoom"));
@@ -366,15 +366,20 @@ void AMyProjectCharacter::OnAttackHit(UPrimitiveComponent* HitComponent, AActor*
 void AMyProjectCharacter::Sprint()
 {
 	Log(ELogLevel::TRACE, __FUNCTION__);
-	GetCharacterMovement()->MaxWalkSpeed = 810.0f;
+	
+	GetCharacterMovement()->MaxWalkSpeed = CurrentSprintSpeed;
+
+	//CameraBoom->TargetArmLength = FMath::FInterpTo(300.0f, 350.0f, 100.0f, 100.0f); // The camera follows at this distance behind the character	
+	CameraBoom->TargetArmLength = FMath::Lerp(300.0f,350.0f,0.9f);
+
 
 }
 
 void AMyProjectCharacter::StopSprinting()
 {
 	Log(ELogLevel::TRACE, __FUNCTION__);
-	GetCharacterMovement()->MaxWalkSpeed = 640.0f;
-
+	GetCharacterMovement()-> MaxWalkSpeed = CurrentWalkSpeed;
+	CameraBoom->TargetArmLength = FMath::FInterpTo(350.0f, 300.0f, 20.0f, 20.0f);; // The camera follows at this distance behind the character	
 
 }
 

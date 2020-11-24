@@ -143,8 +143,16 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Sound)
 	float UpperPitchBound;
 
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Movement, meta = (ClampMin = "0", UIMin = "0"))
-	float MaxWalkSpeed;
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = Movement)
+	float CurrentWalkSpeed = 600.0f;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = Movement)
+	float CurrentSprintSpeed = 850.0f;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = Movement)
+	float CameraDelay = 600.0f;
+
+
 
 protected:
 
