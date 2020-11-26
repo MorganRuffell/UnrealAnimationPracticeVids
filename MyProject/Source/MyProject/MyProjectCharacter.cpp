@@ -105,8 +105,6 @@ AMyProjectCharacter::AMyProjectCharacter()
 	}
 
 
-
-
 	//Including intialisation directives for our collision boxes, these are intialised to a subObject	
 	LeftFistCollisionBox = CreateDefaultSubobject<UBoxComponent>(TEXT("LeftFistCollsionBox"));
 	RightFistCollisionBox = CreateDefaultSubobject<UBoxComponent>(TEXT("RightFistCollsionBox"));
@@ -162,7 +160,7 @@ void AMyProjectCharacter::BeginPlay()
 		FPlayerAttackMontage AttackMontage;
 		AttackMontage.AnimMontage = NULL;
 		AttackMontage.Description = "Created From BeginPlay";
-		AttackMontage.AnimSectionCount = 10;
+		AttackMontage.AnimSectionCount = 3;
 
 		PlayerAttackDataTable->AddRow(FName(TEXT("New Row")), AttackMontage);
 

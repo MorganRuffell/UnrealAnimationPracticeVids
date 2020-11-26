@@ -9,7 +9,7 @@
 		"Name": "AnimationMontage1",
 		"AnimMontage": "AnimMontage'/Game/Anim/Animations/MeleeFistAttackMontage_2.MeleeFistAttackMontage_2'",
 		"AnimSectionCount": 3,
-		"Description": ""
+		"Description": "You can make a description for these and then pass it back into unreal"
 	},
 	{
 		"Name": "AnimationMontage2",

@@ -181,7 +181,6 @@ protected:
 
 private:
 
-
 	//Log Enum Decleration
 	// param LogLevel affects the color of the log
 	// param FString the message for display

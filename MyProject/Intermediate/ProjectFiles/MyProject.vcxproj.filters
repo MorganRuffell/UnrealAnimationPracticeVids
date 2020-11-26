@@ -72,10 +72,27 @@
     <ClInclude Include="..\..\Source\MyProject\MyAnimNotifyState.h">
       <Filter>Source\MyProject</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\MyProject\UI\InGameHUD.h">
+      <Filter>Source\MyProject\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\MyProject\UI\ComboWidget.h">
+      <Filter>Source\MyProject\UI</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\Source\MyProject\MyAnimNotifyState.cpp">
       <Filter>Source\MyProject</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\MyProject\UI\InGameHUD.cpp">
+      <Filter>Source\MyProject\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\MyProject\UI\ComboWidget.cpp">
+      <Filter>Source\MyProject\UI</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source\MyProject\UI">
+      <UniqueIdentifier>{91bf1924-c8cc-459c-9117-e61619f1062e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
 </Project>

@@ -364,6 +364,10 @@
     <NMakeOutput>..\..\Binaries\HTML5\MyProject-HTML5-Shipping.js</NMakeOutput>
   </PropertyGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\Source\MyProject\UI\ComboWidget.cpp" />
+    <ClCompile Include="..\..\Source\MyProject\UI\InGameHUD.cpp" />
+    <ClInclude Include="..\..\Source\MyProject\UI\ComboWidget.h" />
+    <ClInclude Include="..\..\Source\MyProject\UI\InGameHUD.h" />
     <None Include="..\..\MyProject.uproject" />
     <None Include="..\..\Source\MyProject.Target.cs" />
     <None Include="..\..\Source\MyProjectEditor.Target.cs" />
