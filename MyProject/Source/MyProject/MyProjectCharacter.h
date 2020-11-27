@@ -152,6 +152,8 @@ public:
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = Movement)
 	float CameraDelay = 600.0f;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Combo)
+	float ComboResetDelay;
 
 
 protected:
@@ -178,8 +180,14 @@ protected:
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 	// End of APawn interface
 
+	int8 CurrentComboCount;
+	FTimerHandle ComboResetHandle;
 
 private:
+
+
+
+
 
 	//Log Enum Decleration
 	// param LogLevel affects the color of the log
@@ -224,8 +232,9 @@ public:
 	UFUNCTION()
 	void StopSprinting();
 
-
-
+	UFUNCTION()
+	void ResetCombo();
+	
 	/** Returns CameraBoom subobject **/
 	FORCEINLINE class USpringArmComponent* GetCameraBoom() const { return CameraBoom; }
 	/** Returns FollowCamera subobject **/

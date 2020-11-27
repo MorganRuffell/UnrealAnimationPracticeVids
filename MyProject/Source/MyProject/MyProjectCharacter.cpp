@@ -10,6 +10,7 @@
 #include "GameFramework/Controller.h"
 #include "UObject/ConstructorHelpers.h"
 #include "GameFramework/SpringArmComponent.h"
+#include "UI/InGameHUD.h"
 
 #include "GameFramework/Pawn.h"
  
@@ -21,6 +22,11 @@ AMyProjectCharacter::AMyProjectCharacter()
 {
 	// Set size for collision capsule
 	GetCapsuleComponent()->InitCapsuleSize(42.f, 96.0f);
+
+	//Set our current Combo count
+	CurrentComboCount = 0;
+	ComboResetDelay = 5.0f;
+
 
 	// set our turn rates for input
 	BaseTurnRate = 45.f;
@@ -278,6 +284,23 @@ void AMyProjectCharacter::AttackStart()
 
 void AMyProjectCharacter::AttackInput()
 {
+	//You've seen __Function before, this is a helper method that allows us to print out where something is coming from!
+	Log(ELogLevel::INFO, __FUNCTION__);
+
+	//Before the attack, we also need to set up the onCollsion logic this is a weird thing by epic. Do this if you
+	//want to force simulates hit to be true.
+	LeftFistCollisionBox->SetNotifyRigidBodyCollision(true);
+	RightFistCollisionBox->SetNotifyRigidBodyCollision(true);
+
+	//Whenever the Attack is started the Collision profile is changed to weapon and the colliders are live.	
+	LeftFistCollisionBox->SetCollisionProfileName(MeleeCollisionProfile.Enabled);
+	RightFistCollisionBox->SetCollisionProfileName(MeleeCollisionProfile.Enabled);
+
+	//Collision boxes we are setting this to generate overlap events.
+	LeftFistCollisionBox->SetGenerateOverlapEvents(true);
+	RightFistCollisionBox->SetGenerateOverlapEvents(true);
+
+
 	//In order to solve a weird firing bug we are going to refactor the method to have everything in here. 
 
 	//You've seen __Function before, this is a helper method that allows us to print out where something is coming from!
@@ -309,6 +332,8 @@ void AMyProjectCharacter::AttackInput()
 		}
 	
 	}
+
+	AttackEnd();
 
 }
 
@@ -358,7 +383,42 @@ void AMyProjectCharacter::OnAttackHit(UPrimitiveComponent* HitComponent, AActor*
 		PunchAudioComponent->Play(0.1f);
 	}
 
+	//Implement the Animation Instance stuff from an earlier video.
 
+	//This is a pointer to the InGameHUD Actor which we included in our header file.
+	//We then cast this as AInGameHUD, and get the world, and then access the GetFirstPlayerController method
+	//and then get HUD from there.
+
+	AInGameHUD* InGameHUD = Cast<AInGameHUD>(GetWorld()->GetFirstPlayerController()->GetHUD());
+	if (InGameHUD)
+	{
+		CurrentComboCount++;
+		InGameHUD->UpdateComboCount(CurrentComboCount);
+	
+	}
+
+	if (!GetWorld()->GetTimerManager().IsTimerActive(ComboResetHandle))
+	{
+		GetWorld()->GetTimerManager().SetTimer(ComboResetHandle, this, &AMyProjectCharacter::ResetCombo, ComboResetDelay, false);
+	} else {
+		GetWorld()->GetTimerManager().ClearTimer(ComboResetHandle);
+		GetWorld()->GetTimerManager().SetTimer(ComboResetHandle, this, &AMyProjectCharacter::ResetCombo, ComboResetDelay, false);
+
+	}
+
+	AttackEnd();
+}
+
+void AMyProjectCharacter::ResetCombo()
+{
+	CurrentComboCount = 0;
+
+	AInGameHUD* InGameHUD = Cast<AInGameHUD>(GetWorld()->GetFirstPlayerController()->GetHUD());
+	if (InGameHUD)
+	{
+		InGameHUD->ResetCombo();
+	
+	}
 }
 
 void AMyProjectCharacter::Sprint()
@@ -380,6 +440,7 @@ void AMyProjectCharacter::StopSprinting()
 	CameraBoom->TargetArmLength = FMath::FInterpTo(350.0f, 300.0f, 20.0f, 20.0f);; // The camera follows at this distance behind the character	
 
 }
+
 
 
 void AMyProjectCharacter::Log(ELogLevel LogLevel, FString Message)

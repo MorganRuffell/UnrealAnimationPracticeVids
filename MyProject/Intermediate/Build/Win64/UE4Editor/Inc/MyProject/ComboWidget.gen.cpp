@@ -19,7 +19,7 @@ void EmptyLinkFunctionForGeneratedCodeComboWidget() {}
 	UPackage* Z_Construct_UPackage__Script_MyProject();
 	MYPROJECT_API UFunction* Z_Construct_UFunction_UComboWidget_CountResetCombo();
 	MYPROJECT_API UFunction* Z_Construct_UFunction_UComboWidget_UpdateComboCount();
-	UMG_API UClass* Z_Construct_UClass_UEditableTextBox_NoRegister();
+	UMG_API UClass* Z_Construct_UClass_UTextBlock_NoRegister();
 // End Cross Module References
 	void UComboWidget::StaticRegisterNativesUComboWidget()
 	{
@@ -127,7 +127,7 @@ void EmptyLinkFunctionForGeneratedCodeComboWidget() {}
 		{ "ToolTip", "This meta tag, bind widget\nThis allows you to bind it directly to the derieved widget class. It does\nit automatically for you, if that is what you'd like." },
 	};
 #endif
-	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UComboWidget_Statics::NewProp_TxtBoxCombo = { "TxtBoxCombo", nullptr, (EPropertyFlags)0x001000000008000d, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UComboWidget, TxtBoxCombo), Z_Construct_UClass_UEditableTextBox_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UComboWidget_Statics::NewProp_TxtBoxCombo_MetaData, ARRAY_COUNT(Z_Construct_UClass_UComboWidget_Statics::NewProp_TxtBoxCombo_MetaData)) };
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UComboWidget_Statics::NewProp_TxtBoxCombo = { "TxtBoxCombo", nullptr, (EPropertyFlags)0x001000000008000d, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UComboWidget, TxtBoxCombo), Z_Construct_UClass_UTextBlock_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UComboWidget_Statics::NewProp_TxtBoxCombo_MetaData, ARRAY_COUNT(Z_Construct_UClass_UComboWidget_Statics::NewProp_TxtBoxCombo_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UComboWidget_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UComboWidget_Statics::NewProp_TxtBoxCombo,
 	};
@@ -158,7 +158,7 @@ void EmptyLinkFunctionForGeneratedCodeComboWidget() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(UComboWidget, 2833742387);
+	IMPLEMENT_CLASS(UComboWidget, 1301367400);
 	template<> MYPROJECT_API UClass* StaticClass<UComboWidget>()
 	{
 		return UComboWidget::StaticClass();

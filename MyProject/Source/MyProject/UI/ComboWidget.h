@@ -24,7 +24,8 @@ public:
 
 	virtual void NativeConstruct();
 
-
+	
+	void AddToViewport(int32 ZOrder);
 
 	UFUNCTION()
 	void UpdateComboCount(int32 Value);
@@ -36,8 +37,23 @@ public:
 	//This meta tag, bind widget
 	//This allows you to bind it directly to the derieved widget class. It does 
 	//it automatically for you, if that is what you'd like.
+	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (BindWidget))
-	class UEditableTextBox* TxtBoxCombo;
+	class UTextBlock* TxtBoxCombo;
+
+
+	void StoreWidgetAnimations();
+
+	UWidgetAnimation* GetAnimationByName(FName AnimationName) const;
+
+private:
+
+	TMap<FName, UWidgetAnimation*> AnimationsMap;
+
+	UWidgetAnimation* ComboFadeAnim;
+	UWidgetAnimation* ComboShakeAnim;
+	UWidgetAnimation* ComboAddShakeAnim;
+
 
 	
 

@@ -32,6 +32,7 @@ void EmptyLinkFunctionForGeneratedCodeMyProjectCharacter() {}
 	COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FVector();
 	ENGINE_API UClass* Z_Construct_UClass_UPrimitiveComponent_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_AActor_NoRegister();
+	MYPROJECT_API UFunction* Z_Construct_UFunction_AMyProjectCharacter_ResetCombo();
 	MYPROJECT_API UFunction* Z_Construct_UFunction_AMyProjectCharacter_Sprint();
 	MYPROJECT_API UFunction* Z_Construct_UFunction_AMyProjectCharacter_StopSprinting();
 	ENGINE_API UClass* Z_Construct_UClass_UBoxComponent_NoRegister();
@@ -421,6 +422,7 @@ static struct FScriptStruct_MyProject_StaticRegisterNativesFPlayerAttackMontage
 			{ "AttackInput", &AMyProjectCharacter::execAttackInput },
 			{ "AttackStart", &AMyProjectCharacter::execAttackStart },
 			{ "OnAttackHit", &AMyProjectCharacter::execOnAttackHit },
+			{ "ResetCombo", &AMyProjectCharacter::execResetCombo },
 			{ "Sprint", &AMyProjectCharacter::execSprint },
 			{ "StopSprinting", &AMyProjectCharacter::execStopSprinting },
 		};
@@ -568,6 +570,28 @@ static struct FScriptStruct_MyProject_StaticRegisterNativesFPlayerAttackMontage
 		}
 		return ReturnFunction;
 	}
+	struct Z_Construct_UFunction_AMyProjectCharacter_ResetCombo_Statics
+	{
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AMyProjectCharacter_ResetCombo_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "MyProjectCharacter.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_AMyProjectCharacter_ResetCombo_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AMyProjectCharacter, nullptr, "ResetCombo", 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AMyProjectCharacter_ResetCombo_Statics::Function_MetaDataParams, ARRAY_COUNT(Z_Construct_UFunction_AMyProjectCharacter_ResetCombo_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_AMyProjectCharacter_ResetCombo()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_AMyProjectCharacter_ResetCombo_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
 	struct Z_Construct_UFunction_AMyProjectCharacter_Sprint_Statics
 	{
 #if WITH_METADATA
@@ -623,6 +647,10 @@ static struct FScriptStruct_MyProject_StaticRegisterNativesFPlayerAttackMontage
 #if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
 #endif
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_ComboResetDelay_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_ComboResetDelay;
 #if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_CameraDelay_MetaData[];
 #endif
@@ -700,6 +728,7 @@ static struct FScriptStruct_MyProject_StaticRegisterNativesFPlayerAttackMontage
 		{ &Z_Construct_UFunction_AMyProjectCharacter_AttackInput, "AttackInput" }, // 1257899537
 		{ &Z_Construct_UFunction_AMyProjectCharacter_AttackStart, "AttackStart" }, // 789878311
 		{ &Z_Construct_UFunction_AMyProjectCharacter_OnAttackHit, "OnAttackHit" }, // 1747191310
+		{ &Z_Construct_UFunction_AMyProjectCharacter_ResetCombo, "ResetCombo" }, // 1871147857
 		{ &Z_Construct_UFunction_AMyProjectCharacter_Sprint, "Sprint" }, // 745348161
 		{ &Z_Construct_UFunction_AMyProjectCharacter_StopSprinting, "StopSprinting" }, // 2241284567
 	};
@@ -710,6 +739,13 @@ static struct FScriptStruct_MyProject_StaticRegisterNativesFPlayerAttackMontage
 		{ "ModuleRelativePath", "MyProjectCharacter.h" },
 	};
 #endif
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AMyProjectCharacter_Statics::NewProp_ComboResetDelay_MetaData[] = {
+		{ "Category", "Combo" },
+		{ "ModuleRelativePath", "MyProjectCharacter.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_AMyProjectCharacter_Statics::NewProp_ComboResetDelay = { "ComboResetDelay", nullptr, (EPropertyFlags)0x0010000000000005, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AMyProjectCharacter, ComboResetDelay), METADATA_PARAMS(Z_Construct_UClass_AMyProjectCharacter_Statics::NewProp_ComboResetDelay_MetaData, ARRAY_COUNT(Z_Construct_UClass_AMyProjectCharacter_Statics::NewProp_ComboResetDelay_MetaData)) };
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AMyProjectCharacter_Statics::NewProp_CameraDelay_MetaData[] = {
 		{ "Category", "Movement" },
@@ -841,6 +877,7 @@ static struct FScriptStruct_MyProject_StaticRegisterNativesFPlayerAttackMontage
 #endif
 	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AMyProjectCharacter_Statics::NewProp_CameraBoom = { "CameraBoom", nullptr, (EPropertyFlags)0x00400000000a001d, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AMyProjectCharacter, CameraBoom), Z_Construct_UClass_USpringArmComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AMyProjectCharacter_Statics::NewProp_CameraBoom_MetaData, ARRAY_COUNT(Z_Construct_UClass_AMyProjectCharacter_Statics::NewProp_CameraBoom_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AMyProjectCharacter_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMyProjectCharacter_Statics::NewProp_ComboResetDelay,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMyProjectCharacter_Statics::NewProp_CameraDelay,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMyProjectCharacter_Statics::NewProp_CurrentSprintSpeed,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMyProjectCharacter_Statics::NewProp_CurrentWalkSpeed,
@@ -885,7 +922,7 @@ static struct FScriptStruct_MyProject_StaticRegisterNativesFPlayerAttackMontage
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AMyProjectCharacter, 4163630950);
+	IMPLEMENT_CLASS(AMyProjectCharacter, 195362792);
 	template<> MYPROJECT_API UClass* StaticClass<AMyProjectCharacter>()
 	{
 		return AMyProjectCharacter::StaticClass();

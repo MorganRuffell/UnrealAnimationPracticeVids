@@ -34,6 +34,14 @@ template<> MYPROJECT_API UScriptStruct* StaticStruct<struct FPlayerAttackMontage
 
 #define MyProject_Source_MyProject_MyProjectCharacter_h_89_RPC_WRAPPERS \
  \
+	DECLARE_FUNCTION(execResetCombo) \
+	{ \
+		P_FINISH; \
+		P_NATIVE_BEGIN; \
+		P_THIS->ResetCombo(); \
+		P_NATIVE_END; \
+	} \
+ \
 	DECLARE_FUNCTION(execStopSprinting) \
 	{ \
 		P_FINISH; \
@@ -89,6 +97,14 @@ template<> MYPROJECT_API UScriptStruct* StaticStruct<struct FPlayerAttackMontage
 
 
 #define MyProject_Source_MyProject_MyProjectCharacter_h_89_RPC_WRAPPERS_NO_PURE_DECLS \
+ \
+	DECLARE_FUNCTION(execResetCombo) \
+	{ \
+		P_FINISH; \
+		P_NATIVE_BEGIN; \
+		P_THIS->ResetCombo(); \
+		P_NATIVE_END; \
+	} \
  \
 	DECLARE_FUNCTION(execStopSprinting) \
 	{ \
