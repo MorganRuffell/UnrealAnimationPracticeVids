@@ -1,0 +1,145 @@
+JSON Notes
+
+JSON stands for JavaScript Object Notation.
+It is a lightweight format similar to CSV that we can use to store and transport data.
+It is most commonly used in website services, to transfer from one server to another, with webpages or other client services.
+It's a human readable format and functions in a system, in key value pairs. 
+
+Incredibly easy to read and write because of these key value pairs.
+
+Basic Types:
+
+	Objects{}
+	Arrays[]
+	Values""
+
+We were playing with these inside of unreal when we were working with the data tables:
+
+Three rows (Objects) stored in an array
+[
+	{
+		"Name": "AnimationMontage0",
+		"AnimMontage": "AnimMontage'/Game/Anim/Animations/MeleeFistAttackMontage.MeleeFistAttackMontage'",
+		"AnimSectionCount": 3,
+		"Description": "Can have a desciption for these."
+	},
+	{
+		"Name": "AnimationMontage1",
+		"AnimMontage": "AnimMontage'/Game/Anim/Animations/MeleeFistAttackMontage_2.MeleeFistAttackMontage_2'",
+		"AnimSectionCount": 3,
+		"Description": ""
+	},
+	{
+		"Name": "AnimationMontage2",
+		"AnimMontage": "AnimMontage'/Game/Anim/Animations/MeleeFistAttackMontage3.MeleeFistAttackMontage3'",
+		"AnimSectionCount": 2,
+		"Description": ""
+	}
+]
+
+
+The format:
+
+Basic object
+{"name":"Morgan" ,"Age":"20","LovesUnreal": true}
+
+All JSON data must be enclosed between a pair of curly braces{}
+All keys must be contained within double qutoes ""
+All values must be preceeded by a colon.
+Each new key must be seperated by a comma.
+All keys within the object must be unique.
+
+									"Value" : "Thing"
+
+
+
+USE THIS:
+https://jsonformatter.curiousconcept.com/
+
+
+
+Because of the way that JASON works the actual data we are dealing with numbers that are defined as strings.
+
+
+
+# Unity #
+
+Does not have a unique implementation.
+
+In order to expose variables to JSON you need to create them inside of a public class attached to a monobehaviour ideally above.
+
+The system serializable on top of your class to allow classes to appear inside of the editor.
+
+
+[System.Serializable]
+public class JSONClassExmaple
+{
+	public int myInt = 10;
+	public string myString = "ExampleString";
+	public float myfloat = 0.5f;
+	public bool myBool = false;
+
+
+}
+
+public class JSONExample : MonoBehaviour
+{
+	public JSONClassExmaple exampleJSON;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        
+    }
+
+}
+
+This is what you start with, everything to be serialised goes into a class. These classes must be marked system serializable.
+
+[System.Serializable]
+public class JSONClassExmaple
+{
+	public int myInt = 10;
+	public string myString = "ExampleString";
+	public float myfloat = 0.5f;
+	public bool myBool = false;
+
+	public int[] myIntArray = { 1, 2, 3, 4 };
+
+	public MyJSONSubObject subObject;
+
+	public Vector3[] vector3s = { Vector3.zero, Vector3.one, Vector3.up };
+
+}
+
+public class JSONExample : MonoBehaviour
+{
+	public JSONClassExmaple exampleJSON;
+
+	public string JSONOutput;
+
+	public string JSONInput;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+		JSONOutput = JsonUtility.ToJson(exampleJSON);
+		Debug.Log("JSON Output");
+    }
+
+	void OnValidate()
+	{
+		if(!string.IsNullOrWhiteSpace(JSONInput))
+		{
+			exampleJSON = JsonUtility.FromJson<JSONClassExmaple>(JSONInput);
+
+		}
+	}
+
+}
+
+
+
+
+
+

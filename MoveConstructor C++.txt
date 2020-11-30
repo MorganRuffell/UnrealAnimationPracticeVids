@@ -1,0 +1,54 @@
+C++ New rules
+
+Difference between L-Values & R-Values
+
+- L Values are something that we can take the & of. R values are something that we cannot take the address of.
+
+
+
+
+
+
+Move Constructor
+
+	PlayerCharacter(APlayerCharacter&& PlayerCharacterInstance)
+	Resource(Resource&& r);
+
+Move Assignment Operator
+
+	PlayerCharacter operator= (APlayerCharacter && PlayerCharacterInstance)
+
+Remember everything to do with move is moving by R value reference.
+
+
+## New Rules ##
+
+We have very interesting speed up tools nowadays. 
+
+Pass by value:
+
+		Passing by value can be useful, like in the case of using temporary types. Which are moved not copied.
+
+Return by value:
+
+		That local variable is about to go out of scope, the compilier will move it.
+
+Is vector slow or not?
+
+	- When copying becomes moving the speed of data structures changes.
+
+
+Std::Move
+
+	Std::move also only takes an L value refere
+
+	Std::Move doesn't do anything, it doesn't even move them it's just a cast it casts something as something else.
+
+	All this is doing is forcing the compiler to choose move constructors or move assignment operators.
+	
+	
+
+
+
+
+		
