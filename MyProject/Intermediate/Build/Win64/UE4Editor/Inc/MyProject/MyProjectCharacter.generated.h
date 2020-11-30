@@ -207,6 +207,7 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(AMyProjectCharacter); \
 	FORCEINLINE static uint32 __PPO__FollowCamera() { return STRUCT_OFFSET(AMyProjectCharacter, FollowCamera); } \
 	FORCEINLINE static uint32 __PPO__MeleeFistAttackMontage() { return STRUCT_OFFSET(AMyProjectCharacter, MeleeFistAttackMontage); } \
 	FORCEINLINE static uint32 __PPO__PlayerAttackDataTable() { return STRUCT_OFFSET(AMyProjectCharacter, PlayerAttackDataTable); } \
+	FORCEINLINE static uint32 __PPO__CharacterDataAsset() { return STRUCT_OFFSET(AMyProjectCharacter, CharacterDataAsset); } \
 	FORCEINLINE static uint32 __PPO__PunchSoundCue() { return STRUCT_OFFSET(AMyProjectCharacter, PunchSoundCue); } \
 	FORCEINLINE static uint32 __PPO__PunchThrowSoundCue() { return STRUCT_OFFSET(AMyProjectCharacter, PunchThrowSoundCue); } \
 	FORCEINLINE static uint32 __PPO__LeftFistCollisionBox() { return STRUCT_OFFSET(AMyProjectCharacter, LeftFistCollisionBox); } \

@@ -1,5 +1,6 @@
 C:\Users\1804824\Desktop\UnrealYouTubeRepo\UnrealAnimationPracticeVids\MyProject\Intermediate\Build\Win64\UE4Editor\Development\MyProject\Definitions.MyProject.h
-C:\UE_4.22\UE_4.22\Engine\Source\Runtime\Engine\Public\Engine.h
+C:\Users\1804824\Desktop\UnrealYouTubeRepo\UnrealAnimationPracticeVids\MyProject\Source\MyProject\UI\ComboWidget.h
+C:\UE_4.22\UE_4.22\Engine\Source\Runtime/UMG/Public/UMG.h
 C:\UE_4.22\UE_4.22\Engine\Source\Runtime\Core\Public\Misc/MonolithicHeaderBoilerplate.h
 C:\UE_4.22\UE_4.22\Engine\Source\Runtime\Core\Public\Core.h
 C:\UE_4.22\UE_4.22\Engine\Source\Runtime\Core\Public\Misc/MonolithicHeaderBoilerplate.h
@@ -102,6 +103,8 @@ C:\UE_4.22\UE_4.22\Engine\Source\Runtime\CoreUObject\Public\UObject/LinkerSave.h
 C:\UE_4.22\UE_4.22\Engine\Source\Runtime\CoreUObject\Public\Misc/NotifyHook.h
 C:\UE_4.22\UE_4.22\Engine\Source\Runtime\CoreUObject\Public\Misc/RedirectCollector.h
 C:\UE_4.22\UE_4.22\Engine\Source\Runtime\CoreUObject\Public\UObject/ScriptStackTracker.h
+C:\UE_4.22\UE_4.22\Engine\Source\Runtime\Engine\Public\Engine.h
+C:\UE_4.22\UE_4.22\Engine\Source\Runtime\Core\Public\Misc/MonolithicHeaderBoilerplate.h
 C:\UE_4.22\UE_4.22\Engine\Source\Runtime\InputCore\Public\InputCore.h
 C:\UE_4.22\UE_4.22\Engine\Source\Runtime\InputCore\Public\InputCoreModule.h
 C:\UE_4.22\UE_4.22\Engine\Source\Runtime\EngineSettings\Public\EngineSettings.h
@@ -676,9 +679,6 @@ C:\UE_4.22\UE_4.22\Engine\Source\Runtime\Slate\Public\Widgets/Input/SSpinBox.h
 C:\UE_4.22\UE_4.22\Engine\Source\Runtime\Slate\Public\Widgets/Input/SSlider.h
 C:\UE_4.22\UE_4.22\Engine\Source\Runtime\Slate\Public\Widgets/Input/SComboBox.h
 C:\UE_4.22\UE_4.22\Engine\Source\Runtime\Slate\Public\Framework/Docking/LayoutService.h
-C:\Users\1804824\Desktop\UnrealYouTubeRepo\UnrealAnimationPracticeVids\MyProject\Source\MyProject\UI\ComboWidget.h
-C:\UE_4.22\UE_4.22\Engine\Source\Runtime/UMG/Public/UMG.h
-C:\UE_4.22\UE_4.22\Engine\Source\Runtime\Core\Public\Misc/MonolithicHeaderBoilerplate.h
 C:\UE_4.22\UE_4.22\Engine\Source\Runtime\Slate\Public\Widgets/Layout/Anchors.h
 C:\UE_4.22\UE_4.22\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Slate\Anchors.generated.h
 C:\UE_4.22\UE_4.22\Engine\Source\Runtime\Slate\Public\Widgets/Layout/SConstraintCanvas.h

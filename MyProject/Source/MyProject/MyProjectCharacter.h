@@ -103,6 +103,9 @@ class AMyProjectCharacter : public ACharacter
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = DataTable, meta = (AllowPrivateAccess = "true"))
 	class UDataTable* PlayerAttackDataTable;
 
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = DataAsset, meta =(AllowPrivateAccess = "true"))
+	class UCharacterDataAsset* CharacterDataAsset;
+
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = Sounds, meta = (AllowPrivateAccess = "true"))
 	class USoundCue* PunchSoundCue;
 
@@ -126,7 +129,7 @@ public:
 
 
 	/** Base turn rate, in deg/sec. Other scaling may affect final turn rate. */
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category=Camera)
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category=Camera)
 	float BaseTurnRate;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Animation)
@@ -143,13 +146,13 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Sound)
 	float UpperPitchBound;
 
-	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = Movement)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Movement)
 	float CurrentWalkSpeed = 600.0f;
 
-	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = Movement)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Movement)
 	float CurrentSprintSpeed = 850.0f;
 
-	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = Movement)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Movement)
 	float CameraDelay = 600.0f;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Combo)

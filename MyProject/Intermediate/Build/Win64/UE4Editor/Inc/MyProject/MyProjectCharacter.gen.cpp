@@ -37,6 +37,7 @@ void EmptyLinkFunctionForGeneratedCodeMyProjectCharacter() {}
 	MYPROJECT_API UFunction* Z_Construct_UFunction_AMyProjectCharacter_StopSprinting();
 	ENGINE_API UClass* Z_Construct_UClass_UBoxComponent_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_USoundCue_NoRegister();
+	MYPROJECT_API UClass* Z_Construct_UClass_UCharacterDataAsset_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_UDataTable_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_UCameraComponent_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_USpringArmComponent_NoRegister();
@@ -700,6 +701,10 @@ static struct FScriptStruct_MyProject_StaticRegisterNativesFPlayerAttackMontage
 #endif
 		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_PunchSoundCue;
 #if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_CharacterDataAsset_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_CharacterDataAsset;
+#if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_PlayerAttackDataTable_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_PlayerAttackDataTable;
@@ -752,21 +757,21 @@ static struct FScriptStruct_MyProject_StaticRegisterNativesFPlayerAttackMontage
 		{ "ModuleRelativePath", "MyProjectCharacter.h" },
 	};
 #endif
-	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_AMyProjectCharacter_Statics::NewProp_CameraDelay = { "CameraDelay", nullptr, (EPropertyFlags)0x0010000000020005, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AMyProjectCharacter, CameraDelay), METADATA_PARAMS(Z_Construct_UClass_AMyProjectCharacter_Statics::NewProp_CameraDelay_MetaData, ARRAY_COUNT(Z_Construct_UClass_AMyProjectCharacter_Statics::NewProp_CameraDelay_MetaData)) };
+	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_AMyProjectCharacter_Statics::NewProp_CameraDelay = { "CameraDelay", nullptr, (EPropertyFlags)0x0010000000000005, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AMyProjectCharacter, CameraDelay), METADATA_PARAMS(Z_Construct_UClass_AMyProjectCharacter_Statics::NewProp_CameraDelay_MetaData, ARRAY_COUNT(Z_Construct_UClass_AMyProjectCharacter_Statics::NewProp_CameraDelay_MetaData)) };
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AMyProjectCharacter_Statics::NewProp_CurrentSprintSpeed_MetaData[] = {
 		{ "Category", "Movement" },
 		{ "ModuleRelativePath", "MyProjectCharacter.h" },
 	};
 #endif
-	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_AMyProjectCharacter_Statics::NewProp_CurrentSprintSpeed = { "CurrentSprintSpeed", nullptr, (EPropertyFlags)0x0010000000020005, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AMyProjectCharacter, CurrentSprintSpeed), METADATA_PARAMS(Z_Construct_UClass_AMyProjectCharacter_Statics::NewProp_CurrentSprintSpeed_MetaData, ARRAY_COUNT(Z_Construct_UClass_AMyProjectCharacter_Statics::NewProp_CurrentSprintSpeed_MetaData)) };
+	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_AMyProjectCharacter_Statics::NewProp_CurrentSprintSpeed = { "CurrentSprintSpeed", nullptr, (EPropertyFlags)0x0010000000000005, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AMyProjectCharacter, CurrentSprintSpeed), METADATA_PARAMS(Z_Construct_UClass_AMyProjectCharacter_Statics::NewProp_CurrentSprintSpeed_MetaData, ARRAY_COUNT(Z_Construct_UClass_AMyProjectCharacter_Statics::NewProp_CurrentSprintSpeed_MetaData)) };
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AMyProjectCharacter_Statics::NewProp_CurrentWalkSpeed_MetaData[] = {
 		{ "Category", "Movement" },
 		{ "ModuleRelativePath", "MyProjectCharacter.h" },
 	};
 #endif
-	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_AMyProjectCharacter_Statics::NewProp_CurrentWalkSpeed = { "CurrentWalkSpeed", nullptr, (EPropertyFlags)0x0010000000020005, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AMyProjectCharacter, CurrentWalkSpeed), METADATA_PARAMS(Z_Construct_UClass_AMyProjectCharacter_Statics::NewProp_CurrentWalkSpeed_MetaData, ARRAY_COUNT(Z_Construct_UClass_AMyProjectCharacter_Statics::NewProp_CurrentWalkSpeed_MetaData)) };
+	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_AMyProjectCharacter_Statics::NewProp_CurrentWalkSpeed = { "CurrentWalkSpeed", nullptr, (EPropertyFlags)0x0010000000000005, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AMyProjectCharacter, CurrentWalkSpeed), METADATA_PARAMS(Z_Construct_UClass_AMyProjectCharacter_Statics::NewProp_CurrentWalkSpeed_MetaData, ARRAY_COUNT(Z_Construct_UClass_AMyProjectCharacter_Statics::NewProp_CurrentWalkSpeed_MetaData)) };
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AMyProjectCharacter_Statics::NewProp_UpperPitchBound_MetaData[] = {
 		{ "Category", "Sound" },
@@ -804,7 +809,7 @@ static struct FScriptStruct_MyProject_StaticRegisterNativesFPlayerAttackMontage
 		{ "ToolTip", "Base turn rate, in deg/sec. Other scaling may affect final turn rate." },
 	};
 #endif
-	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_AMyProjectCharacter_Statics::NewProp_BaseTurnRate = { "BaseTurnRate", nullptr, (EPropertyFlags)0x0010000000020015, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AMyProjectCharacter, BaseTurnRate), METADATA_PARAMS(Z_Construct_UClass_AMyProjectCharacter_Statics::NewProp_BaseTurnRate_MetaData, ARRAY_COUNT(Z_Construct_UClass_AMyProjectCharacter_Statics::NewProp_BaseTurnRate_MetaData)) };
+	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_AMyProjectCharacter_Statics::NewProp_BaseTurnRate = { "BaseTurnRate", nullptr, (EPropertyFlags)0x0010000000020005, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AMyProjectCharacter, BaseTurnRate), METADATA_PARAMS(Z_Construct_UClass_AMyProjectCharacter_Statics::NewProp_BaseTurnRate_MetaData, ARRAY_COUNT(Z_Construct_UClass_AMyProjectCharacter_Statics::NewProp_BaseTurnRate_MetaData)) };
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AMyProjectCharacter_Statics::NewProp_RightFistCollisionBox_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
@@ -839,6 +844,14 @@ static struct FScriptStruct_MyProject_StaticRegisterNativesFPlayerAttackMontage
 	};
 #endif
 	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AMyProjectCharacter_Statics::NewProp_PunchSoundCue = { "PunchSoundCue", nullptr, (EPropertyFlags)0x0040000000010005, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AMyProjectCharacter, PunchSoundCue), Z_Construct_UClass_USoundCue_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AMyProjectCharacter_Statics::NewProp_PunchSoundCue_MetaData, ARRAY_COUNT(Z_Construct_UClass_AMyProjectCharacter_Statics::NewProp_PunchSoundCue_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AMyProjectCharacter_Statics::NewProp_CharacterDataAsset_MetaData[] = {
+		{ "AllowPrivateAccess", "true" },
+		{ "Category", "DataAsset" },
+		{ "ModuleRelativePath", "MyProjectCharacter.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AMyProjectCharacter_Statics::NewProp_CharacterDataAsset = { "CharacterDataAsset", nullptr, (EPropertyFlags)0x0040000000010015, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AMyProjectCharacter, CharacterDataAsset), Z_Construct_UClass_UCharacterDataAsset_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AMyProjectCharacter_Statics::NewProp_CharacterDataAsset_MetaData, ARRAY_COUNT(Z_Construct_UClass_AMyProjectCharacter_Statics::NewProp_CharacterDataAsset_MetaData)) };
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AMyProjectCharacter_Statics::NewProp_PlayerAttackDataTable_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
@@ -890,6 +903,7 @@ static struct FScriptStruct_MyProject_StaticRegisterNativesFPlayerAttackMontage
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMyProjectCharacter_Statics::NewProp_LeftFistCollisionBox,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMyProjectCharacter_Statics::NewProp_PunchThrowSoundCue,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMyProjectCharacter_Statics::NewProp_PunchSoundCue,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMyProjectCharacter_Statics::NewProp_CharacterDataAsset,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMyProjectCharacter_Statics::NewProp_PlayerAttackDataTable,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMyProjectCharacter_Statics::NewProp_MeleeFistAttackMontage,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMyProjectCharacter_Statics::NewProp_FollowCamera,
@@ -922,7 +936,7 @@ static struct FScriptStruct_MyProject_StaticRegisterNativesFPlayerAttackMontage
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AMyProjectCharacter, 195362792);
+	IMPLEMENT_CLASS(AMyProjectCharacter, 280976080);
 	template<> MYPROJECT_API UClass* StaticClass<AMyProjectCharacter>()
 	{
 		return AMyProjectCharacter::StaticClass();

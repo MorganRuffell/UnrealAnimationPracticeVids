@@ -3,7 +3,7 @@
   <ItemGroup>
     <None Include="..\..\MyProject.uproject" />
     <Filter Include="Source">
-      <UniqueIdentifier>{F65A8BED-11BE-4E44-B0CE-E2EC09A450EB}</UniqueIdentifier>
+      <UniqueIdentifier>{FEF5744A-747B-4268-9714-96FF5ACADC0E}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\MyProject.Target.cs">
       <Filter>Source</Filter>
@@ -14,7 +14,7 @@
     <None Include="..\..\data_table_CSV.csv" />
     <None Include="..\..\Data_table_JSON.json" />
     <Filter Include="Config">
-      <UniqueIdentifier>{71C42B5C-02D0-46D3-AD22-D7FDD0F687F5}</UniqueIdentifier>
+      <UniqueIdentifier>{5CBF6C11-AF5A-4D1C-8B2C-F39160748B1C}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Config\DefaultEditor.ini">
       <Filter>Config</Filter>
@@ -32,12 +32,24 @@
       <Filter>Config</Filter>
     </None>
     <Filter Include="Source\MyProject">
-      <UniqueIdentifier>{0E7BE621-3A20-4A17-B899-3698784D60D6}</UniqueIdentifier>
+      <UniqueIdentifier>{AA7E9378-313F-41A0-BC63-5F96F33ABE57}</UniqueIdentifier>
     </Filter>
     <ClCompile Include="..\..\Source\MyProject\AttackStartNotifyState.cpp">
       <Filter>Source\MyProject</Filter>
     </ClCompile>
     <ClInclude Include="..\..\Source\MyProject\AttackStartNotifyState.h">
+      <Filter>Source\MyProject</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\MyProject\CharacterDataAsset.cpp">
+      <Filter>Source\MyProject</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\MyProject\CharacterDataAsset.h">
+      <Filter>Source\MyProject</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\MyProject\MyAnimNotifyState.cpp">
+      <Filter>Source\MyProject</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\MyProject\MyAnimNotifyState.h">
       <Filter>Source\MyProject</Filter>
     </ClInclude>
     <ClCompile Include="..\..\Source\MyProject\MyAttackAnimNotify.cpp">
@@ -67,32 +79,20 @@
     <ClInclude Include="..\..\Source\MyProject\MyProjectGameMode.h">
       <Filter>Source\MyProject</Filter>
     </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="..\..\Source\MyProject\MyAnimNotifyState.h">
-      <Filter>Source\MyProject</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\MyProject\UI\InGameHUD.h">
-      <Filter>Source\MyProject\UI</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\MyProject\UI\ComboWidget.h">
-      <Filter>Source\MyProject\UI</Filter>
-    </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="..\..\Source\MyProject\MyAnimNotifyState.cpp">
-      <Filter>Source\MyProject</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\MyProject\UI\InGameHUD.cpp">
-      <Filter>Source\MyProject\UI</Filter>
-    </ClCompile>
+    <Filter Include="Source\MyProject\UI">
+      <UniqueIdentifier>{37CAB3F8-A82F-43A3-8A57-52780F276961}</UniqueIdentifier>
+    </Filter>
     <ClCompile Include="..\..\Source\MyProject\UI\ComboWidget.cpp">
       <Filter>Source\MyProject\UI</Filter>
     </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <Filter Include="Source\MyProject\UI">
-      <UniqueIdentifier>{91bf1924-c8cc-459c-9117-e61619f1062e}</UniqueIdentifier>
-    </Filter>
+    <ClInclude Include="..\..\Source\MyProject\UI\ComboWidget.h">
+      <Filter>Source\MyProject\UI</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\MyProject\UI\InGameHUD.cpp">
+      <Filter>Source\MyProject\UI</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\MyProject\UI\InGameHUD.h">
+      <Filter>Source\MyProject\UI</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

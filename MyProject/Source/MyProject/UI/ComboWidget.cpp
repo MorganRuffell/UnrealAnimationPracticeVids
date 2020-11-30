@@ -1,7 +1,7 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
-#include "Engine.h"
 #include "ComboWidget.h"
+#include "Engine.h"
 
 UComboWidget::UComboWidget(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer)
 {
@@ -22,7 +22,8 @@ void UComboWidget::NativeConstruct()
 	
 	//Add all of the animations you are going to do with the UI.
 	ComboFadeAnim = GetAnimationByName(TEXT("ComboFade"));
-
+	ComboShakeAnim = GetAnimationByName(TEXT("ComboShake"));
+	ComboAddShakeAnim = GetAnimationByName(TEXT("ComboAddShake"));
 }
 
 

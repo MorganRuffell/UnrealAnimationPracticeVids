@@ -11,9 +11,10 @@
 #include "UObject/ConstructorHelpers.h"
 #include "GameFramework/SpringArmComponent.h"
 #include "UI/InGameHUD.h"
+#include "CharacterDataAsset.h"
 
 #include "GameFramework/Pawn.h"
- 
+
 
 //////////////////////////////////////////////////////////////////////////
 // AMyProjectCharacter
@@ -50,7 +51,7 @@ AMyProjectCharacter::AMyProjectCharacter()
 	GetCharacterMovement()->JumpZVelocity = 600.f;
 	GetCharacterMovement()->AirControl = 0.2f;
 	GetCharacterMovement()->MaxWalkSpeed = 600.0f;
-	
+
 	// Create a camera boom (pulls in towards the player if there is a collision)
 	CameraBoom = CreateDefaultSubobject<USpringArmComponent>(TEXT("CameraBoom"));
 	CameraBoom->SetupAttachment(RootComponent);
@@ -81,10 +82,10 @@ AMyProjectCharacter::AMyProjectCharacter()
 	{
 		PlayerAttackDataTable = PlayerAttackMontageDataObject.Object;
 	}
-	
+
 	//Load the sound Cue Object
 	static ConstructorHelpers::FObjectFinder<USoundCue> PunchSoundCueObject(TEXT("SoundCue'/Game/Anim/Audio/PunchSoundCue.PunchSoundCue'"));
-	
+
 	if (PunchSoundCueObject.Succeeded())
 	{
 		PunchSoundCue = PunchSoundCueObject.Object;
@@ -128,7 +129,7 @@ AMyProjectCharacter::AMyProjectCharacter()
 	LeftFistCollisionBox->SetNotifyRigidBodyCollision(false);
 	RightFistCollisionBox->SetNotifyRigidBodyCollision(false);
 
-	
+
 	//Based on what we set up in project settings we need to add these collision profiles.
 	//Go to the project settings and read through this, if you're stuck!
 	LeftFistCollisionBox->SetCollisionProfileName(MeleeCollisionProfile.Disabled);
@@ -143,14 +144,30 @@ void AMyProjectCharacter::BeginPlay()
 {
 	//Passing a call to the super class iteration before we start playing.
 	Super::BeginPlay();
-	
+
+	//Setting the Lvalues of our components to be equal to the character data asset lvalues.
+	//Done at begin play so that the game starts with these values.
+
+	//Issue with retrieving values from the data asset.
+	BaseTurnRate = Cast<UCharacterDataAsset>;
+	BaseTurnRate = CharacterDataAsset->BaseTurnRate;
+
+
+	BaseLookUpRate = CharacterDataAsset->BaseLookUpRate;
+
+	CurrentWalkSpeed = CharacterDataAsset->CurrentWalkSpeed;
+	CurrentSprintSpeed = CharacterDataAsset->CurrentSprintSpeed;
+
+
+
+
 	//Attach Collision Components to sockets based on transformation definitions.
 	//Sockets are little collider locations set up on the bone structure which is imported into unreal.
 	//Look into this and see the different params that this takes. 15:10 on video to see how this works. WATCH IT.
 	FAttachmentTransformRules AttachmentRules(EAttachmentRule::SnapToTarget, EAttachmentRule::SnapToTarget, EAttachmentRule::KeepWorld, false);
 
 	//Attaching to the sockets that we defined on the skeleton
-	LeftFistCollisionBox->AttachToComponent(GetMesh(),AttachmentRules,"LSocket_Collider");
+	LeftFistCollisionBox->AttachToComponent(GetMesh(), AttachmentRules, "LSocket_Collider");
 	RightFistCollisionBox->AttachToComponent(GetMesh(), AttachmentRules, "RSocket_Collider");
 
 	//OnComponent hit, similar to bp we are creating this implementation inside our begin play.
@@ -198,7 +215,7 @@ void AMyProjectCharacter::SetupPlayerInputComponent(class UInputComponent* Playe
 	PlayerInputComponent->BindAction("Jump", IE_Pressed, this, &ACharacter::Jump);
 	PlayerInputComponent->BindAction("Jump", IE_Released, this, &ACharacter::StopJumping);
 
-	PlayerInputComponent->BindAction("Sprint", IE_Pressed,this, &AMyProjectCharacter::Sprint);
+	PlayerInputComponent->BindAction("Sprint", IE_Pressed, this, &AMyProjectCharacter::Sprint);
 	PlayerInputComponent->BindAction("Sprint", IE_Released, this, &AMyProjectCharacter::StopSprinting);
 
 	PlayerInputComponent->BindAxis("MoveForward", this, &AMyProjectCharacter::MoveForward);
@@ -247,19 +264,18 @@ void AMyProjectCharacter::MoveForward(float Value)
 
 void AMyProjectCharacter::MoveRight(float Value)
 {
-	if ( (Controller != NULL) && (Value != 0.0f) )
+	if ((Controller != NULL) && (Value != 0.0f))
 	{
 		// find out which way is right
 		const FRotator Rotation = Controller->GetControlRotation();
 		const FRotator YawRotation(0, Rotation.Yaw, 0);
-	
+
 		// get right vector 
 		const FVector Direction = FRotationMatrix(YawRotation).GetUnitAxis(EAxis::Y);
 		// add movement in that direction
 		AddMovementInput(Direction, Value);
 	}
 }
-
 
 void AMyProjectCharacter::AttackStart()
 {
@@ -280,7 +296,6 @@ void AMyProjectCharacter::AttackStart()
 	RightFistCollisionBox->SetGenerateOverlapEvents(true);
 
 }
-
 
 void AMyProjectCharacter::AttackInput()
 {
@@ -313,24 +328,24 @@ void AMyProjectCharacter::AttackInput()
 	if (PlayerAttackDataTable != NULL)
 	{
 		static const FString ContextString(TEXT("Player Attack Montage Context"));
-		FPlayerAttackMontage* AttackMontage = PlayerAttackDataTable->FindRow<FPlayerAttackMontage>(FName(TEXT("AnimationMontage0")),ContextString,true);
-		
+		FPlayerAttackMontage* AttackMontage = PlayerAttackDataTable->FindRow<FPlayerAttackMontage>(FName(TEXT("AnimationMontage0")), ContextString, true);
+
 		if (AttackMontage != NULL)
 		{
 			//Generate a random number between 1 & whatever is defined in the datatable for this montage
 			int MontageSectionIndex = rand() % AttackMontage->AnimSectionCount + 1;
 
 			//Create a new fstring reference for the animation section
-			FString MontageSection = "start_" + FString::FromInt(MontageSectionIndex);	
-		
+			FString MontageSection = "start_" + FString::FromInt(MontageSectionIndex);
+
 			//Then play the result
 			PlayAnimMontage(AttackMontage->AnimMontage, AnimationMontageSpeed, FName(*MontageSection));
-			
+
 			//Consider using a timer with the animation input.
-			
+
 
 		}
-	
+
 	}
 
 	AttackEnd();
@@ -346,7 +361,7 @@ void AMyProjectCharacter::AttackEnd()
 	//want to force simulates hit to be true.
 	LeftFistCollisionBox->SetNotifyRigidBodyCollision(false);
 	RightFistCollisionBox->SetNotifyRigidBodyCollision(false);
-	
+
 
 	//Then when attack end is called post attack. We then make the colliders not live. Think of them like
 	//live wires, on enemies die. Off Enemies don't die.
@@ -394,13 +409,14 @@ void AMyProjectCharacter::OnAttackHit(UPrimitiveComponent* HitComponent, AActor*
 	{
 		CurrentComboCount++;
 		InGameHUD->UpdateComboCount(CurrentComboCount);
-	
+
 	}
 
 	if (!GetWorld()->GetTimerManager().IsTimerActive(ComboResetHandle))
 	{
 		GetWorld()->GetTimerManager().SetTimer(ComboResetHandle, this, &AMyProjectCharacter::ResetCombo, ComboResetDelay, false);
-	} else {
+	}
+	else {
 		GetWorld()->GetTimerManager().ClearTimer(ComboResetHandle);
 		GetWorld()->GetTimerManager().SetTimer(ComboResetHandle, this, &AMyProjectCharacter::ResetCombo, ComboResetDelay, false);
 
@@ -417,18 +433,18 @@ void AMyProjectCharacter::ResetCombo()
 	if (InGameHUD)
 	{
 		InGameHUD->ResetCombo();
-	
+
 	}
 }
 
 void AMyProjectCharacter::Sprint()
 {
 	Log(ELogLevel::TRACE, __FUNCTION__);
-	
+
 	GetCharacterMovement()->MaxWalkSpeed = CurrentSprintSpeed;
 
 	//CameraBoom->TargetArmLength = FMath::FInterpTo(300.0f, 350.0f, 100.0f, 100.0f); // The camera follows at this distance behind the character	
-	CameraBoom->TargetArmLength = FMath::Lerp(300.0f,350.0f,0.9f);
+	CameraBoom->TargetArmLength = FMath::Lerp(300.0f, 350.0f, 0.9f);
 
 
 }
@@ -436,7 +452,7 @@ void AMyProjectCharacter::Sprint()
 void AMyProjectCharacter::StopSprinting()
 {
 	Log(ELogLevel::TRACE, __FUNCTION__);
-	GetCharacterMovement()-> MaxWalkSpeed = CurrentWalkSpeed;
+	GetCharacterMovement()->MaxWalkSpeed = CurrentWalkSpeed;
 	CameraBoom->TargetArmLength = FMath::FInterpTo(350.0f, 300.0f, 20.0f, 20.0f);; // The camera follows at this distance behind the character	
 
 }

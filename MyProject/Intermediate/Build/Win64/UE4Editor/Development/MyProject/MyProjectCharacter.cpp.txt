@@ -968,3 +968,5 @@ C:\UE_4.22\UE_4.22\Engine\Source\Runtime\UMG\Public\Animation/UMGSequencePlayer.
 C:\UE_4.22\UE_4.22\Engine\Intermediate\Build\Win64\UE4Editor\Inc\UMG\UMGSequencePlayer.generated.h
 C:\Users\1804824\Desktop\UnrealYouTubeRepo\UnrealAnimationPracticeVids\MyProject\Intermediate\Build\Win64\UE4Editor\Inc\MyProject\ComboWidget.generated.h
 C:\Users\1804824\Desktop\UnrealYouTubeRepo\UnrealAnimationPracticeVids\MyProject\Intermediate\Build\Win64\UE4Editor\Inc\MyProject\InGameHUD.generated.h
+C:\Users\1804824\Desktop\UnrealYouTubeRepo\UnrealAnimationPracticeVids\MyProject\Source\MyProject\CharacterDataAsset.h
+C:\Users\1804824\Desktop\UnrealYouTubeRepo\UnrealAnimationPracticeVids\MyProject\Intermediate\Build\Win64\UE4Editor\Inc\MyProject\CharacterDataAsset.generated.h

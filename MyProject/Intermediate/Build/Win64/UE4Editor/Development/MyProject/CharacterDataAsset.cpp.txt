@@ -1,0 +1,3 @@
+C:\Users\1804824\Desktop\UnrealYouTubeRepo\UnrealAnimationPracticeVids\MyProject\Intermediate\Build\Win64\UE4Editor\Development\MyProject\Definitions.MyProject.h
+C:\Users\1804824\Desktop\UnrealYouTubeRepo\UnrealAnimationPracticeVids\MyProject\Source\MyProject\CharacterDataAsset.h
+C:\Users\1804824\Desktop\UnrealYouTubeRepo\UnrealAnimationPracticeVids\MyProject\Intermediate\Build\Win64\UE4Editor\Inc\MyProject\CharacterDataAsset.generated.h
