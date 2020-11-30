@@ -149,8 +149,8 @@ void AMyProjectCharacter::BeginPlay()
 	//Done at begin play so that the game starts with these values.
 
 	//Issue with retrieving values from the data asset.
-	BaseTurnRate = Cast<UCharacterDataAsset>;
-	BaseTurnRate = CharacterDataAsset->BaseTurnRate;
+	//BaseTurnRate = Cast<UCharacterDataAsset>();
+	//BaseTurnRate = CharacterDataAsset->BaseTurnRate;
 
 
 	BaseLookUpRate = CharacterDataAsset->BaseLookUpRate;
