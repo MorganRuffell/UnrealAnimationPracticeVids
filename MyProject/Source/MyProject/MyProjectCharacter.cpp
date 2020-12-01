@@ -328,7 +328,7 @@ void AMyProjectCharacter::AttackInput()
 	if (PlayerAttackDataTable != NULL)
 	{
 		static const FString ContextString(TEXT("Player Attack Montage Context"));
-		FPlayerAttackMontage* AttackMontage = PlayerAttackDataTable->FindRow<FPlayerAttackMontage>(FName(TEXT("AnimationMontage0")), ContextString, true);
+		AttackMontage = PlayerAttackDataTable->FindRow<FPlayerAttackMontage>(FName(TEXT("AnimationMontage0")), ContextString, true);
 
 		if (AttackMontage != NULL)
 		{

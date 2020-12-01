@@ -1,4 +1,4 @@
-﻿18:29:33.953     0>Search paths being used for $(MSBuildExtensionsPath) are C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild;$(MSBuildProgramFiles32)\MSBuild
+﻿18:15:36.662     0>Search paths being used for $(MSBuildExtensionsPath) are C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild;$(MSBuildProgramFiles32)\MSBuild
                    Trying to import C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\$(MSBuildToolsVersion)\Microsoft.Common.props using extensions path C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild
                    Property reassignment: $(MSBuildProjectExtensionsPath)="C:\Users\1804824\Desktop\UnrealYouTubeRepo\UnrealAnimationPracticeVids\MyProject\Intermediate\ProjectFiles\obj\" (previous value: "obj\") at C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Microsoft.Common.props (56,5)
                    Search paths being used for $(MSBuildExtensionsPath) are C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild;$(MSBuildProgramFiles32)\MSBuild
@@ -191,7 +191,7 @@
                    Overriding target "GetTargetPathWithTargetPlatformMoniker" in project "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets" with target "GetTargetPathWithTargetPlatformMoniker" from project "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.Cpp.DesignTime.targets".
                    The target "CoreCompile" listed in a BeforeTargets attribute at "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VisualStudio\v16.0\CodeAnalysis\Microsoft.CodeAnalysis.targets (57,12)" does not exist in the project, and will be ignored.
                    The target "ClCompile" listed in an AfterTargets attribute at "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VisualStudio\v16.0\CodeAnalysis\Microsoft.CodeAnalysis.targets (467,11)" does not exist in the project, and will be ignored.
-Build started 30/11/2020 18:29:34.
+Build started 01/12/2020 18:15:36.
 Environment at start of build:
                    ADSK_3DSMAX_x64_2019 = C:\Program Files\Autodesk\3DSMAX2019\3ds Max 2019\
                    ADSK_CLM_WPAD_PROXY_CHECK = FALSE
@@ -202,6 +202,8 @@ Environment at start of build:
                    CommonProgramFiles = C:\Program Files (x86)\Common Files
                    CommonProgramFiles(x86) = C:\Program Files (x86)\Common Files
                    CommonProgramW6432 = C:\Program Files\Common Files
+                   COMPLUS_InstallRoot = 
+                   COMPLUS_Version = 
                    COMPUTERNAME = UL04PCJL11D-18
                    ComSpec = C:\Windows\system32\cmd.exe
                    DriverData = C:\Windows\System32\Drivers\DriverData
@@ -217,11 +219,9 @@ Environment at start of build:
                    NUMBER_OF_PROCESSORS = 16
                    OculusBase = C:\Program Files\Oculus\
                    OneDrive = C:\Users\1804824\OneDrive
-                   OPENSSL_ia32cap = :~0x20000000
                    OS = Windows_NT
                    Path = C:\Program Files\Oculus\Support\oculus-runtime;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\iCLS\;C:\Program Files\Intel\Intel(R) Management Engine Components\iCLS\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Windows\CCM;C:\Windows\CCM;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Common Files\Autodesk Shared\;C:\Program Files\NVIDIA Corporation\NVIDIA NGX;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files (x86)\GtkSharp\2.12\bin;C:\Users\1804824\AppData\Local\Microsoft\WindowsApps;;D:\Microsoft VS Code\bin
                    PATHEXT = .COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC
-                   PATHOriginal = C:\Program Files\Oculus\Support\oculus-runtime;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\iCLS\;C:\Program Files\Intel\Intel(R) Management Engine Components\iCLS\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Windows\CCM;C:\Windows\CCM;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Common Files\Autodesk Shared\;C:\Program Files\NVIDIA Corporation\NVIDIA NGX;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files (x86)\GtkSharp\2.12\bin;C:\Users\1804824\AppData\Local\Microsoft\WindowsApps;;D:\Microsoft VS Code\bin
                    PkgDefApplicationConfigFile = C:\Users\1804824\AppData\Local\Microsoft\VisualStudio\16.0_668bb376\devenv.exe.config
                    PROCESSOR_ARCHITECTURE = x86
                    PROCESSOR_ARCHITEW6432 = AMD64
@@ -236,7 +236,7 @@ Environment at start of build:
                    PUBLIC = C:\Users\Public
                    QX_FLOATING_IP = 10.4.48.20
                    QX_FLOATING_PORT = 4567
-                   ServiceHubUniqueLogDir = 364A4509
+                   ServiceHubUniqueLogDir = 71F06143
                    SESSIONNAME = Console
                    SUBSTANCE_DESIGNER_LICENSE = \\ul20vn0118\Substancelicense\license-SubstanceDesigner.key
                    SUBSTANCE_PAINTER_LICENSE = \\ul20vn0118\Substancelicense\SubstancePainter.key
@@ -259,10 +259,9 @@ Environment at start of build:
                    VSLANG = 1033
                    VSSKUEDITION = Community
                    windir = C:\Windows
-                   EOS_OVERLAY_ENABLE_VULKAN_WIN64 = 1
 
-18:29:34.020     1>Project "C:\Users\1804824\Desktop\UnrealYouTubeRepo\UnrealAnimationPracticeVids\MyProject\Intermediate\ProjectFiles\MyProject.vcxproj" on node 2 (Build target(s)).
-18:29:34.020     1>Initial Properties:
+18:15:36.673     1>Project "C:\Users\1804824\Desktop\UnrealYouTubeRepo\UnrealAnimationPracticeVids\MyProject\Intermediate\ProjectFiles\MyProject.vcxproj" on node 2 (Build target(s)).
+18:15:36.673     1>Initial Properties:
                    _ApplicationTypeAndRevisionFound = true
                    _DebugSymbolsProduced = false
                    _DefaultLLVMInstallDir = C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\Llvm
@@ -648,7 +647,6 @@ Environment at start of build:
                    EmbedManifest = true
                    EnableManagedIncrementalBuild = false
                    EnableUnitySupport = false
-                   EOS_OVERLAY_ENABLE_VULKAN_WIN64 = 1
                    ExcludePath = 
                    ExecutablePath = C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\bin\HostX86\x64;C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\bin\HostX86\x86;C:\Program Files (x86)\Windows Kits\10\bin\10.0.18362.0\x86;;C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\tools;C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\ide;C:\Program Files (x86)\HTML Help Workshop;;C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin;C:\Windows\Microsoft.NET\Framework\v4.0.30319\;;C:\Program Files\Oculus\Support\oculus-runtime;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\iCLS\;C:\Program Files\Intel\Intel(R) Management Engine Components\iCLS\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Windows\CCM;C:\Windows\CCM;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Common Files\Autodesk Shared\;C:\Program Files\NVIDIA Corporation\NVIDIA NGX;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files (x86)\GtkSharp\2.12\bin;C:\Users\1804824\AppData\Local\Microsoft\WindowsApps;;D:\Microsoft VS Code\bin;
                    ExpandSDKAllowedReferenceExtensions = 
@@ -662,6 +660,8 @@ Environment at start of build:
                    FindInvalidProjectReferencesDependsOn = 
                          GetReferenceTargetPlatformMonikers
                        
+                   FPS_BROWSER_APP_PROFILE_STRING = Internet Explorer
+                   FPS_BROWSER_USER_PROFILE_STRING = Default
                    Framework20Dir = @(_TargetFramework20DirectoryItem)
                    Framework30Dir = @(_TargetFramework30DirectoryItem)
                    Framework35Dir = @(_TargetFramework35DirectoryItem)
@@ -773,7 +773,7 @@ Environment at start of build:
                    MSBuildRuntimeType = Full
                    MSBuildRuntimeVersion = 4.0.30319
                    MSBuildSDKsPath = C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Sdks
-                   MSBuildStartupDirectory = C:\UE_4.22\UE_4.22\Engine\Binaries\Win64
+                   MSBuildStartupDirectory = C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE
                    MSBuildToolsPath = C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin
                    MSBuildToolsPath32 = C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin
                    MSBuildToolsPath64 = C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\amd64
@@ -809,7 +809,6 @@ Environment at start of build:
                    NUMBER_OF_PROCESSORS = 16
                    OculusBase = C:\Program Files\Oculus\
                    OneDrive = C:\Users\1804824\OneDrive
-                   OPENSSL_ia32cap = :~0x20000000
                    OS = Windows_NT
                    OutDir = C:\Users\1804824\Desktop\UnrealYouTubeRepo\UnrealAnimationPracticeVids\MyProject\Intermediate\ProjectFiles\..\Build\Unused\
                    OutDirWasSpecified = false
@@ -819,7 +818,6 @@ Environment at start of build:
                    PackageDownloadSupported = true
                    Path = C:\Program Files\Oculus\Support\oculus-runtime;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\iCLS\;C:\Program Files\Intel\Intel(R) Management Engine Components\iCLS\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Windows\CCM;C:\Windows\CCM;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Common Files\Autodesk Shared\;C:\Program Files\NVIDIA Corporation\NVIDIA NGX;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files (x86)\GtkSharp\2.12\bin;C:\Users\1804824\AppData\Local\Microsoft\WindowsApps;;D:\Microsoft VS Code\bin
                    PATHEXT = .COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC
-                   PATHOriginal = C:\Program Files\Oculus\Support\oculus-runtime;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\iCLS\;C:\Program Files\Intel\Intel(R) Management Engine Components\iCLS\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Windows\CCM;C:\Windows\CCM;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Common Files\Autodesk Shared\;C:\Program Files\NVIDIA Corporation\NVIDIA NGX;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files (x86)\GtkSharp\2.12\bin;C:\Users\1804824\AppData\Local\Microsoft\WindowsApps;;D:\Microsoft VS Code\bin
                    PkgDefApplicationConfigFile = C:\Users\1804824\AppData\Local\Microsoft\VisualStudio\16.0_668bb376\devenv.exe.config
                    Platform = x64
                    Platform_Actual = x64
@@ -1014,6 +1012,7 @@ Environment at start of build:
                    SDKReferenceDirectoryRoot = C:\Users\1804824\AppData\Local\Microsoft SDKs;C:\Program Files (x86)\Microsoft SDKs
                    SDKReferenceRegistryRoot = Software\Microsoft\Microsoft SDKs
                    SDKVersion = 10.0
+                   ServiceHubUniqueLogDir = 71F06143
                    SESSIONNAME = Console
                    SGenFilesOutputGroupDependenciesDependsOn = 
                          ;
@@ -1219,8 +1218,8 @@ Environment at start of build:
                    VsInstallRoot = C:\Program Files (x86)\Microsoft Visual Studio\2019\Community
                    VSLANG = 1033
                    VSSKUEDITION = Community
-                   VSTEL_CurrentSolutionBuildID = 891952687
-                   VSTEL_SolutionSessionID = {B15769EA-8637-41EE-A47B-AFC82B66130D}
+                   VSTEL_CurrentSolutionBuildID = 22138390
+                   VSTEL_SolutionSessionID = {4AA3B776-576C-409D-80CC-62BB213EEBEB}
                    VSVersion = $(VisualStudioVersion)
                    WDKBinRoot = C:\Program Files (x86)\Windows Kits\10\bin\10.0.18362.0
                    WebBrowserDebuggerDebuggerType = Auto
@@ -1279,9 +1278,9 @@ Environment at start of build:
                    XamlTemporaryAssemblyName = MyProject
                    YieldDuringToolExecution = true
 
-18:29:34.020     1>Building with tools version "Current".
+18:15:36.673     1>Building with tools version "Current".
                    Project file contains ToolsVersion="15.0". This toolset may be unknown or missing, in which case you may be able to resolve this by installing the appropriate version of MSBuild, or the build may have been forced to a particular ToolsVersion for policy reasons. Treating the project as if it had ToolsVersion="Current". For more information, please see http://go.microsoft.com/fwlink/?LinkId=293424.
-18:29:34.021     1>Target "SetBuildDefaultEnvironmentVariables: (TargetId:2)" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.Cpp.Current.targets" from project "C:\Users\1804824\Desktop\UnrealYouTubeRepo\UnrealAnimationPracticeVids\MyProject\Intermediate\ProjectFiles\MyProject.vcxproj" (target "PrepareForNMakeBuild" depends on it):
+18:15:36.673     1>Target "SetBuildDefaultEnvironmentVariables: (TargetId:2)" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.Cpp.Current.targets" from project "C:\Users\1804824\Desktop\UnrealYouTubeRepo\UnrealAnimationPracticeVids\MyProject\Intermediate\ProjectFiles\MyProject.vcxproj" (target "PrepareForNMakeBuild" depends on it):
                    Using "SetEnv" task from assembly "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.Build.CppTasks.Common.dll".
                    Task "SetEnv" (TaskId:2)
                      Task Parameter:Name=PATH (TaskId:2)
@@ -1308,9 +1307,9 @@ Environment at start of build:
                      INCLUDE= (TaskId:5)
                      Output Property: INCLUDE= (TaskId:5)
                    Done executing task "SetEnv". (TaskId:5)
-18:29:34.027     1>Done building target "SetBuildDefaultEnvironmentVariables" in project "MyProject.vcxproj".: (TargetId:2)
+18:15:36.674     1>Done building target "SetBuildDefaultEnvironmentVariables" in project "MyProject.vcxproj".: (TargetId:2)
                    Target "SetUserMacroEnvironmentVariables" skipped, due to false condition; ('@(BuildMacro)' != '' and '$(DesignTimeBuild)' != 'true') was evaluated as ('' != '' and '' != 'true').
-18:29:34.027     1>Target "PrepareForNMakeBuild: (TargetId:3)" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.MakeFile.Targets" from project "C:\Users\1804824\Desktop\UnrealYouTubeRepo\UnrealAnimationPracticeVids\MyProject\Intermediate\ProjectFiles\MyProject.vcxproj" (target "Build" depends on it):
+18:15:36.674     1>Target "PrepareForNMakeBuild: (TargetId:3)" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.MakeFile.Targets" from project "C:\Users\1804824\Desktop\UnrealYouTubeRepo\UnrealAnimationPracticeVids\MyProject\Intermediate\ProjectFiles\MyProject.vcxproj" (target "Build" depends on it):
                    Using "MakeDir" task from assembly "Microsoft.Build.Tasks.Core, Version=15.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a".
                    Task "MakeDir" (TaskId:6)
                      Task Parameter:
@@ -1319,10 +1318,10 @@ Environment at start of build:
                              C:\Users\1804824\Desktop\UnrealYouTubeRepo\UnrealAnimationPracticeVids\MyProject\Intermediate\ProjectFiles\..\Build\Unused\
                              C:\Users\1804824\Desktop\UnrealYouTubeRepo\UnrealAnimationPracticeVids\MyProject\Intermediate\Build\Unused\ (TaskId:6)
                    Done executing task "MakeDir". (TaskId:6)
-18:29:34.036     1>Done building target "PrepareForNMakeBuild" in project "MyProject.vcxproj".: (TargetId:3)
-18:29:34.036     1>Target "BeforeResolveReferences: (TargetId:4)" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\1804824\Desktop\UnrealYouTubeRepo\UnrealAnimationPracticeVids\MyProject\Intermediate\ProjectFiles\MyProject.vcxproj" (target "ResolveReferences" depends on it):
-18:29:34.036     1>Done building target "BeforeResolveReferences" in project "MyProject.vcxproj".: (TargetId:4)
-18:29:34.036     1>Target "AssignProjectConfiguration: (TargetId:5)" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\1804824\Desktop\UnrealYouTubeRepo\UnrealAnimationPracticeVids\MyProject\Intermediate\ProjectFiles\MyProject.vcxproj" (target "ResolveReferences" depends on it):
+18:15:36.675     1>Done building target "PrepareForNMakeBuild" in project "MyProject.vcxproj".: (TargetId:3)
+18:15:36.675     1>Target "BeforeResolveReferences: (TargetId:4)" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\1804824\Desktop\UnrealYouTubeRepo\UnrealAnimationPracticeVids\MyProject\Intermediate\ProjectFiles\MyProject.vcxproj" (target "ResolveReferences" depends on it):
+18:15:36.675     1>Done building target "BeforeResolveReferences" in project "MyProject.vcxproj".: (TargetId:4)
+18:15:36.675     1>Target "AssignProjectConfiguration: (TargetId:5)" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\1804824\Desktop\UnrealYouTubeRepo\UnrealAnimationPracticeVids\MyProject\Intermediate\ProjectFiles\MyProject.vcxproj" (target "ResolveReferences" depends on it):
                    Set Property: OnlyReferenceAndBuildProjectsEnabledInSolutionConfiguration=true
                    Set Property: ShouldUnsetParentConfigurationAndPlatform=true
                    Using "AssignProjectConfiguration" task from assembly "Microsoft.Build.Tasks.Core, Version=15.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a".
@@ -1339,12 +1338,12 @@ Environment at start of build:
                      Task Parameter:OnlyReferenceAndBuildProjectsEnabledInSolutionConfiguration=True (TaskId:7)
                      Task Parameter:ShouldUnsetParentConfigurationAndPlatform=True (TaskId:7)
                    Done executing task "AssignProjectConfiguration". (TaskId:7)
-18:29:34.037     1>Done building target "AssignProjectConfiguration" in project "MyProject.vcxproj".: (TargetId:5)
+18:15:36.676     1>Done building target "AssignProjectConfiguration" in project "MyProject.vcxproj".: (TargetId:5)
                    Target "AssignProjectConfiguration" skipped. Previously built successfully.
-18:29:34.037     1>Target "_SplitProjectReferencesByFileExistence: (TargetId:6)" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\1804824\Desktop\UnrealYouTubeRepo\UnrealAnimationPracticeVids\MyProject\Intermediate\ProjectFiles\MyProject.vcxproj" (target "PrepareProjectReferences" depends on it):
+18:15:36.676     1>Target "_SplitProjectReferencesByFileExistence: (TargetId:6)" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\1804824\Desktop\UnrealYouTubeRepo\UnrealAnimationPracticeVids\MyProject\Intermediate\ProjectFiles\MyProject.vcxproj" (target "PrepareProjectReferences" depends on it):
                    Task "ResolveNonMSBuildProjectOutput" skipped, due to false condition; ('$(BuildingInsideVisualStudio)'=='true' and '@(ProjectReferenceWithConfiguration)'!='') was evaluated as ('true'=='true' and ''!='').
-18:29:34.037     1>Done building target "_SplitProjectReferencesByFileExistence" in project "MyProject.vcxproj".: (TargetId:6)
-18:29:34.037     1>Target "_GetProjectReferenceTargetFrameworkProperties: (TargetId:7)" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\1804824\Desktop\UnrealYouTubeRepo\UnrealAnimationPracticeVids\MyProject\Intermediate\ProjectFiles\MyProject.vcxproj" (target "PrepareProjectReferences" depends on it):
+18:15:36.676     1>Done building target "_SplitProjectReferencesByFileExistence" in project "MyProject.vcxproj".: (TargetId:6)
+18:15:36.676     1>Target "_GetProjectReferenceTargetFrameworkProperties: (TargetId:7)" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\1804824\Desktop\UnrealYouTubeRepo\UnrealAnimationPracticeVids\MyProject\Intermediate\ProjectFiles\MyProject.vcxproj" (target "PrepareProjectReferences" depends on it):
                    Set Property: ReferringTargetFrameworkForProjectReferences=
                    Using "MSBuild" task from assembly "Microsoft.Build.Tasks.Core, Version=15.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a".
                    Task "MSBuild" (TaskId:8)
@@ -1354,24 +1353,24 @@ Environment at start of build:
                      Task Parameter:SkipNonexistentTargets=True (TaskId:8)
                    Done executing task "MSBuild". (TaskId:8)
                    Task "GetReferenceNearestTargetFrameworkTask" skipped, due to false condition; ('@(_ProjectReferenceTargetFrameworkPossibilities->Count())' != '0' and '$(ReferringTargetFrameworkForProjectReferences)' != '') was evaluated as ('0' != '0' and '' != '').
-18:29:34.038     1>Done building target "_GetProjectReferenceTargetFrameworkProperties" in project "MyProject.vcxproj".: (TargetId:7)
-18:29:34.038     1>Target "PrepareProjectReferences: (TargetId:8)" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\1804824\Desktop\UnrealYouTubeRepo\UnrealAnimationPracticeVids\MyProject\Intermediate\ProjectFiles\MyProject.vcxproj" (target "ResolveProjectReferences" depends on it):
-18:29:34.038     1>Done building target "PrepareProjectReferences" in project "MyProject.vcxproj".: (TargetId:8)
-18:29:34.038     1>Target "ResolveProjectReferences: (TargetId:9)" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\1804824\Desktop\UnrealYouTubeRepo\UnrealAnimationPracticeVids\MyProject\Intermediate\ProjectFiles\MyProject.vcxproj" (target "ResolveReferences" depends on it):
+18:15:36.676     1>Done building target "_GetProjectReferenceTargetFrameworkProperties" in project "MyProject.vcxproj".: (TargetId:7)
+18:15:36.676     1>Target "PrepareProjectReferences: (TargetId:8)" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\1804824\Desktop\UnrealYouTubeRepo\UnrealAnimationPracticeVids\MyProject\Intermediate\ProjectFiles\MyProject.vcxproj" (target "ResolveProjectReferences" depends on it):
+18:15:36.676     1>Done building target "PrepareProjectReferences" in project "MyProject.vcxproj".: (TargetId:8)
+18:15:36.676     1>Target "ResolveProjectReferences: (TargetId:9)" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\1804824\Desktop\UnrealYouTubeRepo\UnrealAnimationPracticeVids\MyProject\Intermediate\ProjectFiles\MyProject.vcxproj" (target "ResolveReferences" depends on it):
                    Task "MSBuild" skipped, due to false condition; ('%(_MSBuildProjectReferenceExistent.BuildReference)' == 'true' and '@(ProjectReferenceWithConfiguration)' != '' and ('$(BuildingInsideVisualStudio)' == 'true' or '$(BuildProjectReferences)' != 'true') and '$(VisualStudioVersion)' != '10.0' and '@(_MSBuildProjectReferenceExistent)' != '') was evaluated as ('' == 'true' and '' != '' and ('true' == 'true' or 'true' != 'true') and '16.0' != '10.0' and '' != '').
                    Task "MSBuild" skipped, due to false condition; ('%(_MSBuildProjectReferenceExistent.BuildReference)' == 'true' and '@(ProjectReferenceWithConfiguration)' != '' and ('$(BuildingInsideVisualStudio)' == 'true' or '$(BuildProjectReferences)' != 'true') and '$(VisualStudioVersion)' == '10.0' and '@(_MSBuildProjectReferenceExistent)' != '') was evaluated as ('' == 'true' and '' != '' and ('true' == 'true' or 'true' != 'true') and '16.0' == '10.0' and '' != '').
                    Task "MSBuild" skipped, due to false condition; ('%(_MSBuildProjectReferenceExistent.BuildReference)' == 'true' and '@(ProjectReferenceWithConfiguration)' != '' and '$(BuildingInsideVisualStudio)' != 'true' and '$(BuildProjectReferences)' == 'true' and '@(_MSBuildProjectReferenceExistent)' != '') was evaluated as ('' == 'true' and '' != '' and 'true' != 'true' and 'true' == 'true' and '' != '').
                    Task "MSBuild" skipped, due to false condition; ('%(_MSBuildProjectReferenceExistent.BuildReference)' == 'true' and '@(ProjectReferenceWithConfiguration)' != '' and '$(BuildingProject)' == 'true' and '@(_MSBuildProjectReferenceExistent)' != '') was evaluated as ('' == 'true' and '' != '' and 'false' == 'true' and '' != '').
                    Task "Warning" skipped, due to false condition; ('@(ProjectReferenceWithConfiguration)' != '' and '@(_MSBuildProjectReferenceNonexistent)' != '') was evaluated as ('' != '' and '' != '').
-18:29:34.049     1>Done building target "ResolveProjectReferences" in project "MyProject.vcxproj".: (TargetId:9)
+18:15:36.676     1>Done building target "ResolveProjectReferences" in project "MyProject.vcxproj".: (TargetId:9)
                    Target "FindInvalidProjectReferences" skipped, due to false condition; ('$(FindInvalidProjectReferences)' == 'true') was evaluated as ('' == 'true').
                    Target "ResolveNativeReferences" skipped, due to false condition; ('@(NativeReference)'!='') was evaluated as (''!='').
                    Target "ResolveProjectReferences" skipped. Previously built successfully.
                    Target "FindInvalidProjectReferences" skipped, due to false condition; ('$(FindInvalidProjectReferences)' == 'true') was evaluated as ('' == 'true').
-18:29:34.049     1>Target "GetFrameworkPaths: (TargetId:10)" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\1804824\Desktop\UnrealYouTubeRepo\UnrealAnimationPracticeVids\MyProject\Intermediate\ProjectFiles\MyProject.vcxproj" (target "ResolveAssemblyReferences" depends on it):
-18:29:34.049     1>Done building target "GetFrameworkPaths" in project "MyProject.vcxproj".: (TargetId:10)
+18:15:36.676     1>Target "GetFrameworkPaths: (TargetId:10)" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\1804824\Desktop\UnrealYouTubeRepo\UnrealAnimationPracticeVids\MyProject\Intermediate\ProjectFiles\MyProject.vcxproj" (target "ResolveAssemblyReferences" depends on it):
+18:15:36.676     1>Done building target "GetFrameworkPaths" in project "MyProject.vcxproj".: (TargetId:10)
                    Target "GetFrameworkPaths" skipped. Previously built successfully.
-18:29:34.049     1>Target "GetReferenceAssemblyPaths: (TargetId:11)" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\1804824\Desktop\UnrealYouTubeRepo\UnrealAnimationPracticeVids\MyProject\Intermediate\ProjectFiles\MyProject.vcxproj" (target "ResolveAssemblyReferences" depends on it):
+18:15:36.676     1>Target "GetReferenceAssemblyPaths: (TargetId:11)" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\1804824\Desktop\UnrealYouTubeRepo\UnrealAnimationPracticeVids\MyProject\Intermediate\ProjectFiles\MyProject.vcxproj" (target "ResolveAssemblyReferences" depends on it):
                    Set Property: TargetFrameworkDirectory=
                    Task "GetReferenceAssemblyPaths" skipped, due to false condition; ('$(TargetFrameworkMoniker)' != '' and ('$(_TargetFrameworkDirectories)' == '' or '$(_FullFrameworkReferenceAssemblyPaths)' == '')) was evaluated as ('' != '' and ('' == '' or '' == '')).
                    Set Property: TargetFrameworkDirectory=;;
@@ -1390,11 +1389,11 @@ Environment at start of build:
                          C:\Users\1804824\Desktop\UnrealYouTubeRepo\UnrealAnimationPracticeVids\MyProject\Intermediate\ProjectFiles\..\Build\Unused\
                        
                    Set Property: TargetFrameworkProfile=
-18:29:34.050     1>Done building target "GetReferenceAssemblyPaths" in project "MyProject.vcxproj".: (TargetId:11)
+18:15:36.677     1>Done building target "GetReferenceAssemblyPaths" in project "MyProject.vcxproj".: (TargetId:11)
                    Target "GetFrameworkPaths" skipped. Previously built successfully.
                    Target "GetReferenceAssemblyPaths" skipped. Previously built successfully.
                    Target "AssignLinkMetadata" skipped, due to false condition; ( '$(SynthesizeLinkMetadata)' == 'true' ) was evaluated as ( '' == 'true' ).
-18:29:34.050     1>Target "SetCABuildNativeEnvironmentVariables: (TargetId:12)" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VisualStudio\v16.0\CodeAnalysis\Microsoft.CodeAnalysis.targets" from project "C:\Users\1804824\Desktop\UnrealYouTubeRepo\UnrealAnimationPracticeVids\MyProject\Intermediate\ProjectFiles\MyProject.vcxproj" (target "PrepareForBuild" depends on it):
+18:15:36.677     1>Target "SetCABuildNativeEnvironmentVariables: (TargetId:12)" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VisualStudio\v16.0\CodeAnalysis\Microsoft.CodeAnalysis.targets" from project "C:\Users\1804824\Desktop\UnrealYouTubeRepo\UnrealAnimationPracticeVids\MyProject\Intermediate\ProjectFiles\MyProject.vcxproj" (target "PrepareForBuild" depends on it):
                    Task "SetEnv" (TaskId:9)
                      Task Parameter:Value=C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include;C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt;;C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\um;C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\shared;C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\winrt;C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\cppwinrt;Include\um; (TaskId:9)
                      Task Parameter:Name=CAExcludePath (TaskId:9)
@@ -1402,8 +1401,8 @@ Environment at start of build:
                      CAExcludePath=C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include;C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt;;C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\um;C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\shared;C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\winrt;C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\cppwinrt;Include\um; (TaskId:9)
                    Done executing task "SetEnv". (TaskId:9)
                    Task "SetEnv" skipped, due to false condition; ('$(RunCppAnalysis)'=='true' and '$(VCCodeAnalysisUX)'=='true') was evaluated as ('false'=='true' and 'true'=='true').
-18:29:34.050     1>Done building target "SetCABuildNativeEnvironmentVariables" in project "MyProject.vcxproj".: (TargetId:12)
-18:29:34.050     1>Target "PrepareForBuild: (TargetId:13)" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\1804824\Desktop\UnrealYouTubeRepo\UnrealAnimationPracticeVids\MyProject\Intermediate\ProjectFiles\MyProject.vcxproj" (target "ResolveAssemblyReferences" depends on it):
+18:15:36.677     1>Done building target "SetCABuildNativeEnvironmentVariables" in project "MyProject.vcxproj".: (TargetId:12)
+18:15:36.677     1>Target "PrepareForBuild: (TargetId:13)" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\1804824\Desktop\UnrealYouTubeRepo\UnrealAnimationPracticeVids\MyProject\Intermediate\ProjectFiles\MyProject.vcxproj" (target "ResolveAssemblyReferences" depends on it):
                    Using "FindAppConfigFile" task from assembly "Microsoft.Build.Tasks.Core, Version=15.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a".
                    Task "FindAppConfigFile" (TaskId:10)
                      Task Parameter:
@@ -1439,17 +1438,17 @@ Environment at start of build:
                              C:\Users\1804824\Desktop\UnrealYouTubeRepo\UnrealAnimationPracticeVids\MyProject\Intermediate\ProjectFiles\..\Build\Unused\
                              C:\Users\1804824\Desktop\UnrealYouTubeRepo\UnrealAnimationPracticeVids\MyProject\Intermediate\ProjectFiles\..\Build\Unused\ (TaskId:11)
                    Done executing task "MakeDir". (TaskId:11)
-18:29:34.051     1>Done building target "PrepareForBuild" in project "MyProject.vcxproj".: (TargetId:13)
+18:15:36.677     1>Done building target "PrepareForBuild" in project "MyProject.vcxproj".: (TargetId:13)
                    Target "GetInstalledSDKLocations" skipped, due to false condition; ('@(SDKReference)' != '') was evaluated as ('' != '').
-18:29:34.051     1>Target "ResolveSDKReferences: (TargetId:14)" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\1804824\Desktop\UnrealYouTubeRepo\UnrealAnimationPracticeVids\MyProject\Intermediate\ProjectFiles\MyProject.vcxproj" (target "ResolveAssemblyReferences" depends on it):
+18:15:36.677     1>Target "ResolveSDKReferences: (TargetId:14)" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\1804824\Desktop\UnrealYouTubeRepo\UnrealAnimationPracticeVids\MyProject\Intermediate\ProjectFiles\MyProject.vcxproj" (target "ResolveAssemblyReferences" depends on it):
                    Task "ResolveSDKReference" skipped, due to false condition; ('@(SDKReference)'!='') was evaluated as (''!='').
-18:29:34.051     1>Done building target "ResolveSDKReferences" in project "MyProject.vcxproj".: (TargetId:14)
+18:15:36.677     1>Done building target "ResolveSDKReferences" in project "MyProject.vcxproj".: (TargetId:14)
                    Target "ResolveSDKReferences" skipped. Previously built successfully.
-18:29:34.051     1>Target "ExpandSDKReferences: (TargetId:15)" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\1804824\Desktop\UnrealYouTubeRepo\UnrealAnimationPracticeVids\MyProject\Intermediate\ProjectFiles\MyProject.vcxproj" (target "ResolveAssemblyReferences" depends on it):
+18:15:36.677     1>Target "ExpandSDKReferences: (TargetId:15)" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\1804824\Desktop\UnrealYouTubeRepo\UnrealAnimationPracticeVids\MyProject\Intermediate\ProjectFiles\MyProject.vcxproj" (target "ResolveAssemblyReferences" depends on it):
                    Task "GetSDKReferenceFiles" skipped, due to false condition; ('@(ResolvedSDKReference)'!='') was evaluated as (''!='').
-18:29:34.051     1>Done building target "ExpandSDKReferences" in project "MyProject.vcxproj".: (TargetId:15)
+18:15:36.677     1>Done building target "ExpandSDKReferences" in project "MyProject.vcxproj".: (TargetId:15)
                    Target "ResolveNuGetPackageAssets" skipped, due to false condition; ('$(ResolveNuGetPackages)' == 'true' and exists('$(ProjectLockFile)')) was evaluated as ('true' == 'true' and exists('obj\project.assets.json')).
-18:29:34.051     1>Target "ResolveAssemblyReferences: (TargetId:16)" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\1804824\Desktop\UnrealYouTubeRepo\UnrealAnimationPracticeVids\MyProject\Intermediate\ProjectFiles\MyProject.vcxproj" (target "ResolveReferences" depends on it):
+18:15:36.677     1>Target "ResolveAssemblyReferences: (TargetId:16)" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\1804824\Desktop\UnrealYouTubeRepo\UnrealAnimationPracticeVids\MyProject\Intermediate\ProjectFiles\MyProject.vcxproj" (target "ResolveReferences" depends on it):
                    Added Item(s): _ReferenceInstalledAssemblyDirectory=C:\Program Files (x86)\Windows Kits\10\References
                    Set Property: ResolveAssemblyReferencesStateFile=C:\Users\1804824\Desktop\UnrealYouTubeRepo\UnrealAnimationPracticeVids\MyProject\Intermediate\ProjectFiles\..\Build\Unused\MyProject.vcxprojAssemblyReference.cache
                    Set Property: _FindDependencies=false
@@ -1457,16 +1456,16 @@ Environment at start of build:
                    Set Property: ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch=Warning
                    Set Property: FindDependenciesOfExternallyResolvedReferences=false
                    Task "ResolveAssemblyReference" skipped, due to false condition; ('@(Reference)'!='' or '@(_ResolvedProjectReferencePaths)'!='' or '@(_ExplicitReference)' != '') was evaluated as (''!='' or ''!='' or '' != '').
-18:29:34.051     1>Done building target "ResolveAssemblyReferences" in project "MyProject.vcxproj".: (TargetId:16)
+18:15:36.677     1>Done building target "ResolveAssemblyReferences" in project "MyProject.vcxproj".: (TargetId:16)
                    Target "GenerateBindingRedirects" skipped, due to false condition; ('$(AutoGenerateBindingRedirects)' == 'true' and '$(GenerateBindingRedirectsOutputType)' == 'true') was evaluated as ('' == 'true' and 'true' == 'true').
                    Target "GenerateBindingRedirectsUpdateAppConfig" skipped, due to false condition; ('$(AutoGenerateBindingRedirects)' == 'true' and '$(GenerateBindingRedirectsOutputType)' == 'true' and Exists('$(_GenerateBindingRedirectsIntermediateAppConfig)')) was evaluated as ('' == 'true' and 'true' == 'true' and Exists('C:\Users\1804824\Desktop\UnrealYouTubeRepo\UnrealAnimationPracticeVids\MyProject\Intermediate\ProjectFiles\..\Build\Unused\UE4Editor.exe.config')).
                    Target "ResolveComReferences" skipped, due to false condition; ('@(COMReference)'!='' or '@(COMFileReference)'!='') was evaluated as (''!='' or ''!='').
-18:29:34.052     1>Target "AfterResolveReferences: (TargetId:17)" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\1804824\Desktop\UnrealYouTubeRepo\UnrealAnimationPracticeVids\MyProject\Intermediate\ProjectFiles\MyProject.vcxproj" (target "ResolveReferences" depends on it):
-18:29:34.052     1>Done building target "AfterResolveReferences" in project "MyProject.vcxproj".: (TargetId:17)
+18:15:36.677     1>Target "AfterResolveReferences: (TargetId:17)" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\1804824\Desktop\UnrealYouTubeRepo\UnrealAnimationPracticeVids\MyProject\Intermediate\ProjectFiles\MyProject.vcxproj" (target "ResolveReferences" depends on it):
+18:15:36.677     1>Done building target "AfterResolveReferences" in project "MyProject.vcxproj".: (TargetId:17)
                    Target "ResolveTestReferences" skipped, due to false condition; ('@(Shadow)'!='') was evaluated as (''!='').
-18:29:34.052     1>Target "ResolveReferences: (TargetId:18)" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\1804824\Desktop\UnrealYouTubeRepo\UnrealAnimationPracticeVids\MyProject\Intermediate\ProjectFiles\MyProject.vcxproj" (target "Build" depends on it):
-18:29:34.052     1>Done building target "ResolveReferences" in project "MyProject.vcxproj".: (TargetId:18)
-18:29:34.052     1>Target "GetTargetPathWithTargetPlatformMoniker: (TargetId:19)" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.Cpp.DesignTime.targets" from project "C:\Users\1804824\Desktop\UnrealYouTubeRepo\UnrealAnimationPracticeVids\MyProject\Intermediate\ProjectFiles\MyProject.vcxproj" (target "GetTargetPath" depends on it):
+18:15:36.677     1>Target "ResolveReferences: (TargetId:18)" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\1804824\Desktop\UnrealYouTubeRepo\UnrealAnimationPracticeVids\MyProject\Intermediate\ProjectFiles\MyProject.vcxproj" (target "Build" depends on it):
+18:15:36.677     1>Done building target "ResolveReferences" in project "MyProject.vcxproj".: (TargetId:18)
+18:15:36.677     1>Target "GetTargetPathWithTargetPlatformMoniker: (TargetId:19)" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.Cpp.DesignTime.targets" from project "C:\Users\1804824\Desktop\UnrealYouTubeRepo\UnrealAnimationPracticeVids\MyProject\Intermediate\ProjectFiles\MyProject.vcxproj" (target "GetTargetPath" depends on it):
                    Added Item(s): 
                        TargetPathWithTargetPlatformMoniker=
                            C:\UE_4.22\UE_4.22\Engine\Binaries\Win64\UE4Editor.exe
@@ -1475,8 +1474,8 @@ Environment at start of build:
                                    ReferenceSourceTarget=ProjectReference
                                    ResolveableAssembly=
                    Task "Message" skipped, due to false condition; ('$(_REFERENCE_DEBUG)' ==  'true') was evaluated as ('' ==  'true').
-18:29:34.052     1>Done building target "GetTargetPathWithTargetPlatformMoniker" in project "MyProject.vcxproj".: (TargetId:19)
-18:29:34.052     1>Target "GetTargetPath: (TargetId:20)" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.MakeFile.Targets" from project "C:\Users\1804824\Desktop\UnrealYouTubeRepo\UnrealAnimationPracticeVids\MyProject\Intermediate\ProjectFiles\MyProject.vcxproj" (target "Build" depends on it):
+18:15:36.677     1>Done building target "GetTargetPathWithTargetPlatformMoniker" in project "MyProject.vcxproj".: (TargetId:19)
+18:15:36.677     1>Target "GetTargetPath: (TargetId:20)" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.MakeFile.Targets" from project "C:\Users\1804824\Desktop\UnrealYouTubeRepo\UnrealAnimationPracticeVids\MyProject\Intermediate\ProjectFiles\MyProject.vcxproj" (target "Build" depends on it):
                    Added Item(s): 
                        TargetPathWithTargetPlatformMoniker=
                            C:\UE_4.22\UE_4.22\Engine\Binaries\Win64\UE4Editor.exe
@@ -1486,9 +1485,9 @@ Environment at start of build:
                                    ResolveableAssembly=
                                    TargetPlatformIdentifier=Windows
                                    TargetPlatformMoniker=Windows,Version=10.0.18362.0
-18:29:34.052     1>Done building target "GetTargetPath" in project "MyProject.vcxproj".: (TargetId:20)
+18:15:36.677     1>Done building target "GetTargetPath" in project "MyProject.vcxproj".: (TargetId:20)
                    Target "EnableIntermediateOutputPathMismatchWarning" skipped, due to false condition; ('$(RestoreProjectStyle)' == 'PackageReference') was evaluated as ('' == 'PackageReference').
-18:29:34.052     1>Target "_CheckForInvalidConfigurationAndPlatform: (TargetId:21)" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\1804824\Desktop\UnrealYouTubeRepo\UnrealAnimationPracticeVids\MyProject\Intermediate\ProjectFiles\MyProject.vcxproj" (target "Build" depends on it):
+18:15:36.677     1>Target "_CheckForInvalidConfigurationAndPlatform: (TargetId:21)" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\1804824\Desktop\UnrealYouTubeRepo\UnrealAnimationPracticeVids\MyProject\Intermediate\ProjectFiles\MyProject.vcxproj" (target "Build" depends on it):
                    Set Property: _InvalidConfigurationMessageText=The OutputPath property is not set for project 'MyProject.vcxproj'.  Please check to make sure that you have specified a valid combination of Configuration and Platform for this project.  Configuration='Development_Editor'  Platform='x64'.
                    Set Property: _InvalidConfigurationMessageText=The OutputPath property is not set for project 'MyProject.vcxproj'.  Please check to make sure that you have specified a valid combination of Configuration and Platform for this project.  Configuration='Development_Editor'  Platform='x64'.  This error may also appear if some other project is trying to follow a project-to-project reference to this project, this project has been unloaded or is not included in the solution, and the referencing project does not build using the same or an equivalent Configuration or Platform.
                    Task "Error" skipped, due to false condition; ( '$(_InvalidConfigurationError)' == 'true' ) was evaluated as ( '' == 'true' ).
@@ -1509,9 +1508,9 @@ Environment at start of build:
                    Task "Error" skipped, due to false condition; ('$(IntermediateOutputPath)' != '' and !HasTrailingSlash('$(IntermediateOutputPath)')) was evaluated as ('C:\Users\1804824\Desktop\UnrealYouTubeRepo\UnrealAnimationPracticeVids\MyProject\Intermediate\ProjectFiles\..\Build\Unused\' != '' and !HasTrailingSlash('C:\Users\1804824\Desktop\UnrealYouTubeRepo\UnrealAnimationPracticeVids\MyProject\Intermediate\ProjectFiles\..\Build\Unused\')).
                    Task "Error" skipped, due to false condition; ( '$(_InitialMSBuildProjectExtensionsPath)' != '' And '$(MSBuildProjectExtensionsPath)' != '$(_InitialMSBuildProjectExtensionsPath)' ) was evaluated as ( 'C:\Users\1804824\Desktop\UnrealYouTubeRepo\UnrealAnimationPracticeVids\MyProject\Intermediate\ProjectFiles\obj\' != '' And 'C:\Users\1804824\Desktop\UnrealYouTubeRepo\UnrealAnimationPracticeVids\MyProject\Intermediate\ProjectFiles\obj\' != 'C:\Users\1804824\Desktop\UnrealYouTubeRepo\UnrealAnimationPracticeVids\MyProject\Intermediate\ProjectFiles\obj\' ).
                    Task "Warning" skipped, due to false condition; ( '$(EnableBaseIntermediateOutputPathMismatchWarning)' == 'true' And '$(_InitialBaseIntermediateOutputPath)' != '$(BaseIntermediateOutputPath)' And '$(BaseIntermediateOutputPath)' != '$(MSBuildProjectExtensionsPath)' ) was evaluated as ( '' == 'true' And 'obj\' != 'obj\' And 'obj\' != 'C:\Users\1804824\Desktop\UnrealYouTubeRepo\UnrealAnimationPracticeVids\MyProject\Intermediate\ProjectFiles\obj\' ).
-18:29:34.053     1>Done building target "_CheckForInvalidConfigurationAndPlatform" in project "MyProject.vcxproj".: (TargetId:21)
+18:15:36.678     1>Done building target "_CheckForInvalidConfigurationAndPlatform" in project "MyProject.vcxproj".: (TargetId:21)
                    Target "_CheckForInvalidConfigurationAndPlatform" skipped. Previously built successfully.
-18:29:34.053     1>Target "Build: (TargetId:22)" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.MakeFile.Targets" from project "C:\Users\1804824\Desktop\UnrealYouTubeRepo\UnrealAnimationPracticeVids\MyProject\Intermediate\ProjectFiles\MyProject.vcxproj" (entry point):
+18:15:36.678     1>Target "Build: (TargetId:22)" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.MakeFile.Targets" from project "C:\Users\1804824\Desktop\UnrealYouTubeRepo\UnrealAnimationPracticeVids\MyProject\Intermediate\ProjectFiles\MyProject.vcxproj" (entry point):
                    Task "VCMessage" skipped, due to false condition; ('$(NMakeBuildCommandLine)'=='') was evaluated as ('C:\UE_4.22\UE_4.22\Engine\Build\BatchFiles\Build.bat MyProjectEditor Win64 Development -Project="C:\Users\1804824\Desktop\UnrealYouTubeRepo\UnrealAnimationPracticeVids\MyProject\MyProject.uproject" -WaitMutex -FromMsBuild'=='').
                    Using "Exec" task from assembly "Microsoft.Build.Tasks.Core, Version=15.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a".
                    Task "Exec" (TaskId:14)
@@ -1523,81 +1522,59 @@ Environment at start of build:
                      Creating makefile for MyProjectEditor (ini files are newer than makefile) (TaskId:14)
                      Parsing headers for MyProjectEditor (TaskId:14)
                        Running UnrealHeaderTool "C:\Users\1804824\Desktop\UnrealYouTubeRepo\UnrealAnimationPracticeVids\MyProject\MyProject.uproject" "C:\Users\1804824\Desktop\UnrealYouTubeRepo\UnrealAnimationPracticeVids\MyProject\Intermediate\Build\Win64\MyProjectEditor\Development\MyProjectEditor.uhtmanifest" -LogCmds="loginit warning, logexit warning, logdatabase error" -Unattended -WarningsAsErrors -installed (TaskId:14)
-                     Reflection code generated for MyProjectEditor in 5.6990065 seconds (TaskId:14)
+                     Reflection code generated for MyProjectEditor in 4.8992872 seconds (TaskId:14)
                      Using Visual Studio 2019 14.23.28105 toolchain (C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105) and Windows 10.0.18362.0 SDK (C:\Program Files (x86)\Windows Kits\10). (TaskId:14)
-                     Building 4 actions with 16 processes... (TaskId:14)
-                       [1/4] MyProjectCharacter.cpp (TaskId:14)
-18:29:52.842     1>C:\Users\1804824\Desktop\UnrealYouTubeRepo\UnrealAnimationPracticeVids\MyProject\Source\MyProject\MyProjectCharacter.cpp(152): error C2563: mismatch in formal parameter list
-18:29:52.843     1>C:\Users\1804824\Desktop\UnrealYouTubeRepo\UnrealAnimationPracticeVids\MyProject\Source\MyProject\MyProjectCharacter.cpp(152): error C2568: '=': unable to resolve function overload
-                       C:\Users\1804824\Desktop\UnrealYouTubeRepo\UnrealAnimationPracticeVids\MyProject\Source\MyProject\MyProjectCharacter.cpp(152): note: could be 'T *Cast(FLinker *)' (TaskId:14)
-                       C:\Users\1804824\Desktop\UnrealYouTubeRepo\UnrealAnimationPracticeVids\MyProject\Source\MyProject\MyProjectCharacter.cpp(152): note: or       'const T *Cast(const U *)' (TaskId:14)
-                       C:\Users\1804824\Desktop\UnrealYouTubeRepo\UnrealAnimationPracticeVids\MyProject\Source\MyProject\MyProjectCharacter.cpp(152): note: or       'T *Cast(const TSubclassOf<U> &)' (TaskId:14)
-                       C:\Users\1804824\Desktop\UnrealYouTubeRepo\UnrealAnimationPracticeVids\MyProject\Source\MyProject\MyProjectCharacter.cpp(152): note: or       'T *Cast(const FSubobjectPtr &)' (TaskId:14)
-                       C:\Users\1804824\Desktop\UnrealYouTubeRepo\UnrealAnimationPracticeVids\MyProject\Source\MyProject\MyProjectCharacter.cpp(152): note: or       'T *Cast(const TWeakObjectPtr<UserClass,FWeakObjectPtr> &)' (TaskId:14)
-                       C:\Users\1804824\Desktop\UnrealYouTubeRepo\UnrealAnimationPracticeVids\MyProject\Source\MyProject\MyProjectCharacter.cpp(152): note: or       'To *Cast(From *)' (TaskId:14)
-18:29:52.843     1>C:\Users\1804824\Desktop\UnrealYouTubeRepo\UnrealAnimationPracticeVids\MyProject\Source\MyProject\MyProjectCharacter.cpp(462): warning C4459: declaration of 'LogLevel' hides global declaration
-                       C:\UE_4.22\UE_4.22\Engine\Source\Runtime\Engine\Public\EngineLogs.h(18): note: see declaration of 'LogLevel' (TaskId:14)
-18:29:52.844     1>C:\Users\1804824\Desktop\UnrealYouTubeRepo\UnrealAnimationPracticeVids\MyProject\Source\MyProject\MyProjectCharacter.cpp(467): warning C4459: declaration of 'LogLevel' hides global declaration
-                       C:\UE_4.22\UE_4.22\Engine\Source\Runtime\Engine\Public\EngineLogs.h(18): note: see declaration of 'LogLevel' (TaskId:14)
-18:29:52.891     1>C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.MakeFile.Targets(44,5): error MSB3075: The command "C:\UE_4.22\UE_4.22\Engine\Build\BatchFiles\Build.bat MyProjectEditor Win64 Development -Project="C:\Users\1804824\Desktop\UnrealYouTubeRepo\UnrealAnimationPracticeVids\MyProject\MyProject.uproject" -WaitMutex -FromMsBuild" exited with code 5. Please verify that you have sufficient rights to run this command.
-                   Done executing task "Exec" -- FAILED. (TaskId:14)
-18:29:52.891     1>Done building target "Build" in project "MyProject.vcxproj" -- FAILED.: (TargetId:22)
-18:29:52.893     1>Done Building Project "C:\Users\1804824\Desktop\UnrealYouTubeRepo\UnrealAnimationPracticeVids\MyProject\Intermediate\ProjectFiles\MyProject.vcxproj" (Build target(s)) -- FAILED.
+                     Building 2 actions with 16 processes... (TaskId:14)
+                       [1/2] UE4Editor-MyProject.lib (TaskId:14)
+                          Creating library C:\Users\1804824\Desktop\UnrealYouTubeRepo\UnrealAnimationPracticeVids\MyProject\Intermediate\Build\Win64\UE4Editor\Development\MyProject\UE4Editor-MyProject.lib and object C:\Users\1804824\Desktop\UnrealYouTubeRepo\UnrealAnimationPracticeVids\MyProject\Intermediate\Build\Win64\UE4Editor\Development\MyProject\UE4Editor-MyProject.exp (TaskId:14)
+                       [2/2] MyProjectEditor.target (TaskId:14)
+                     Total time in Parallel executor: 0.22 seconds (TaskId:14)
+                     Total execution time: 6.51 seconds (TaskId:14)
+                   Done executing task "Exec". (TaskId:14)
+18:15:43.290     1>Done building target "Build" in project "MyProject.vcxproj".: (TargetId:22)
+18:15:43.290     1>Done Building Project "C:\Users\1804824\Desktop\UnrealYouTubeRepo\UnrealAnimationPracticeVids\MyProject\Intermediate\ProjectFiles\MyProject.vcxproj" (Build target(s)).
 
 Project Evaluation Performance Summary:
-       69 ms  C:\Users\1804824\Desktop\UnrealYouTubeRepo\UnrealAnimationPracticeVids\MyProject\Intermediate\ProjectFiles\MyProject.vcxproj   1 calls
+       11 ms  C:\Users\1804824\Desktop\UnrealYouTubeRepo\UnrealAnimationPracticeVids\MyProject\Intermediate\ProjectFiles\MyProject.vcxproj   1 calls
 
 Project Performance Summary:
-    18873 ms  C:\Users\1804824\Desktop\UnrealYouTubeRepo\UnrealAnimationPracticeVids\MyProject\Intermediate\ProjectFiles\MyProject.vcxproj   1 calls
-              18873 ms  Build                                      1 calls
+     6617 ms  C:\Users\1804824\Desktop\UnrealYouTubeRepo\UnrealAnimationPracticeVids\MyProject\Intermediate\ProjectFiles\MyProject.vcxproj   1 calls
+               6617 ms  Build                                      1 calls
 
 Target Performance Summary:
         0 ms  SetCABuildNativeEnvironmentVariables       1 calls
-        0 ms  ResolveAssemblyReferences                  1 calls
-        0 ms  ExpandSDKReferences                        1 calls
-        0 ms  ResolveSDKReferences                       1 calls
-        0 ms  AfterResolveReferences                     1 calls
-        0 ms  GetTargetPathWithTargetPlatformMoniker     1 calls
-        0 ms  GetFrameworkPaths                          1 calls
-        0 ms  _SplitProjectReferencesByFileExistence     1 calls
-        0 ms  BeforeResolveReferences                    1 calls
         0 ms  GetTargetPath                              1 calls
+        0 ms  BeforeResolveReferences                    1 calls
+        0 ms  GetTargetPathWithTargetPlatformMoniker     1 calls
+        0 ms  _SplitProjectReferencesByFileExistence     1 calls
+        0 ms  _GetProjectReferenceTargetFrameworkProperties   1 calls
         0 ms  PrepareProjectReferences                   1 calls
+        0 ms  ResolveProjectReferences                   1 calls
+        0 ms  GetFrameworkPaths                          1 calls
         0 ms  ResolveReferences                          1 calls
-        1 ms  GetReferenceAssemblyPaths                  1 calls
+        0 ms  AfterResolveReferences                     1 calls
+        0 ms  PrepareForBuild                            1 calls
+        0 ms  ResolveSDKReferences                       1 calls
+        0 ms  ExpandSDKReferences                        1 calls
+        0 ms  ResolveAssemblyReferences                  1 calls
+        1 ms  SetBuildDefaultEnvironmentVariables        1 calls
         1 ms  AssignProjectConfiguration                 1 calls
-        1 ms  PrepareForBuild                            1 calls
-        1 ms  _GetProjectReferenceTargetFrameworkProperties   1 calls
+        1 ms  PrepareForNMakeBuild                       1 calls
         1 ms  _CheckForInvalidConfigurationAndPlatform   1 calls
-        6 ms  SetBuildDefaultEnvironmentVariables        1 calls
-        9 ms  PrepareForNMakeBuild                       1 calls
-       11 ms  ResolveProjectReferences                   1 calls
-    18839 ms  Build                                      1 calls
+        1 ms  GetReferenceAssemblyPaths                  1 calls
+     6612 ms  Build                                      1 calls
 
 Task Performance Summary:
+        0 ms  MakeDir                                    2 calls
         0 ms  MSBuild                                    1 calls
         0 ms  FindAppConfigFile                          1 calls
         0 ms  Message                                    2 calls
+        1 ms  SetEnv                                     5 calls
         1 ms  AssignProjectConfiguration                 1 calls
-        3 ms  SetEnv                                     5 calls
-        3 ms  MakeDir                                    2 calls
-    18839 ms  Exec                                       1 calls
+     6612 ms  Exec                                       1 calls
 
-Build FAILED.
+Build succeeded.
+    0 Warning(s)
+    0 Error(s)
 
-                   "C:\Users\1804824\Desktop\UnrealYouTubeRepo\UnrealAnimationPracticeVids\MyProject\Intermediate\ProjectFiles\MyProject.vcxproj" (Build target) (1) ->
-                   (Build target) -> 
-                     C:\Users\1804824\Desktop\UnrealYouTubeRepo\UnrealAnimationPracticeVids\MyProject\Source\MyProject\MyProjectCharacter.cpp(462): warning C4459: declaration of 'LogLevel' hides global declaration
-                     C:\Users\1804824\Desktop\UnrealYouTubeRepo\UnrealAnimationPracticeVids\MyProject\Source\MyProject\MyProjectCharacter.cpp(467): warning C4459: declaration of 'LogLevel' hides global declaration
-
-
-                   "C:\Users\1804824\Desktop\UnrealYouTubeRepo\UnrealAnimationPracticeVids\MyProject\Intermediate\ProjectFiles\MyProject.vcxproj" (Build target) (1) ->
-                   (Build target) -> 
-                     C:\Users\1804824\Desktop\UnrealYouTubeRepo\UnrealAnimationPracticeVids\MyProject\Source\MyProject\MyProjectCharacter.cpp(152): error C2563: mismatch in formal parameter list
-                     C:\Users\1804824\Desktop\UnrealYouTubeRepo\UnrealAnimationPracticeVids\MyProject\Source\MyProject\MyProjectCharacter.cpp(152): error C2568: '=': unable to resolve function overload
-                     C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.MakeFile.Targets(44,5): error MSB3075: The command "C:\UE_4.22\UE_4.22\Engine\Build\BatchFiles\Build.bat MyProjectEditor Win64 Development -Project="C:\Users\1804824\Desktop\UnrealYouTubeRepo\UnrealAnimationPracticeVids\MyProject\MyProject.uproject" -WaitMutex -FromMsBuild" exited with code 5. Please verify that you have sufficient rights to run this command.
-
-    2 Warning(s)
-    3 Error(s)
-
-Time Elapsed 00:00:18.86
+Time Elapsed 00:00:06.61

@@ -118,6 +118,7 @@ class AMyProjectCharacter : public ACharacter
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Collision, meta = (AllowPrivateAccess = "true"))
 	class UBoxComponent* RightFistCollisionBox;
 
+	
 
 
 public:
@@ -211,7 +212,11 @@ private:
 
 public:
 	UAudioComponent* PunchThrowAudioComponent;
+
 	FMeleeCollisionProfile MeleeCollisionProfile;
+
+	FPlayerAttackMontage* AttackMontage;
+
 
 	//Triggers attack animation based on user input/.
 	UFUNCTION()
