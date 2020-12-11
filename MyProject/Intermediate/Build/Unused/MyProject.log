@@ -1,3 +1,39 @@
-﻿  The system cannot find the path specified.
-C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.MakeFile.Targets(54,5): error MSB3073: The command "C:\WINDOWS\System32\chcp.com 65001 >NUL 
-C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.MakeFile.Targets(54,5): error MSB3073:  C:\UE_4.22\UE_4.22\Engine\Build\BatchFiles\Rebuild.bat MyProjectEditor Win64 Development -Project="C:\Users\Morgan\Desktop\UnrealAnimationPracticeVids\UnrealAnimationPracticeVids\MyProject\MyProject.uproject" -WaitMutex -FromMsBuild" exited with code 3.
+﻿  Using 'git status' to determine working set for adaptive non-unity build (C:\Users\Morgan\Desktop\UnrealAnimationPracticeVids\UnrealAnimationPracticeVids).
+  Creating makefile for MyProjectEditor (no existing makefile)
+  Parsing headers for MyProjectEditor
+    Running UnrealHeaderTool "C:\Users\Morgan\Desktop\UnrealAnimationPracticeVids\UnrealAnimationPracticeVids\MyProject\MyProject.uproject" "C:\Users\Morgan\Desktop\UnrealAnimationPracticeVids\UnrealAnimationPracticeVids\MyProject\Intermediate\Build\Win64\MyProjectEditor\Development\MyProjectEditor.uhtmanifest" -LogCmds="loginit warning, logexit warning, logdatabase error" -Unattended -WarningsAsErrors -installed
+  Reflection code generated for MyProjectEditor in 20.7220918 seconds
+  Using Visual Studio 2019 14.27.29110 toolchain (C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110) and Windows 10.0.19041.0 SDK (C:\Program Files (x86)\Windows Kits\10).
+  Building 22 actions with 12 processes...
+    [1/22] SharedPCH.Engine.cpp
+    [2/22] MyProject.cpp
+    [3/22] CharacterDataAsset.cpp
+    [4/22] MyAnimNotifyState.gen.cpp
+    [5/22] AttackStartNotifyState.gen.cpp
+    [6/22] MyProject.init.gen.cpp
+    [7/22] MyAttackAnimNotify.gen.cpp
+    [8/22] MyProjectGameMode.gen.cpp
+    [9/22] MyProjectCharacter.gen.cpp
+    [10/22] CharacterDataAsset.gen.cpp
+    [11/22] MyProjectGameMode.cpp
+    [12/22] AttackStartNotifyState.cpp
+    [13/22] MyAttackAnimNotify.cpp
+    [14/22] MyAnimNotifyState.cpp
+    [15/22] InGameHUD.cpp
+    [16/22] InGameHUD.gen.cpp
+    [17/22] ComboWidget.cpp
+    [18/22] ComboWidget.gen.cpp
+    [19/22] MyProjectCharacter.cpp
+C:\Users\Morgan\Desktop\UnrealAnimationPracticeVids\UnrealAnimationPracticeVids\MyProject\Source\MyProject\MyProjectCharacter.cpp(183): warning C4458: declaration of 'AttackMontage' hides class member
+    C:\Users\Morgan\Desktop\UnrealAnimationPracticeVids\UnrealAnimationPracticeVids\MyProject\Source\MyProject\MyProjectCharacter.h(218): note: see declaration of 'AMyProjectCharacter::AttackMontage'
+C:\Users\Morgan\Desktop\UnrealAnimationPracticeVids\UnrealAnimationPracticeVids\MyProject\Source\MyProject\MyProjectCharacter.cpp(462): warning C4459: declaration of 'LogLevel' hides global declaration
+    C:\Program Files\Epic Games\UE_4.22\Engine\Source\Runtime\Engine\Public\EngineLogs.h(18): note: see declaration of 'LogLevel'
+C:\Users\Morgan\Desktop\UnrealAnimationPracticeVids\UnrealAnimationPracticeVids\MyProject\Source\MyProject\MyProjectCharacter.cpp(467): warning C4459: declaration of 'LogLevel' hides global declaration
+    C:\Program Files\Epic Games\UE_4.22\Engine\Source\Runtime\Engine\Public\EngineLogs.h(18): note: see declaration of 'LogLevel'
+    [20/22] UE4Editor-MyProject.lib
+       Creating library C:\Users\Morgan\Desktop\UnrealAnimationPracticeVids\UnrealAnimationPracticeVids\MyProject\Intermediate\Build\Win64\UE4Editor\Development\MyProject\UE4Editor-MyProject.lib and object C:\Users\Morgan\Desktop\UnrealAnimationPracticeVids\UnrealAnimationPracticeVids\MyProject\Intermediate\Build\Win64\UE4Editor\Development\MyProject\UE4Editor-MyProject.exp
+    [21/22] UE4Editor-MyProject.dll
+       Creating library C:\Users\Morgan\Desktop\UnrealAnimationPracticeVids\UnrealAnimationPracticeVids\MyProject\Intermediate\Build\Win64\UE4Editor\Development\MyProject\UE4Editor-MyProject.suppressed.lib and object C:\Users\Morgan\Desktop\UnrealAnimationPracticeVids\UnrealAnimationPracticeVids\MyProject\Intermediate\Build\Win64\UE4Editor\Development\MyProject\UE4Editor-MyProject.suppressed.exp
+    [22/22] MyProjectEditor.target
+  Total time in Parallel executor: 86.52 seconds
+  Total execution time: 111.88 seconds

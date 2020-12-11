@@ -3,7 +3,7 @@
   <ItemGroup>
     <None Include="..\..\MyProject.uproject" />
     <Filter Include="Source">
-      <UniqueIdentifier>{FEF5744A-747B-4268-9714-96FF5ACADC0E}</UniqueIdentifier>
+      <UniqueIdentifier>{E2853BBB-CBCE-4C62-9548-E7A19EEC84BE}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\MyProject.Target.cs">
       <Filter>Source</Filter>
@@ -14,7 +14,7 @@
     <None Include="..\..\data_table_CSV.csv" />
     <None Include="..\..\Data_table_JSON.json" />
     <Filter Include="Config">
-      <UniqueIdentifier>{5CBF6C11-AF5A-4D1C-8B2C-F39160748B1C}</UniqueIdentifier>
+      <UniqueIdentifier>{02F63ACC-954F-475A-81A9-2663725314A3}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Config\DefaultEditor.ini">
       <Filter>Config</Filter>
@@ -32,7 +32,7 @@
       <Filter>Config</Filter>
     </None>
     <Filter Include="Source\MyProject">
-      <UniqueIdentifier>{AA7E9378-313F-41A0-BC63-5F96F33ABE57}</UniqueIdentifier>
+      <UniqueIdentifier>{3686681B-FB53-437A-8DC0-82C18DF02AB5}</UniqueIdentifier>
     </Filter>
     <ClCompile Include="..\..\Source\MyProject\AttackStartNotifyState.cpp">
       <Filter>Source\MyProject</Filter>
@@ -80,7 +80,7 @@
       <Filter>Source\MyProject</Filter>
     </ClInclude>
     <Filter Include="Source\MyProject\UI">
-      <UniqueIdentifier>{37CAB3F8-A82F-43A3-8A57-52780F276961}</UniqueIdentifier>
+      <UniqueIdentifier>{19E36A60-891D-478E-80A2-5C7E3F40A324}</UniqueIdentifier>
     </Filter>
     <ClCompile Include="..\..\Source\MyProject\UI\ComboWidget.cpp">
       <Filter>Source\MyProject\UI</Filter>

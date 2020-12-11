@@ -529,8 +529,5 @@ void AMyProjectCharacter::Log(ELogLevel LogLevel, FString Message, ELogOutput Lo
 			UE_LOG(LogTemp, VeryVerbose, TEXT("%s"), *Message)
 				break;
 		}
-
 	}
-
-
 }
