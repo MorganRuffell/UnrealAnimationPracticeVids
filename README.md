@@ -1,5 +1,5 @@
 # Unreal Animation Practice Vids
 Following the Jolly Monster studio unreal engine tutorials for animation. 
 
-I honestly don't care what Luke or anyone else says I want to get better at unreal engine. Even if you block me from it, I'm still gonna work.
-Current project version is 4.22.
+For a long time I've personally being interested in animation inside of unreal engine. The current version mirrors that of the BSc Studios Unreal Engine version. 
+This project is free to open and have a read around, but please ask me before you fork it?
