@@ -7,7 +7,6 @@
 #include "Components/BoxComponent.h"
 
 #include "Engine/DataTable.h"
-
 #include "Components/AudioComponent.h"
 #include "Sound/SoundCue.h"
 
@@ -117,9 +116,7 @@ class AMyProjectCharacter : public ACharacter
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Collision, meta = (AllowPrivateAccess = "true"))
 	class UBoxComponent* RightFistCollisionBox;
-
 	
-
 
 public:
 	AMyProjectCharacter();
@@ -158,8 +155,7 @@ public:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Combo)
 	float ComboResetDelay;
-
-
+	
 protected:
 
 	/** Called for forwards/backward input */
@@ -188,9 +184,6 @@ protected:
 	FTimerHandle ComboResetHandle;
 
 private:
-
-
-
 
 
 	//Log Enum Decleration
@@ -242,7 +235,7 @@ public:
 
 	UFUNCTION()
 	void ResetCombo();
-	
+
 	/** Returns CameraBoom subobject **/
 	FORCEINLINE class USpringArmComponent* GetCameraBoom() const { return CameraBoom; }
 	/** Returns FollowCamera subobject **/

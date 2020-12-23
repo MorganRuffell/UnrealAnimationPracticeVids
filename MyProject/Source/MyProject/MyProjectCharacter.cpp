@@ -343,7 +343,6 @@ void AMyProjectCharacter::AttackInput()
 
 			//Consider using a timer with the animation input.
 
-
 		}
 
 	}
@@ -503,7 +502,6 @@ void AMyProjectCharacter::Log(ELogLevel LogLevel, FString Message, ELogOutput Lo
 	if (LogOutput == ELogOutput::ALL || LogOutput == ELogOutput::OUTPUT_LOG)
 	{
 		//flip the message based on error level
-
 		switch (LogLevel)
 		{
 		case ELogLevel::TRACE:
