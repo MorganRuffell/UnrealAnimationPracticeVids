@@ -40,7 +40,6 @@ void EmptyLinkFunctionForGeneratedCodePracticeDataAsset() {}
 	};
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UPracticeDataAsset_Statics::Class_MetaDataParams[] = {
-		{ "Comment", "/**\n * \n */" },
 		{ "IncludePath", "PracticeDataAsset.h" },
 		{ "ModuleRelativePath", "PracticeDataAsset.h" },
 	};
@@ -72,7 +71,7 @@ void EmptyLinkFunctionForGeneratedCodePracticeDataAsset() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(UPracticeDataAsset, 722780654);
+	IMPLEMENT_CLASS(UPracticeDataAsset, 2326671216);
 	template<> MYPROJECT_API UClass* StaticClass<UPracticeDataAsset>()
 	{
 		return UPracticeDataAsset::StaticClass();

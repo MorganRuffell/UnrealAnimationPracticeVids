@@ -6,29 +6,6 @@
 #include "Engine/DataAsset.h"
 #include "PracticeDataAsset.generated.h"
 
-/**
- * 
- */
-
-UENUM(BlueprintType)
-enum class ELogLevel : uint8
-{	
-	TRACE		UMETA("DisplayName = "Trace"),
-	DEBUG		UMETA("DisplayName = "Debug"),
-	INFO		UMETA("DisplayName = "Info"),
-	WARNING		UMETA("DisplayName = "Warning"),
-	ERROR		UMETA("DisplayName = "Error"),
-};
-
-enum class ELogLevel : uint8
-{	
-	TRACE		UMETA("DisplayName = "Trace"),
-	DEBUG		UMETA("DisplayName = "Debug"),
-	INFO		UMETA("DisplayName = "Info"),
-	WARNING		UMETA("DisplayName = "Warning"),
-	ERROR		UMETA("DisplayName = "Error"),
-}
-
 UCLASS()
 class MYPROJECT_API UPracticeDataAsset : public UDataAsset
 {
@@ -37,7 +14,6 @@ class MYPROJECT_API UPracticeDataAsset : public UDataAsset
 public:
 	
 	UPracticeDataAsset();	
-
 	~UPracticeDataAsset();
 
 };

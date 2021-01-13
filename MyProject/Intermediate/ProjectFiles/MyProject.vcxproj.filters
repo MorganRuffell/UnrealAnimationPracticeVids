@@ -3,7 +3,7 @@
   <ItemGroup>
     <None Include="..\..\MyProject.uproject" />
     <Filter Include="Source">
-      <UniqueIdentifier>{F0970714-4E14-4F66-8E5F-A460E6AF5C37}</UniqueIdentifier>
+      <UniqueIdentifier>{2A356E12-BCBA-427C-9821-479E5717B292}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\MyProject.Target.cs">
       <Filter>Source</Filter>
@@ -12,7 +12,7 @@
       <Filter>Source</Filter>
     </None>
     <Filter Include="Config">
-      <UniqueIdentifier>{51485027-ED3E-4A82-BA2C-EA8504DC7246}</UniqueIdentifier>
+      <UniqueIdentifier>{A556A5CD-11CE-4127-B291-B380E4B87DC7}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Config\DefaultEditor.ini">
       <Filter>Config</Filter>
@@ -30,7 +30,7 @@
       <Filter>Config</Filter>
     </None>
     <Filter Include="Source\MyProject">
-      <UniqueIdentifier>{8C270CCA-25A9-4283-A2B9-672D7867A840}</UniqueIdentifier>
+      <UniqueIdentifier>{64A66C86-8D06-45B7-AD9A-72AFCDDEB702}</UniqueIdentifier>
     </Filter>
     <ClCompile Include="..\..\Source\MyProject\AttackStartNotifyState.cpp">
       <Filter>Source\MyProject</Filter>
