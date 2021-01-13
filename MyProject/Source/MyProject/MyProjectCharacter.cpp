@@ -19,6 +19,7 @@ AMyProjectCharacter::AMyProjectCharacter()
 {
 	// Set size for collision capsule
 	GetCapsuleComponent()->InitCapsuleSize(42.f, 96.0f);
+	
 
 	// set our turn rates for input
 	BaseTurnRate = 45.f;

@@ -7,6 +7,7 @@
 #include "Components/BoxComponent.h"
 #include "MyProjectCharacter.generated.h"
 
+
 UENUM(BlueprintType)
 enum class ELogLevel : uint8
 {
