@@ -1,4 +1,4 @@
-// Copyright 1998-2019 Epic Games, Inc. All Rights Reserved.
+// Copyright Epic Games, Inc. All Rights Reserved.
 /*===========================================================================
 	Generated code exported from UnrealHeaderTool.
 	DO NOT modify this manually! Edit the corresponding .h files instead!
@@ -57,6 +57,7 @@ void EmptyLinkFunctionForGeneratedCodeCharacterDataAsset() {}
 	};
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UCharacterDataAsset_Statics::Class_MetaDataParams[] = {
+		{ "Comment", "/**\n * \n */" },
 		{ "IncludePath", "CharacterDataAsset.h" },
 		{ "ModuleRelativePath", "CharacterDataAsset.h" },
 	};
@@ -67,28 +68,28 @@ void EmptyLinkFunctionForGeneratedCodeCharacterDataAsset() {}
 		{ "ModuleRelativePath", "CharacterDataAsset.h" },
 	};
 #endif
-	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_UCharacterDataAsset_Statics::NewProp_CurrentSprintSpeed = { "CurrentSprintSpeed", nullptr, (EPropertyFlags)0x0010000000000005, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UCharacterDataAsset, CurrentSprintSpeed), METADATA_PARAMS(Z_Construct_UClass_UCharacterDataAsset_Statics::NewProp_CurrentSprintSpeed_MetaData, ARRAY_COUNT(Z_Construct_UClass_UCharacterDataAsset_Statics::NewProp_CurrentSprintSpeed_MetaData)) };
+	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_UCharacterDataAsset_Statics::NewProp_CurrentSprintSpeed = { "CurrentSprintSpeed", nullptr, (EPropertyFlags)0x0010000000000005, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UCharacterDataAsset, CurrentSprintSpeed), METADATA_PARAMS(Z_Construct_UClass_UCharacterDataAsset_Statics::NewProp_CurrentSprintSpeed_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UCharacterDataAsset_Statics::NewProp_CurrentSprintSpeed_MetaData)) };
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UCharacterDataAsset_Statics::NewProp_CurrentWalkSpeed_MetaData[] = {
 		{ "Category", "PlayerMovementRates" },
 		{ "ModuleRelativePath", "CharacterDataAsset.h" },
 	};
 #endif
-	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_UCharacterDataAsset_Statics::NewProp_CurrentWalkSpeed = { "CurrentWalkSpeed", nullptr, (EPropertyFlags)0x0010000000000005, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UCharacterDataAsset, CurrentWalkSpeed), METADATA_PARAMS(Z_Construct_UClass_UCharacterDataAsset_Statics::NewProp_CurrentWalkSpeed_MetaData, ARRAY_COUNT(Z_Construct_UClass_UCharacterDataAsset_Statics::NewProp_CurrentWalkSpeed_MetaData)) };
+	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_UCharacterDataAsset_Statics::NewProp_CurrentWalkSpeed = { "CurrentWalkSpeed", nullptr, (EPropertyFlags)0x0010000000000005, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UCharacterDataAsset, CurrentWalkSpeed), METADATA_PARAMS(Z_Construct_UClass_UCharacterDataAsset_Statics::NewProp_CurrentWalkSpeed_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UCharacterDataAsset_Statics::NewProp_CurrentWalkSpeed_MetaData)) };
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UCharacterDataAsset_Statics::NewProp_BaseLookUpRate_MetaData[] = {
 		{ "Category", "CameraMovementRates" },
 		{ "ModuleRelativePath", "CharacterDataAsset.h" },
 	};
 #endif
-	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_UCharacterDataAsset_Statics::NewProp_BaseLookUpRate = { "BaseLookUpRate", nullptr, (EPropertyFlags)0x0010000000000005, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UCharacterDataAsset, BaseLookUpRate), METADATA_PARAMS(Z_Construct_UClass_UCharacterDataAsset_Statics::NewProp_BaseLookUpRate_MetaData, ARRAY_COUNT(Z_Construct_UClass_UCharacterDataAsset_Statics::NewProp_BaseLookUpRate_MetaData)) };
+	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_UCharacterDataAsset_Statics::NewProp_BaseLookUpRate = { "BaseLookUpRate", nullptr, (EPropertyFlags)0x0010000000000005, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UCharacterDataAsset, BaseLookUpRate), METADATA_PARAMS(Z_Construct_UClass_UCharacterDataAsset_Statics::NewProp_BaseLookUpRate_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UCharacterDataAsset_Statics::NewProp_BaseLookUpRate_MetaData)) };
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UCharacterDataAsset_Statics::NewProp_BaseTurnRate_MetaData[] = {
 		{ "Category", "CameraMovementRates" },
 		{ "ModuleRelativePath", "CharacterDataAsset.h" },
 	};
 #endif
-	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_UCharacterDataAsset_Statics::NewProp_BaseTurnRate = { "BaseTurnRate", nullptr, (EPropertyFlags)0x0010000000000005, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UCharacterDataAsset, BaseTurnRate), METADATA_PARAMS(Z_Construct_UClass_UCharacterDataAsset_Statics::NewProp_BaseTurnRate_MetaData, ARRAY_COUNT(Z_Construct_UClass_UCharacterDataAsset_Statics::NewProp_BaseTurnRate_MetaData)) };
+	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_UCharacterDataAsset_Statics::NewProp_BaseTurnRate = { "BaseTurnRate", nullptr, (EPropertyFlags)0x0010000000000005, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UCharacterDataAsset, BaseTurnRate), METADATA_PARAMS(Z_Construct_UClass_UCharacterDataAsset_Statics::NewProp_BaseTurnRate_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UCharacterDataAsset_Statics::NewProp_BaseTurnRate_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UCharacterDataAsset_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCharacterDataAsset_Statics::NewProp_CurrentSprintSpeed,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCharacterDataAsset_Statics::NewProp_CurrentWalkSpeed,
@@ -106,12 +107,12 @@ void EmptyLinkFunctionForGeneratedCodeCharacterDataAsset() {}
 		nullptr,
 		Z_Construct_UClass_UCharacterDataAsset_Statics::PropPointers,
 		nullptr,
-		ARRAY_COUNT(DependentSingletons),
+		UE_ARRAY_COUNT(DependentSingletons),
 		0,
-		ARRAY_COUNT(Z_Construct_UClass_UCharacterDataAsset_Statics::PropPointers),
+		UE_ARRAY_COUNT(Z_Construct_UClass_UCharacterDataAsset_Statics::PropPointers),
 		0,
 		0x001000A0u,
-		METADATA_PARAMS(Z_Construct_UClass_UCharacterDataAsset_Statics::Class_MetaDataParams, ARRAY_COUNT(Z_Construct_UClass_UCharacterDataAsset_Statics::Class_MetaDataParams))
+		METADATA_PARAMS(Z_Construct_UClass_UCharacterDataAsset_Statics::Class_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UClass_UCharacterDataAsset_Statics::Class_MetaDataParams))
 	};
 	UClass* Z_Construct_UClass_UCharacterDataAsset()
 	{
@@ -122,7 +123,7 @@ void EmptyLinkFunctionForGeneratedCodeCharacterDataAsset() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(UCharacterDataAsset, 3854541332);
+	IMPLEMENT_CLASS(UCharacterDataAsset, 3755076473);
 	template<> MYPROJECT_API UClass* StaticClass<UCharacterDataAsset>()
 	{
 		return UCharacterDataAsset::StaticClass();

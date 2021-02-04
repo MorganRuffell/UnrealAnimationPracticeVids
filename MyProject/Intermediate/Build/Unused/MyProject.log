@@ -1,26 +1,3 @@
 ﻿  Using 'git status' to determine working set for adaptive non-unity build (C:\Users\Morgan\Desktop\UnrealAnimationPracticeVids\UnrealAnimationPracticeVids).
-  Parsing headers for MyProjectEditor
-    Running UnrealHeaderTool "C:\Users\Morgan\Desktop\UnrealAnimationPracticeVids\UnrealAnimationPracticeVids\MyProject\MyProject.uproject" "C:\Users\Morgan\Desktop\UnrealAnimationPracticeVids\UnrealAnimationPracticeVids\MyProject\Intermediate\Build\Win64\MyProjectEditor\Development\MyProjectEditor.uhtmanifest" -LogCmds="loginit warning, logexit warning, logdatabase error" -Unattended -WarningsAsErrors -installed
-  Reflection code generated for MyProjectEditor in 10.6271995 seconds
-  Using Visual Studio 2019 14.27.29110 toolchain (C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110) and Windows 10.0.19041.0 SDK (C:\Program Files (x86)\Windows Kits\10).
-  Building 10 actions with 12 processes...
-    [1/10] AttackStartNotifyState.gen.cpp
-    [2/10] MyProjectGameMode.cpp
-    [3/10] MyProjectCharacter.gen.cpp
-    [4/10] MyAnimNotifyState.cpp
-    [5/10] AttackStartNotifyState.cpp
-    [6/10] MyAttackAnimNotify.cpp
-    [7/10] MyProjectCharacter.cpp
-C:\Users\Morgan\Desktop\UnrealAnimationPracticeVids\UnrealAnimationPracticeVids\MyProject\Source\MyProject\MyProjectCharacter.cpp(183): warning C4458: declaration of 'AttackMontage' hides class member
-    C:\Users\Morgan\Desktop\UnrealAnimationPracticeVids\UnrealAnimationPracticeVids\MyProject\Source\MyProject\MyProjectCharacter.h(211): note: see declaration of 'AMyProjectCharacter::AttackMontage'
-C:\Users\Morgan\Desktop\UnrealAnimationPracticeVids\UnrealAnimationPracticeVids\MyProject\Source\MyProject\MyProjectCharacter.cpp(462): warning C4459: declaration of 'LogLevel' hides global declaration
-    C:\Program Files\Epic Games\UE_4.22\Engine\Source\Runtime\Engine\Public\EngineLogs.h(18): note: see declaration of 'LogLevel'
-C:\Users\Morgan\Desktop\UnrealAnimationPracticeVids\UnrealAnimationPracticeVids\MyProject\Source\MyProject\MyProjectCharacter.cpp(467): warning C4459: declaration of 'LogLevel' hides global declaration
-    C:\Program Files\Epic Games\UE_4.22\Engine\Source\Runtime\Engine\Public\EngineLogs.h(18): note: see declaration of 'LogLevel'
-    [8/10] UE4Editor-MyProject.lib
-       Creating library C:\Users\Morgan\Desktop\UnrealAnimationPracticeVids\UnrealAnimationPracticeVids\MyProject\Intermediate\Build\Win64\UE4Editor\Development\MyProject\UE4Editor-MyProject.lib and object C:\Users\Morgan\Desktop\UnrealAnimationPracticeVids\UnrealAnimationPracticeVids\MyProject\Intermediate\Build\Win64\UE4Editor\Development\MyProject\UE4Editor-MyProject.exp
-    [9/10] UE4Editor-MyProject.dll
-       Creating library C:\Users\Morgan\Desktop\UnrealAnimationPracticeVids\UnrealAnimationPracticeVids\MyProject\Intermediate\Build\Win64\UE4Editor\Development\MyProject\UE4Editor-MyProject.suppressed.lib and object C:\Users\Morgan\Desktop\UnrealAnimationPracticeVids\UnrealAnimationPracticeVids\MyProject\Intermediate\Build\Win64\UE4Editor\Development\MyProject\UE4Editor-MyProject.suppressed.exp
-    [10/10] MyProjectEditor.target
-  Total time in Parallel executor: 28.79 seconds
-  Total execution time: 41.05 seconds
+  Target is up to date
+  Total execution time: 0.54 seconds

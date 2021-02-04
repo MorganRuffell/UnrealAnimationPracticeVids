@@ -83,7 +83,7 @@ void UComboWidget::StoreWidgetAnimations()
 	AnimationsMap.Empty();
 
 	//Getting all of the properties from the class.
-	UProperty* properties = GetClass()->PropertyLink;
+	FProperty* properties = GetClass()->PropertyLink;
 
 
 	while (properties)

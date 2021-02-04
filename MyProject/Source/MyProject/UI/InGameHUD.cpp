@@ -56,9 +56,7 @@ void AInGameHUD::BeginPlay()
 		if (ComboWidget)
 		{
 			ComboWidget->AddToViewport(0);
-		}
-
-		
+		}	
 	}
 
 }

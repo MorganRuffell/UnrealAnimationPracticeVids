@@ -1,4 +1,4 @@
-// Copyright 1998-2019 Epic Games, Inc. All Rights Reserved.
+// Copyright Epic Games, Inc. All Rights Reserved.
 /*===========================================================================
 	Generated code exported from UnrealHeaderTool.
 	DO NOT modify this manually! Edit the corresponding .h files instead!
@@ -32,132 +32,27 @@ template<> MYPROJECT_API UScriptStruct* StaticStruct<struct FMeleeCollisionProfi
 
 template<> MYPROJECT_API UScriptStruct* StaticStruct<struct FPlayerAttackMontage>();
 
+#define MyProject_Source_MyProject_MyProjectCharacter_h_88_SPARSE_DATA
 #define MyProject_Source_MyProject_MyProjectCharacter_h_88_RPC_WRAPPERS \
  \
-	DECLARE_FUNCTION(execResetCombo) \
-	{ \
-		P_FINISH; \
-		P_NATIVE_BEGIN; \
-		P_THIS->ResetCombo(); \
-		P_NATIVE_END; \
-	} \
- \
-	DECLARE_FUNCTION(execStopSprinting) \
-	{ \
-		P_FINISH; \
-		P_NATIVE_BEGIN; \
-		P_THIS->StopSprinting(); \
-		P_NATIVE_END; \
-	} \
- \
-	DECLARE_FUNCTION(execSprint) \
-	{ \
-		P_FINISH; \
-		P_NATIVE_BEGIN; \
-		P_THIS->Sprint(); \
-		P_NATIVE_END; \
-	} \
- \
-	DECLARE_FUNCTION(execOnAttackHit) \
-	{ \
-		P_GET_OBJECT(UPrimitiveComponent,Z_Param_HitComponent); \
-		P_GET_OBJECT(AActor,Z_Param_OtherActor); \
-		P_GET_OBJECT(UPrimitiveComponent,Z_Param_OtherComp); \
-		P_GET_STRUCT(FVector,Z_Param_NormalImpulse); \
-		P_GET_STRUCT_REF(FHitResult,Z_Param_Out_Hit); \
-		P_FINISH; \
-		P_NATIVE_BEGIN; \
-		P_THIS->OnAttackHit(Z_Param_HitComponent,Z_Param_OtherActor,Z_Param_OtherComp,Z_Param_NormalImpulse,Z_Param_Out_Hit); \
-		P_NATIVE_END; \
-	} \
- \
-	DECLARE_FUNCTION(execAttackEnd) \
-	{ \
-		P_FINISH; \
-		P_NATIVE_BEGIN; \
-		P_THIS->AttackEnd(); \
-		P_NATIVE_END; \
-	} \
- \
-	DECLARE_FUNCTION(execAttackStart) \
-	{ \
-		P_FINISH; \
-		P_NATIVE_BEGIN; \
-		P_THIS->AttackStart(); \
-		P_NATIVE_END; \
-	} \
- \
-	DECLARE_FUNCTION(execAttackInput) \
-	{ \
-		P_FINISH; \
-		P_NATIVE_BEGIN; \
-		P_THIS->AttackInput(); \
-		P_NATIVE_END; \
-	}
+	DECLARE_FUNCTION(execResetCombo); \
+	DECLARE_FUNCTION(execStopSprinting); \
+	DECLARE_FUNCTION(execSprint); \
+	DECLARE_FUNCTION(execOnAttackHit); \
+	DECLARE_FUNCTION(execAttackEnd); \
+	DECLARE_FUNCTION(execAttackStart); \
+	DECLARE_FUNCTION(execAttackInput);
 
 
 #define MyProject_Source_MyProject_MyProjectCharacter_h_88_RPC_WRAPPERS_NO_PURE_DECLS \
  \
-	DECLARE_FUNCTION(execResetCombo) \
-	{ \
-		P_FINISH; \
-		P_NATIVE_BEGIN; \
-		P_THIS->ResetCombo(); \
-		P_NATIVE_END; \
-	} \
- \
-	DECLARE_FUNCTION(execStopSprinting) \
-	{ \
-		P_FINISH; \
-		P_NATIVE_BEGIN; \
-		P_THIS->StopSprinting(); \
-		P_NATIVE_END; \
-	} \
- \
-	DECLARE_FUNCTION(execSprint) \
-	{ \
-		P_FINISH; \
-		P_NATIVE_BEGIN; \
-		P_THIS->Sprint(); \
-		P_NATIVE_END; \
-	} \
- \
-	DECLARE_FUNCTION(execOnAttackHit) \
-	{ \
-		P_GET_OBJECT(UPrimitiveComponent,Z_Param_HitComponent); \
-		P_GET_OBJECT(AActor,Z_Param_OtherActor); \
-		P_GET_OBJECT(UPrimitiveComponent,Z_Param_OtherComp); \
-		P_GET_STRUCT(FVector,Z_Param_NormalImpulse); \
-		P_GET_STRUCT_REF(FHitResult,Z_Param_Out_Hit); \
-		P_FINISH; \
-		P_NATIVE_BEGIN; \
-		P_THIS->OnAttackHit(Z_Param_HitComponent,Z_Param_OtherActor,Z_Param_OtherComp,Z_Param_NormalImpulse,Z_Param_Out_Hit); \
-		P_NATIVE_END; \
-	} \
- \
-	DECLARE_FUNCTION(execAttackEnd) \
-	{ \
-		P_FINISH; \
-		P_NATIVE_BEGIN; \
-		P_THIS->AttackEnd(); \
-		P_NATIVE_END; \
-	} \
- \
-	DECLARE_FUNCTION(execAttackStart) \
-	{ \
-		P_FINISH; \
-		P_NATIVE_BEGIN; \
-		P_THIS->AttackStart(); \
-		P_NATIVE_END; \
-	} \
- \
-	DECLARE_FUNCTION(execAttackInput) \
-	{ \
-		P_FINISH; \
-		P_NATIVE_BEGIN; \
-		P_THIS->AttackInput(); \
-		P_NATIVE_END; \
-	}
+	DECLARE_FUNCTION(execResetCombo); \
+	DECLARE_FUNCTION(execStopSprinting); \
+	DECLARE_FUNCTION(execSprint); \
+	DECLARE_FUNCTION(execOnAttackHit); \
+	DECLARE_FUNCTION(execAttackEnd); \
+	DECLARE_FUNCTION(execAttackStart); \
+	DECLARE_FUNCTION(execAttackInput);
 
 
 #define MyProject_Source_MyProject_MyProjectCharacter_h_88_INCLASS_NO_PURE_DECLS \
@@ -165,7 +60,7 @@ private: \
 	static void StaticRegisterNativesAMyProjectCharacter(); \
 	friend struct Z_Construct_UClass_AMyProjectCharacter_Statics; \
 public: \
-	DECLARE_CLASS(AMyProjectCharacter, ACharacter, COMPILED_IN_FLAGS(0), CASTCLASS_None, TEXT("/Script/MyProject"), NO_API) \
+	DECLARE_CLASS(AMyProjectCharacter, ACharacter, COMPILED_IN_FLAGS(0 | CLASS_Config), CASTCLASS_None, TEXT("/Script/MyProject"), NO_API) \
 	DECLARE_SERIALIZER(AMyProjectCharacter)
 
 
@@ -174,7 +69,7 @@ private: \
 	static void StaticRegisterNativesAMyProjectCharacter(); \
 	friend struct Z_Construct_UClass_AMyProjectCharacter_Statics; \
 public: \
-	DECLARE_CLASS(AMyProjectCharacter, ACharacter, COMPILED_IN_FLAGS(0), CASTCLASS_None, TEXT("/Script/MyProject"), NO_API) \
+	DECLARE_CLASS(AMyProjectCharacter, ACharacter, COMPILED_IN_FLAGS(0 | CLASS_Config), CASTCLASS_None, TEXT("/Script/MyProject"), NO_API) \
 	DECLARE_SERIALIZER(AMyProjectCharacter)
 
 
@@ -219,6 +114,7 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(AMyProjectCharacter); \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
 	MyProject_Source_MyProject_MyProjectCharacter_h_88_PRIVATE_PROPERTY_OFFSET \
+	MyProject_Source_MyProject_MyProjectCharacter_h_88_SPARSE_DATA \
 	MyProject_Source_MyProject_MyProjectCharacter_h_88_RPC_WRAPPERS \
 	MyProject_Source_MyProject_MyProjectCharacter_h_88_INCLASS \
 	MyProject_Source_MyProject_MyProjectCharacter_h_88_STANDARD_CONSTRUCTORS \
@@ -230,6 +126,7 @@ PRAGMA_ENABLE_DEPRECATION_WARNINGS
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
 	MyProject_Source_MyProject_MyProjectCharacter_h_88_PRIVATE_PROPERTY_OFFSET \
+	MyProject_Source_MyProject_MyProjectCharacter_h_88_SPARSE_DATA \
 	MyProject_Source_MyProject_MyProjectCharacter_h_88_RPC_WRAPPERS_NO_PURE_DECLS \
 	MyProject_Source_MyProject_MyProjectCharacter_h_88_INCLASS_NO_PURE_DECLS \
 	MyProject_Source_MyProject_MyProjectCharacter_h_88_ENHANCED_CONSTRUCTORS \

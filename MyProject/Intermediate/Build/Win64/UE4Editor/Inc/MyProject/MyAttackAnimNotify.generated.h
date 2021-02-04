@@ -1,4 +1,4 @@
-// Copyright 1998-2019 Epic Games, Inc. All Rights Reserved.
+// Copyright Epic Games, Inc. All Rights Reserved.
 /*===========================================================================
 	Generated code exported from UnrealHeaderTool.
 	DO NOT modify this manually! Edit the corresponding .h files instead!
@@ -15,30 +15,15 @@ class UAnimSequenceBase;
 #endif
 #define MYPROJECT_MyAttackAnimNotify_generated_h
 
+#define MyProject_Source_MyProject_MyAttackAnimNotify_h_15_SPARSE_DATA
 #define MyProject_Source_MyProject_MyAttackAnimNotify_h_15_RPC_WRAPPERS \
  \
-	DECLARE_FUNCTION(execNotify) \
-	{ \
-		P_GET_OBJECT(USkeletalMeshComponent,Z_Param_MeshComp); \
-		P_GET_OBJECT(UAnimSequenceBase,Z_Param_Animation); \
-		P_FINISH; \
-		P_NATIVE_BEGIN; \
-		P_THIS->Notify(Z_Param_MeshComp,Z_Param_Animation); \
-		P_NATIVE_END; \
-	}
+	DECLARE_FUNCTION(execNotify);
 
 
 #define MyProject_Source_MyProject_MyAttackAnimNotify_h_15_RPC_WRAPPERS_NO_PURE_DECLS \
  \
-	DECLARE_FUNCTION(execNotify) \
-	{ \
-		P_GET_OBJECT(USkeletalMeshComponent,Z_Param_MeshComp); \
-		P_GET_OBJECT(UAnimSequenceBase,Z_Param_Animation); \
-		P_FINISH; \
-		P_NATIVE_BEGIN; \
-		P_THIS->Notify(Z_Param_MeshComp,Z_Param_Animation); \
-		P_NATIVE_END; \
-	}
+	DECLARE_FUNCTION(execNotify);
 
 
 #define MyProject_Source_MyProject_MyAttackAnimNotify_h_15_INCLASS_NO_PURE_DECLS \
@@ -89,6 +74,7 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(UMyAttackAnimNotify); \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
 	MyProject_Source_MyProject_MyAttackAnimNotify_h_15_PRIVATE_PROPERTY_OFFSET \
+	MyProject_Source_MyProject_MyAttackAnimNotify_h_15_SPARSE_DATA \
 	MyProject_Source_MyProject_MyAttackAnimNotify_h_15_RPC_WRAPPERS \
 	MyProject_Source_MyProject_MyAttackAnimNotify_h_15_INCLASS \
 	MyProject_Source_MyProject_MyAttackAnimNotify_h_15_STANDARD_CONSTRUCTORS \
@@ -100,6 +86,7 @@ PRAGMA_ENABLE_DEPRECATION_WARNINGS
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
 	MyProject_Source_MyProject_MyAttackAnimNotify_h_15_PRIVATE_PROPERTY_OFFSET \
+	MyProject_Source_MyProject_MyAttackAnimNotify_h_15_SPARSE_DATA \
 	MyProject_Source_MyProject_MyAttackAnimNotify_h_15_RPC_WRAPPERS_NO_PURE_DECLS \
 	MyProject_Source_MyProject_MyAttackAnimNotify_h_15_INCLASS_NO_PURE_DECLS \
 	MyProject_Source_MyProject_MyAttackAnimNotify_h_15_ENHANCED_CONSTRUCTORS \

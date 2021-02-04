@@ -22,7 +22,6 @@ public:
 	AInGameHUD();
 	~AInGameHUD();
 
-
 	virtual void ShowHUD() override;
 
 	UFUNCTION(BlueprintCallable)
@@ -46,11 +45,7 @@ public:
 	TSubclassOf<UUserWidget> ComboWidgetClass;
 
 private:
-
 	
 	UComboWidget* ComboWidget;
-
-
-
 	
 };

@@ -1,4 +1,4 @@
-// Copyright 1998-2019 Epic Games, Inc. All Rights Reserved.
+// Copyright Epic Games, Inc. All Rights Reserved.
 /*===========================================================================
 	Generated code exported from UnrealHeaderTool.
 	DO NOT modify this manually! Edit the corresponding .h files instead!
@@ -13,44 +13,17 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #endif
 #define MYPROJECT_ComboWidget_generated_h
 
+#define MyProject_Source_MyProject_UI_ComboWidget_h_17_SPARSE_DATA
 #define MyProject_Source_MyProject_UI_ComboWidget_h_17_RPC_WRAPPERS \
  \
-	DECLARE_FUNCTION(execCountResetCombo) \
-	{ \
-		P_FINISH; \
-		P_NATIVE_BEGIN; \
-		P_THIS->CountResetCombo(); \
-		P_NATIVE_END; \
-	} \
- \
-	DECLARE_FUNCTION(execUpdateComboCount) \
-	{ \
-		P_GET_PROPERTY(UIntProperty,Z_Param_Value); \
-		P_FINISH; \
-		P_NATIVE_BEGIN; \
-		P_THIS->UpdateComboCount(Z_Param_Value); \
-		P_NATIVE_END; \
-	}
+	DECLARE_FUNCTION(execCountResetCombo); \
+	DECLARE_FUNCTION(execUpdateComboCount);
 
 
 #define MyProject_Source_MyProject_UI_ComboWidget_h_17_RPC_WRAPPERS_NO_PURE_DECLS \
  \
-	DECLARE_FUNCTION(execCountResetCombo) \
-	{ \
-		P_FINISH; \
-		P_NATIVE_BEGIN; \
-		P_THIS->CountResetCombo(); \
-		P_NATIVE_END; \
-	} \
- \
-	DECLARE_FUNCTION(execUpdateComboCount) \
-	{ \
-		P_GET_PROPERTY(UIntProperty,Z_Param_Value); \
-		P_FINISH; \
-		P_NATIVE_BEGIN; \
-		P_THIS->UpdateComboCount(Z_Param_Value); \
-		P_NATIVE_END; \
-	}
+	DECLARE_FUNCTION(execCountResetCombo); \
+	DECLARE_FUNCTION(execUpdateComboCount);
 
 
 #define MyProject_Source_MyProject_UI_ComboWidget_h_17_INCLASS_NO_PURE_DECLS \
@@ -101,6 +74,7 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(UComboWidget); \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
 	MyProject_Source_MyProject_UI_ComboWidget_h_17_PRIVATE_PROPERTY_OFFSET \
+	MyProject_Source_MyProject_UI_ComboWidget_h_17_SPARSE_DATA \
 	MyProject_Source_MyProject_UI_ComboWidget_h_17_RPC_WRAPPERS \
 	MyProject_Source_MyProject_UI_ComboWidget_h_17_INCLASS \
 	MyProject_Source_MyProject_UI_ComboWidget_h_17_STANDARD_CONSTRUCTORS \
@@ -112,6 +86,7 @@ PRAGMA_ENABLE_DEPRECATION_WARNINGS
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
 	MyProject_Source_MyProject_UI_ComboWidget_h_17_PRIVATE_PROPERTY_OFFSET \
+	MyProject_Source_MyProject_UI_ComboWidget_h_17_SPARSE_DATA \
 	MyProject_Source_MyProject_UI_ComboWidget_h_17_RPC_WRAPPERS_NO_PURE_DECLS \
 	MyProject_Source_MyProject_UI_ComboWidget_h_17_INCLASS_NO_PURE_DECLS \
 	MyProject_Source_MyProject_UI_ComboWidget_h_17_ENHANCED_CONSTRUCTORS \

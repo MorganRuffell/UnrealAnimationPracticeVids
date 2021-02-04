@@ -1,4 +1,4 @@
-// Copyright 1998-2019 Epic Games, Inc. All Rights Reserved.
+// Copyright Epic Games, Inc. All Rights Reserved.
 /*===========================================================================
 	Generated code exported from UnrealHeaderTool.
 	DO NOT modify this manually! Edit the corresponding .h files instead!
@@ -17,14 +17,46 @@ void EmptyLinkFunctionForGeneratedCodeInGameHUD() {}
 	MYPROJECT_API UClass* Z_Construct_UClass_AInGameHUD();
 	ENGINE_API UClass* Z_Construct_UClass_AHUD();
 	UPackage* Z_Construct_UPackage__Script_MyProject();
-	MYPROJECT_API UFunction* Z_Construct_UFunction_AInGameHUD_BeginPlay();
-	MYPROJECT_API UFunction* Z_Construct_UFunction_AInGameHUD_DrawHUD();
-	MYPROJECT_API UFunction* Z_Construct_UFunction_AInGameHUD_ResetCombo();
-	MYPROJECT_API UFunction* Z_Construct_UFunction_AInGameHUD_Tick();
-	MYPROJECT_API UFunction* Z_Construct_UFunction_AInGameHUD_UpdateComboCount();
 	COREUOBJECT_API UClass* Z_Construct_UClass_UClass();
 	UMG_API UClass* Z_Construct_UClass_UUserWidget_NoRegister();
 // End Cross Module References
+	DEFINE_FUNCTION(AInGameHUD::execBeginPlay)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->BeginPlay();
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(AInGameHUD::execResetCombo)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->ResetCombo();
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(AInGameHUD::execUpdateComboCount)
+	{
+		P_GET_PROPERTY(FIntProperty,Z_Param_Value);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->UpdateComboCount(Z_Param_Value);
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(AInGameHUD::execTick)
+	{
+		P_GET_PROPERTY(FFloatProperty,Z_Param_DeltaSeconds);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->Tick(Z_Param_DeltaSeconds);
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(AInGameHUD::execDrawHUD)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->DrawHUD();
+		P_NATIVE_END;
+	}
 	void AInGameHUD::StaticRegisterNativesAInGameHUD()
 	{
 		UClass* Class = AInGameHUD::StaticClass();
@@ -35,7 +67,7 @@ void EmptyLinkFunctionForGeneratedCodeInGameHUD() {}
 			{ "Tick", &AInGameHUD::execTick },
 			{ "UpdateComboCount", &AInGameHUD::execUpdateComboCount },
 		};
-		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, ARRAY_COUNT(Funcs));
+		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
 	}
 	struct Z_Construct_UFunction_AInGameHUD_BeginPlay_Statics
 	{
@@ -49,7 +81,7 @@ void EmptyLinkFunctionForGeneratedCodeInGameHUD() {}
 		{ "ModuleRelativePath", "UI/InGameHUD.h" },
 	};
 #endif
-	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_AInGameHUD_BeginPlay_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AInGameHUD, nullptr, "BeginPlay", 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AInGameHUD_BeginPlay_Statics::Function_MetaDataParams, ARRAY_COUNT(Z_Construct_UFunction_AInGameHUD_BeginPlay_Statics::Function_MetaDataParams)) };
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_AInGameHUD_BeginPlay_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AInGameHUD, nullptr, "BeginPlay", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AInGameHUD_BeginPlay_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AInGameHUD_BeginPlay_Statics::Function_MetaDataParams)) };
 	UFunction* Z_Construct_UFunction_AInGameHUD_BeginPlay()
 	{
 		static UFunction* ReturnFunction = nullptr;
@@ -71,7 +103,7 @@ void EmptyLinkFunctionForGeneratedCodeInGameHUD() {}
 		{ "ModuleRelativePath", "UI/InGameHUD.h" },
 	};
 #endif
-	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_AInGameHUD_DrawHUD_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AInGameHUD, nullptr, "DrawHUD", 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020400, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AInGameHUD_DrawHUD_Statics::Function_MetaDataParams, ARRAY_COUNT(Z_Construct_UFunction_AInGameHUD_DrawHUD_Statics::Function_MetaDataParams)) };
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_AInGameHUD_DrawHUD_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AInGameHUD, nullptr, "DrawHUD", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020400, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AInGameHUD_DrawHUD_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AInGameHUD_DrawHUD_Statics::Function_MetaDataParams)) };
 	UFunction* Z_Construct_UFunction_AInGameHUD_DrawHUD()
 	{
 		static UFunction* ReturnFunction = nullptr;
@@ -93,7 +125,7 @@ void EmptyLinkFunctionForGeneratedCodeInGameHUD() {}
 		{ "ModuleRelativePath", "UI/InGameHUD.h" },
 	};
 #endif
-	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_AInGameHUD_ResetCombo_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AInGameHUD, nullptr, "ResetCombo", 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AInGameHUD_ResetCombo_Statics::Function_MetaDataParams, ARRAY_COUNT(Z_Construct_UFunction_AInGameHUD_ResetCombo_Statics::Function_MetaDataParams)) };
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_AInGameHUD_ResetCombo_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AInGameHUD, nullptr, "ResetCombo", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AInGameHUD_ResetCombo_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AInGameHUD_ResetCombo_Statics::Function_MetaDataParams)) };
 	UFunction* Z_Construct_UFunction_AInGameHUD_ResetCombo()
 	{
 		static UFunction* ReturnFunction = nullptr;
@@ -125,7 +157,7 @@ void EmptyLinkFunctionForGeneratedCodeInGameHUD() {}
 		{ "ModuleRelativePath", "UI/InGameHUD.h" },
 	};
 #endif
-	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_AInGameHUD_Tick_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AInGameHUD, nullptr, "Tick", sizeof(InGameHUD_eventTick_Parms), Z_Construct_UFunction_AInGameHUD_Tick_Statics::PropPointers, ARRAY_COUNT(Z_Construct_UFunction_AInGameHUD_Tick_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020400, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AInGameHUD_Tick_Statics::Function_MetaDataParams, ARRAY_COUNT(Z_Construct_UFunction_AInGameHUD_Tick_Statics::Function_MetaDataParams)) };
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_AInGameHUD_Tick_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AInGameHUD, nullptr, "Tick", nullptr, nullptr, sizeof(InGameHUD_eventTick_Parms), Z_Construct_UFunction_AInGameHUD_Tick_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AInGameHUD_Tick_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020400, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AInGameHUD_Tick_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AInGameHUD_Tick_Statics::Function_MetaDataParams)) };
 	UFunction* Z_Construct_UFunction_AInGameHUD_Tick()
 	{
 		static UFunction* ReturnFunction = nullptr;
@@ -157,7 +189,7 @@ void EmptyLinkFunctionForGeneratedCodeInGameHUD() {}
 		{ "ModuleRelativePath", "UI/InGameHUD.h" },
 	};
 #endif
-	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_AInGameHUD_UpdateComboCount_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AInGameHUD, nullptr, "UpdateComboCount", sizeof(InGameHUD_eventUpdateComboCount_Parms), Z_Construct_UFunction_AInGameHUD_UpdateComboCount_Statics::PropPointers, ARRAY_COUNT(Z_Construct_UFunction_AInGameHUD_UpdateComboCount_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AInGameHUD_UpdateComboCount_Statics::Function_MetaDataParams, ARRAY_COUNT(Z_Construct_UFunction_AInGameHUD_UpdateComboCount_Statics::Function_MetaDataParams)) };
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_AInGameHUD_UpdateComboCount_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AInGameHUD, nullptr, "UpdateComboCount", nullptr, nullptr, sizeof(InGameHUD_eventUpdateComboCount_Parms), Z_Construct_UFunction_AInGameHUD_UpdateComboCount_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AInGameHUD_UpdateComboCount_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AInGameHUD_UpdateComboCount_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AInGameHUD_UpdateComboCount_Statics::Function_MetaDataParams)) };
 	UFunction* Z_Construct_UFunction_AInGameHUD_UpdateComboCount()
 	{
 		static UFunction* ReturnFunction = nullptr;
@@ -191,14 +223,15 @@ void EmptyLinkFunctionForGeneratedCodeInGameHUD() {}
 		(UObject* (*)())Z_Construct_UPackage__Script_MyProject,
 	};
 	const FClassFunctionLinkInfo Z_Construct_UClass_AInGameHUD_Statics::FuncInfo[] = {
-		{ &Z_Construct_UFunction_AInGameHUD_BeginPlay, "BeginPlay" }, // 1373779057
-		{ &Z_Construct_UFunction_AInGameHUD_DrawHUD, "DrawHUD" }, // 664513797
-		{ &Z_Construct_UFunction_AInGameHUD_ResetCombo, "ResetCombo" }, // 3807453204
-		{ &Z_Construct_UFunction_AInGameHUD_Tick, "Tick" }, // 210224464
-		{ &Z_Construct_UFunction_AInGameHUD_UpdateComboCount, "UpdateComboCount" }, // 2584635832
+		{ &Z_Construct_UFunction_AInGameHUD_BeginPlay, "BeginPlay" }, // 3997360206
+		{ &Z_Construct_UFunction_AInGameHUD_DrawHUD, "DrawHUD" }, // 4257115400
+		{ &Z_Construct_UFunction_AInGameHUD_ResetCombo, "ResetCombo" }, // 3453402376
+		{ &Z_Construct_UFunction_AInGameHUD_Tick, "Tick" }, // 2834324947
+		{ &Z_Construct_UFunction_AInGameHUD_UpdateComboCount, "UpdateComboCount" }, // 2220792750
 	};
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AInGameHUD_Statics::Class_MetaDataParams[] = {
+		{ "Comment", "/**\n * \n */" },
 		{ "HideCategories", "Rendering Actor Input Replication" },
 		{ "IncludePath", "UI/InGameHUD.h" },
 		{ "ModuleRelativePath", "UI/InGameHUD.h" },
@@ -211,7 +244,7 @@ void EmptyLinkFunctionForGeneratedCodeInGameHUD() {}
 		{ "ModuleRelativePath", "UI/InGameHUD.h" },
 	};
 #endif
-	const UE4CodeGen_Private::FClassPropertyParams Z_Construct_UClass_AInGameHUD_Statics::NewProp_ComboWidgetClass = { "ComboWidgetClass", nullptr, (EPropertyFlags)0x0014000000010001, UE4CodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AInGameHUD, ComboWidgetClass), Z_Construct_UClass_UUserWidget_NoRegister, Z_Construct_UClass_UClass, METADATA_PARAMS(Z_Construct_UClass_AInGameHUD_Statics::NewProp_ComboWidgetClass_MetaData, ARRAY_COUNT(Z_Construct_UClass_AInGameHUD_Statics::NewProp_ComboWidgetClass_MetaData)) };
+	const UE4CodeGen_Private::FClassPropertyParams Z_Construct_UClass_AInGameHUD_Statics::NewProp_ComboWidgetClass = { "ComboWidgetClass", nullptr, (EPropertyFlags)0x0014000000010001, UE4CodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AInGameHUD, ComboWidgetClass), Z_Construct_UClass_UUserWidget_NoRegister, Z_Construct_UClass_UClass, METADATA_PARAMS(Z_Construct_UClass_AInGameHUD_Statics::NewProp_ComboWidgetClass_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AInGameHUD_Statics::NewProp_ComboWidgetClass_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AInGameHUD_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AInGameHUD_Statics::NewProp_ComboWidgetClass,
 	};
@@ -226,12 +259,12 @@ void EmptyLinkFunctionForGeneratedCodeInGameHUD() {}
 		FuncInfo,
 		Z_Construct_UClass_AInGameHUD_Statics::PropPointers,
 		nullptr,
-		ARRAY_COUNT(DependentSingletons),
-		ARRAY_COUNT(FuncInfo),
-		ARRAY_COUNT(Z_Construct_UClass_AInGameHUD_Statics::PropPointers),
+		UE_ARRAY_COUNT(DependentSingletons),
+		UE_ARRAY_COUNT(FuncInfo),
+		UE_ARRAY_COUNT(Z_Construct_UClass_AInGameHUD_Statics::PropPointers),
 		0,
 		0x009002ACu,
-		METADATA_PARAMS(Z_Construct_UClass_AInGameHUD_Statics::Class_MetaDataParams, ARRAY_COUNT(Z_Construct_UClass_AInGameHUD_Statics::Class_MetaDataParams))
+		METADATA_PARAMS(Z_Construct_UClass_AInGameHUD_Statics::Class_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UClass_AInGameHUD_Statics::Class_MetaDataParams))
 	};
 	UClass* Z_Construct_UClass_AInGameHUD()
 	{
@@ -242,7 +275,7 @@ void EmptyLinkFunctionForGeneratedCodeInGameHUD() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AInGameHUD, 762622305);
+	IMPLEMENT_CLASS(AInGameHUD, 425668279);
 	template<> MYPROJECT_API UClass* StaticClass<AInGameHUD>()
 	{
 		return AInGameHUD::StaticClass();

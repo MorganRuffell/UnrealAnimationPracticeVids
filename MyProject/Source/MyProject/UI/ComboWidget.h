@@ -18,12 +18,13 @@ class MYPROJECT_API UComboWidget : public UUserWidget
 	
 public:
 		
+	//Constructor
 	UComboWidget(const FObjectInitializer& ObjectInitializer);
 
+	//Destructor
 	~UComboWidget();
 
 	virtual void NativeConstruct();
-
 	
 	void AddToViewport(int32 ZOrder);
 
@@ -37,7 +38,6 @@ public:
 	//This meta tag, bind widget
 	//This allows you to bind it directly to the derieved widget class. It does 
 	//it automatically for you, if that is what you'd like.
-	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (BindWidget))
 	class UTextBlock* TxtBoxCombo;
 
@@ -45,7 +45,6 @@ public:
 	void StoreWidgetAnimations();
 
 	UWidgetAnimation* GetAnimationByName(FName AnimationName) const;
-
 private:
 
 	TMap<FName, UWidgetAnimation*> AnimationsMap;
@@ -53,10 +52,4 @@ private:
 	UWidgetAnimation* ComboFadeAnim;
 	UWidgetAnimation* ComboShakeAnim;
 	UWidgetAnimation* ComboAddShakeAnim;
-
-
-	
-
-
-
 };

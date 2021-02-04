@@ -1,4 +1,4 @@
-// Copyright 1998-2019 Epic Games, Inc. All Rights Reserved.
+// Copyright Epic Games, Inc. All Rights Reserved.
 /*===========================================================================
 	Generated code exported from UnrealHeaderTool.
 	DO NOT modify this manually! Edit the corresponding .h files instead!
@@ -13,94 +13,23 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #endif
 #define MYPROJECT_InGameHUD_generated_h
 
+#define MyProject_Source_MyProject_UI_InGameHUD_h_18_SPARSE_DATA
 #define MyProject_Source_MyProject_UI_InGameHUD_h_18_RPC_WRAPPERS \
  \
-	DECLARE_FUNCTION(execBeginPlay) \
-	{ \
-		P_FINISH; \
-		P_NATIVE_BEGIN; \
-		P_THIS->BeginPlay(); \
-		P_NATIVE_END; \
-	} \
- \
-	DECLARE_FUNCTION(execResetCombo) \
-	{ \
-		P_FINISH; \
-		P_NATIVE_BEGIN; \
-		P_THIS->ResetCombo(); \
-		P_NATIVE_END; \
-	} \
- \
-	DECLARE_FUNCTION(execUpdateComboCount) \
-	{ \
-		P_GET_PROPERTY(UIntProperty,Z_Param_Value); \
-		P_FINISH; \
-		P_NATIVE_BEGIN; \
-		P_THIS->UpdateComboCount(Z_Param_Value); \
-		P_NATIVE_END; \
-	} \
- \
-	DECLARE_FUNCTION(execTick) \
-	{ \
-		P_GET_PROPERTY(UFloatProperty,Z_Param_DeltaSeconds); \
-		P_FINISH; \
-		P_NATIVE_BEGIN; \
-		P_THIS->Tick(Z_Param_DeltaSeconds); \
-		P_NATIVE_END; \
-	} \
- \
-	DECLARE_FUNCTION(execDrawHUD) \
-	{ \
-		P_FINISH; \
-		P_NATIVE_BEGIN; \
-		P_THIS->DrawHUD(); \
-		P_NATIVE_END; \
-	}
+	DECLARE_FUNCTION(execBeginPlay); \
+	DECLARE_FUNCTION(execResetCombo); \
+	DECLARE_FUNCTION(execUpdateComboCount); \
+	DECLARE_FUNCTION(execTick); \
+	DECLARE_FUNCTION(execDrawHUD);
 
 
 #define MyProject_Source_MyProject_UI_InGameHUD_h_18_RPC_WRAPPERS_NO_PURE_DECLS \
  \
-	DECLARE_FUNCTION(execBeginPlay) \
-	{ \
-		P_FINISH; \
-		P_NATIVE_BEGIN; \
-		P_THIS->BeginPlay(); \
-		P_NATIVE_END; \
-	} \
- \
-	DECLARE_FUNCTION(execResetCombo) \
-	{ \
-		P_FINISH; \
-		P_NATIVE_BEGIN; \
-		P_THIS->ResetCombo(); \
-		P_NATIVE_END; \
-	} \
- \
-	DECLARE_FUNCTION(execUpdateComboCount) \
-	{ \
-		P_GET_PROPERTY(UIntProperty,Z_Param_Value); \
-		P_FINISH; \
-		P_NATIVE_BEGIN; \
-		P_THIS->UpdateComboCount(Z_Param_Value); \
-		P_NATIVE_END; \
-	} \
- \
-	DECLARE_FUNCTION(execTick) \
-	{ \
-		P_GET_PROPERTY(UFloatProperty,Z_Param_DeltaSeconds); \
-		P_FINISH; \
-		P_NATIVE_BEGIN; \
-		P_THIS->Tick(Z_Param_DeltaSeconds); \
-		P_NATIVE_END; \
-	} \
- \
-	DECLARE_FUNCTION(execDrawHUD) \
-	{ \
-		P_FINISH; \
-		P_NATIVE_BEGIN; \
-		P_THIS->DrawHUD(); \
-		P_NATIVE_END; \
-	}
+	DECLARE_FUNCTION(execBeginPlay); \
+	DECLARE_FUNCTION(execResetCombo); \
+	DECLARE_FUNCTION(execUpdateComboCount); \
+	DECLARE_FUNCTION(execTick); \
+	DECLARE_FUNCTION(execDrawHUD);
 
 
 #define MyProject_Source_MyProject_UI_InGameHUD_h_18_INCLASS_NO_PURE_DECLS \
@@ -151,6 +80,7 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(AInGameHUD); \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
 	MyProject_Source_MyProject_UI_InGameHUD_h_18_PRIVATE_PROPERTY_OFFSET \
+	MyProject_Source_MyProject_UI_InGameHUD_h_18_SPARSE_DATA \
 	MyProject_Source_MyProject_UI_InGameHUD_h_18_RPC_WRAPPERS \
 	MyProject_Source_MyProject_UI_InGameHUD_h_18_INCLASS \
 	MyProject_Source_MyProject_UI_InGameHUD_h_18_STANDARD_CONSTRUCTORS \
@@ -162,6 +92,7 @@ PRAGMA_ENABLE_DEPRECATION_WARNINGS
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
 	MyProject_Source_MyProject_UI_InGameHUD_h_18_PRIVATE_PROPERTY_OFFSET \
+	MyProject_Source_MyProject_UI_InGameHUD_h_18_SPARSE_DATA \
 	MyProject_Source_MyProject_UI_InGameHUD_h_18_RPC_WRAPPERS_NO_PURE_DECLS \
 	MyProject_Source_MyProject_UI_InGameHUD_h_18_INCLASS_NO_PURE_DECLS \
 	MyProject_Source_MyProject_UI_InGameHUD_h_18_ENHANCED_CONSTRUCTORS \

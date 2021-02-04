@@ -1,4 +1,4 @@
-// Copyright 1998-2019 Epic Games, Inc. All Rights Reserved.
+// Copyright Epic Games, Inc. All Rights Reserved.
 /*===========================================================================
 	Generated code exported from UnrealHeaderTool.
 	DO NOT modify this manually! Edit the corresponding .h files instead!
@@ -40,6 +40,7 @@ void EmptyLinkFunctionForGeneratedCodeAttackStartNotifyState() {}
 	};
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UAttackStartNotifyState_Statics::Class_MetaDataParams[] = {
+		{ "Comment", "/**\n * \n */" },
 		{ "HideCategories", "Object" },
 		{ "IncludePath", "AttackStartNotifyState.h" },
 		{ "ModuleRelativePath", "AttackStartNotifyState.h" },
@@ -56,12 +57,12 @@ void EmptyLinkFunctionForGeneratedCodeAttackStartNotifyState() {}
 		nullptr,
 		nullptr,
 		nullptr,
-		ARRAY_COUNT(DependentSingletons),
+		UE_ARRAY_COUNT(DependentSingletons),
 		0,
 		0,
 		0,
 		0x001130A0u,
-		METADATA_PARAMS(Z_Construct_UClass_UAttackStartNotifyState_Statics::Class_MetaDataParams, ARRAY_COUNT(Z_Construct_UClass_UAttackStartNotifyState_Statics::Class_MetaDataParams))
+		METADATA_PARAMS(Z_Construct_UClass_UAttackStartNotifyState_Statics::Class_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UClass_UAttackStartNotifyState_Statics::Class_MetaDataParams))
 	};
 	UClass* Z_Construct_UClass_UAttackStartNotifyState()
 	{
@@ -72,7 +73,7 @@ void EmptyLinkFunctionForGeneratedCodeAttackStartNotifyState() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(UAttackStartNotifyState, 164632539);
+	IMPLEMENT_CLASS(UAttackStartNotifyState, 1079433443);
 	template<> MYPROJECT_API UClass* StaticClass<UAttackStartNotifyState>()
 	{
 		return UAttackStartNotifyState::StaticClass();

@@ -122,7 +122,7 @@ public:
 	AMyProjectCharacter();
 	
 	//This is declaring the begin play method, this is called when the game begins.
-	//This is how it is declared. This is becuase Characters inherit from AActor which contains the abstract definition
+	//This is how it is declared. This is because Characters inherit from AActor which contains the abstract definition
 	virtual void BeginPlay() override;
 
 
@@ -155,6 +155,13 @@ public:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Combo)
 	float ComboResetDelay;
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = Animation, meta = (AllowPrivateAccess = "true"))
+	float AnimationStopDelay;
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Animation, meta = (AllowPrivateAccess = "true"), meta = (ToolTip = "Negative to rewind animation, postive for normal playback"))
+	float AnimationPlayback;
+
 	
 protected:
 

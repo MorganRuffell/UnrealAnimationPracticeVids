@@ -1,4 +1,4 @@
-// Copyright 1998-2019 Epic Games, Inc. All Rights Reserved.
+// Copyright Epic Games, Inc. All Rights Reserved.
 /*===========================================================================
 	Generated code exported from UnrealHeaderTool.
 	DO NOT modify this manually! Edit the corresponding .h files instead!
@@ -17,17 +17,25 @@ void EmptyLinkFunctionForGeneratedCodeMyAttackAnimNotify() {}
 	MYPROJECT_API UClass* Z_Construct_UClass_UMyAttackAnimNotify();
 	ENGINE_API UClass* Z_Construct_UClass_UAnimNotify();
 	UPackage* Z_Construct_UPackage__Script_MyProject();
-	MYPROJECT_API UFunction* Z_Construct_UFunction_UMyAttackAnimNotify_Notify();
 	ENGINE_API UClass* Z_Construct_UClass_UAnimSequenceBase_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_USkeletalMeshComponent_NoRegister();
 // End Cross Module References
+	DEFINE_FUNCTION(UMyAttackAnimNotify::execNotify)
+	{
+		P_GET_OBJECT(USkeletalMeshComponent,Z_Param_MeshComp);
+		P_GET_OBJECT(UAnimSequenceBase,Z_Param_Animation);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->Notify(Z_Param_MeshComp,Z_Param_Animation);
+		P_NATIVE_END;
+	}
 	void UMyAttackAnimNotify::StaticRegisterNativesUMyAttackAnimNotify()
 	{
 		UClass* Class = UMyAttackAnimNotify::StaticClass();
 		static const FNameNativePtrPair Funcs[] = {
 			{ "Notify", &UMyAttackAnimNotify::execNotify },
 		};
-		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, ARRAY_COUNT(Funcs));
+		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
 	}
 	struct Z_Construct_UFunction_UMyAttackAnimNotify_Notify_Statics
 	{
@@ -53,7 +61,7 @@ void EmptyLinkFunctionForGeneratedCodeMyAttackAnimNotify() {}
 		{ "EditInline", "true" },
 	};
 #endif
-	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_UMyAttackAnimNotify_Notify_Statics::NewProp_MeshComp = { "MeshComp", nullptr, (EPropertyFlags)0x0010000000080080, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(MyAttackAnimNotify_eventNotify_Parms, MeshComp), Z_Construct_UClass_USkeletalMeshComponent_NoRegister, METADATA_PARAMS(Z_Construct_UFunction_UMyAttackAnimNotify_Notify_Statics::NewProp_MeshComp_MetaData, ARRAY_COUNT(Z_Construct_UFunction_UMyAttackAnimNotify_Notify_Statics::NewProp_MeshComp_MetaData)) };
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_UMyAttackAnimNotify_Notify_Statics::NewProp_MeshComp = { "MeshComp", nullptr, (EPropertyFlags)0x0010000000080080, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(MyAttackAnimNotify_eventNotify_Parms, MeshComp), Z_Construct_UClass_USkeletalMeshComponent_NoRegister, METADATA_PARAMS(Z_Construct_UFunction_UMyAttackAnimNotify_Notify_Statics::NewProp_MeshComp_MetaData, UE_ARRAY_COUNT(Z_Construct_UFunction_UMyAttackAnimNotify_Notify_Statics::NewProp_MeshComp_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UMyAttackAnimNotify_Notify_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UMyAttackAnimNotify_Notify_Statics::NewProp_Animation,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UMyAttackAnimNotify_Notify_Statics::NewProp_MeshComp,
@@ -63,7 +71,7 @@ void EmptyLinkFunctionForGeneratedCodeMyAttackAnimNotify() {}
 		{ "ModuleRelativePath", "MyAttackAnimNotify.h" },
 	};
 #endif
-	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_UMyAttackAnimNotify_Notify_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UMyAttackAnimNotify, nullptr, "Notify", sizeof(MyAttackAnimNotify_eventNotify_Parms), Z_Construct_UFunction_UMyAttackAnimNotify_Notify_Statics::PropPointers, ARRAY_COUNT(Z_Construct_UFunction_UMyAttackAnimNotify_Notify_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x40020400, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_UMyAttackAnimNotify_Notify_Statics::Function_MetaDataParams, ARRAY_COUNT(Z_Construct_UFunction_UMyAttackAnimNotify_Notify_Statics::Function_MetaDataParams)) };
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_UMyAttackAnimNotify_Notify_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UMyAttackAnimNotify, nullptr, "Notify", nullptr, nullptr, sizeof(MyAttackAnimNotify_eventNotify_Parms), Z_Construct_UFunction_UMyAttackAnimNotify_Notify_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UMyAttackAnimNotify_Notify_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x40020400, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_UMyAttackAnimNotify_Notify_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_UMyAttackAnimNotify_Notify_Statics::Function_MetaDataParams)) };
 	UFunction* Z_Construct_UFunction_UMyAttackAnimNotify_Notify()
 	{
 		static UFunction* ReturnFunction = nullptr;
@@ -92,10 +100,11 @@ void EmptyLinkFunctionForGeneratedCodeMyAttackAnimNotify() {}
 		(UObject* (*)())Z_Construct_UPackage__Script_MyProject,
 	};
 	const FClassFunctionLinkInfo Z_Construct_UClass_UMyAttackAnimNotify_Statics::FuncInfo[] = {
-		{ &Z_Construct_UFunction_UMyAttackAnimNotify_Notify, "Notify" }, // 318750033
+		{ &Z_Construct_UFunction_UMyAttackAnimNotify_Notify, "Notify" }, // 285247835
 	};
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UMyAttackAnimNotify_Statics::Class_MetaDataParams[] = {
+		{ "Comment", "/**\n * \n */" },
 		{ "HideCategories", "Object" },
 		{ "IncludePath", "MyAttackAnimNotify.h" },
 		{ "ModuleRelativePath", "MyAttackAnimNotify.h" },
@@ -112,12 +121,12 @@ void EmptyLinkFunctionForGeneratedCodeMyAttackAnimNotify() {}
 		FuncInfo,
 		nullptr,
 		nullptr,
-		ARRAY_COUNT(DependentSingletons),
-		ARRAY_COUNT(FuncInfo),
+		UE_ARRAY_COUNT(DependentSingletons),
+		UE_ARRAY_COUNT(FuncInfo),
 		0,
 		0,
 		0x001120A0u,
-		METADATA_PARAMS(Z_Construct_UClass_UMyAttackAnimNotify_Statics::Class_MetaDataParams, ARRAY_COUNT(Z_Construct_UClass_UMyAttackAnimNotify_Statics::Class_MetaDataParams))
+		METADATA_PARAMS(Z_Construct_UClass_UMyAttackAnimNotify_Statics::Class_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UClass_UMyAttackAnimNotify_Statics::Class_MetaDataParams))
 	};
 	UClass* Z_Construct_UClass_UMyAttackAnimNotify()
 	{
@@ -128,7 +137,7 @@ void EmptyLinkFunctionForGeneratedCodeMyAttackAnimNotify() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(UMyAttackAnimNotify, 2635236477);
+	IMPLEMENT_CLASS(UMyAttackAnimNotify, 2867537370);
 	template<> MYPROJECT_API UClass* StaticClass<UMyAttackAnimNotify>()
 	{
 		return UMyAttackAnimNotify::StaticClass();

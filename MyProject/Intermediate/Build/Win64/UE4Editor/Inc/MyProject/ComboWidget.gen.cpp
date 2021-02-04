@@ -1,4 +1,4 @@
-// Copyright 1998-2019 Epic Games, Inc. All Rights Reserved.
+// Copyright Epic Games, Inc. All Rights Reserved.
 /*===========================================================================
 	Generated code exported from UnrealHeaderTool.
 	DO NOT modify this manually! Edit the corresponding .h files instead!
@@ -17,10 +17,23 @@ void EmptyLinkFunctionForGeneratedCodeComboWidget() {}
 	MYPROJECT_API UClass* Z_Construct_UClass_UComboWidget();
 	UMG_API UClass* Z_Construct_UClass_UUserWidget();
 	UPackage* Z_Construct_UPackage__Script_MyProject();
-	MYPROJECT_API UFunction* Z_Construct_UFunction_UComboWidget_CountResetCombo();
-	MYPROJECT_API UFunction* Z_Construct_UFunction_UComboWidget_UpdateComboCount();
 	UMG_API UClass* Z_Construct_UClass_UTextBlock_NoRegister();
 // End Cross Module References
+	DEFINE_FUNCTION(UComboWidget::execCountResetCombo)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->CountResetCombo();
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(UComboWidget::execUpdateComboCount)
+	{
+		P_GET_PROPERTY(FIntProperty,Z_Param_Value);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->UpdateComboCount(Z_Param_Value);
+		P_NATIVE_END;
+	}
 	void UComboWidget::StaticRegisterNativesUComboWidget()
 	{
 		UClass* Class = UComboWidget::StaticClass();
@@ -28,7 +41,7 @@ void EmptyLinkFunctionForGeneratedCodeComboWidget() {}
 			{ "CountResetCombo", &UComboWidget::execCountResetCombo },
 			{ "UpdateComboCount", &UComboWidget::execUpdateComboCount },
 		};
-		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, ARRAY_COUNT(Funcs));
+		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
 	}
 	struct Z_Construct_UFunction_UComboWidget_CountResetCombo_Statics
 	{
@@ -42,7 +55,7 @@ void EmptyLinkFunctionForGeneratedCodeComboWidget() {}
 		{ "ModuleRelativePath", "UI/ComboWidget.h" },
 	};
 #endif
-	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_UComboWidget_CountResetCombo_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UComboWidget, nullptr, "CountResetCombo", 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_UComboWidget_CountResetCombo_Statics::Function_MetaDataParams, ARRAY_COUNT(Z_Construct_UFunction_UComboWidget_CountResetCombo_Statics::Function_MetaDataParams)) };
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_UComboWidget_CountResetCombo_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UComboWidget, nullptr, "CountResetCombo", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_UComboWidget_CountResetCombo_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_UComboWidget_CountResetCombo_Statics::Function_MetaDataParams)) };
 	UFunction* Z_Construct_UFunction_UComboWidget_CountResetCombo()
 	{
 		static UFunction* ReturnFunction = nullptr;
@@ -74,7 +87,7 @@ void EmptyLinkFunctionForGeneratedCodeComboWidget() {}
 		{ "ModuleRelativePath", "UI/ComboWidget.h" },
 	};
 #endif
-	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_UComboWidget_UpdateComboCount_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UComboWidget, nullptr, "UpdateComboCount", sizeof(ComboWidget_eventUpdateComboCount_Parms), Z_Construct_UFunction_UComboWidget_UpdateComboCount_Statics::PropPointers, ARRAY_COUNT(Z_Construct_UFunction_UComboWidget_UpdateComboCount_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_UComboWidget_UpdateComboCount_Statics::Function_MetaDataParams, ARRAY_COUNT(Z_Construct_UFunction_UComboWidget_UpdateComboCount_Statics::Function_MetaDataParams)) };
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_UComboWidget_UpdateComboCount_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UComboWidget, nullptr, "UpdateComboCount", nullptr, nullptr, sizeof(ComboWidget_eventUpdateComboCount_Parms), Z_Construct_UFunction_UComboWidget_UpdateComboCount_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UComboWidget_UpdateComboCount_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_UComboWidget_UpdateComboCount_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_UComboWidget_UpdateComboCount_Statics::Function_MetaDataParams)) };
 	UFunction* Z_Construct_UFunction_UComboWidget_UpdateComboCount()
 	{
 		static UFunction* ReturnFunction = nullptr;
@@ -108,11 +121,12 @@ void EmptyLinkFunctionForGeneratedCodeComboWidget() {}
 		(UObject* (*)())Z_Construct_UPackage__Script_MyProject,
 	};
 	const FClassFunctionLinkInfo Z_Construct_UClass_UComboWidget_Statics::FuncInfo[] = {
-		{ &Z_Construct_UFunction_UComboWidget_CountResetCombo, "CountResetCombo" }, // 4154186983
-		{ &Z_Construct_UFunction_UComboWidget_UpdateComboCount, "UpdateComboCount" }, // 2843230652
+		{ &Z_Construct_UFunction_UComboWidget_CountResetCombo, "CountResetCombo" }, // 379193499
+		{ &Z_Construct_UFunction_UComboWidget_UpdateComboCount, "UpdateComboCount" }, // 1805477858
 	};
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UComboWidget_Statics::Class_MetaDataParams[] = {
+		{ "Comment", "/**\n * \n */" },
 		{ "IncludePath", "UI/ComboWidget.h" },
 		{ "ModuleRelativePath", "UI/ComboWidget.h" },
 		{ "ObjectInitializerConstructorDeclared", "" },
@@ -122,12 +136,13 @@ void EmptyLinkFunctionForGeneratedCodeComboWidget() {}
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UComboWidget_Statics::NewProp_TxtBoxCombo_MetaData[] = {
 		{ "BindWidget", "" },
 		{ "Category", "ComboWidget" },
+		{ "Comment", "//This meta tag, bind widget\n//This allows you to bind it directly to the derieved widget class. It does \n//it automatically for you, if that is what you'd like.\n" },
 		{ "EditInline", "true" },
 		{ "ModuleRelativePath", "UI/ComboWidget.h" },
 		{ "ToolTip", "This meta tag, bind widget\nThis allows you to bind it directly to the derieved widget class. It does\nit automatically for you, if that is what you'd like." },
 	};
 #endif
-	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UComboWidget_Statics::NewProp_TxtBoxCombo = { "TxtBoxCombo", nullptr, (EPropertyFlags)0x001000000008000d, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UComboWidget, TxtBoxCombo), Z_Construct_UClass_UTextBlock_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UComboWidget_Statics::NewProp_TxtBoxCombo_MetaData, ARRAY_COUNT(Z_Construct_UClass_UComboWidget_Statics::NewProp_TxtBoxCombo_MetaData)) };
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UComboWidget_Statics::NewProp_TxtBoxCombo = { "TxtBoxCombo", nullptr, (EPropertyFlags)0x001000000008000d, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UComboWidget, TxtBoxCombo), Z_Construct_UClass_UTextBlock_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UComboWidget_Statics::NewProp_TxtBoxCombo_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UComboWidget_Statics::NewProp_TxtBoxCombo_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UComboWidget_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UComboWidget_Statics::NewProp_TxtBoxCombo,
 	};
@@ -142,12 +157,12 @@ void EmptyLinkFunctionForGeneratedCodeComboWidget() {}
 		FuncInfo,
 		Z_Construct_UClass_UComboWidget_Statics::PropPointers,
 		nullptr,
-		ARRAY_COUNT(DependentSingletons),
-		ARRAY_COUNT(FuncInfo),
-		ARRAY_COUNT(Z_Construct_UClass_UComboWidget_Statics::PropPointers),
+		UE_ARRAY_COUNT(DependentSingletons),
+		UE_ARRAY_COUNT(FuncInfo),
+		UE_ARRAY_COUNT(Z_Construct_UClass_UComboWidget_Statics::PropPointers),
 		0,
 		0x00B010A0u,
-		METADATA_PARAMS(Z_Construct_UClass_UComboWidget_Statics::Class_MetaDataParams, ARRAY_COUNT(Z_Construct_UClass_UComboWidget_Statics::Class_MetaDataParams))
+		METADATA_PARAMS(Z_Construct_UClass_UComboWidget_Statics::Class_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UClass_UComboWidget_Statics::Class_MetaDataParams))
 	};
 	UClass* Z_Construct_UClass_UComboWidget()
 	{
@@ -158,7 +173,7 @@ void EmptyLinkFunctionForGeneratedCodeComboWidget() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(UComboWidget, 1301367400);
+	IMPLEMENT_CLASS(UComboWidget, 2171608285);
 	template<> MYPROJECT_API UClass* StaticClass<UComboWidget>()
 	{
 		return UComboWidget::StaticClass();

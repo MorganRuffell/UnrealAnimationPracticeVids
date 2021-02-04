@@ -1,4 +1,4 @@
-// Copyright 1998-2019 Epic Games, Inc. All Rights Reserved.
+// Copyright Epic Games, Inc. All Rights Reserved.
 /*===========================================================================
 	Generated code exported from UnrealHeaderTool.
 	DO NOT modify this manually! Edit the corresponding .h files instead!
@@ -13,6 +13,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #endif
 #define MYPROJECT_MyProjectGameMode_generated_h
 
+#define MyProject_Source_MyProject_MyProjectGameMode_h_12_SPARSE_DATA
 #define MyProject_Source_MyProject_MyProjectGameMode_h_12_RPC_WRAPPERS
 #define MyProject_Source_MyProject_MyProjectGameMode_h_12_RPC_WRAPPERS_NO_PURE_DECLS
 #define MyProject_Source_MyProject_MyProjectGameMode_h_12_INCLASS_NO_PURE_DECLS \
@@ -20,7 +21,7 @@ private: \
 	static void StaticRegisterNativesAMyProjectGameMode(); \
 	friend struct Z_Construct_UClass_AMyProjectGameMode_Statics; \
 public: \
-	DECLARE_CLASS(AMyProjectGameMode, AGameModeBase, COMPILED_IN_FLAGS(0 | CLASS_Transient), CASTCLASS_None, TEXT("/Script/MyProject"), MYPROJECT_API) \
+	DECLARE_CLASS(AMyProjectGameMode, AGameModeBase, COMPILED_IN_FLAGS(0 | CLASS_Transient | CLASS_Config), CASTCLASS_None, TEXT("/Script/MyProject"), MYPROJECT_API) \
 	DECLARE_SERIALIZER(AMyProjectGameMode)
 
 
@@ -29,7 +30,7 @@ private: \
 	static void StaticRegisterNativesAMyProjectGameMode(); \
 	friend struct Z_Construct_UClass_AMyProjectGameMode_Statics; \
 public: \
-	DECLARE_CLASS(AMyProjectGameMode, AGameModeBase, COMPILED_IN_FLAGS(0 | CLASS_Transient), CASTCLASS_None, TEXT("/Script/MyProject"), MYPROJECT_API) \
+	DECLARE_CLASS(AMyProjectGameMode, AGameModeBase, COMPILED_IN_FLAGS(0 | CLASS_Transient | CLASS_Config), CASTCLASS_None, TEXT("/Script/MyProject"), MYPROJECT_API) \
 	DECLARE_SERIALIZER(AMyProjectGameMode)
 
 
@@ -63,6 +64,7 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(AMyProjectGameMode); \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
 	MyProject_Source_MyProject_MyProjectGameMode_h_12_PRIVATE_PROPERTY_OFFSET \
+	MyProject_Source_MyProject_MyProjectGameMode_h_12_SPARSE_DATA \
 	MyProject_Source_MyProject_MyProjectGameMode_h_12_RPC_WRAPPERS \
 	MyProject_Source_MyProject_MyProjectGameMode_h_12_INCLASS \
 	MyProject_Source_MyProject_MyProjectGameMode_h_12_STANDARD_CONSTRUCTORS \
@@ -74,6 +76,7 @@ PRAGMA_ENABLE_DEPRECATION_WARNINGS
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
 	MyProject_Source_MyProject_MyProjectGameMode_h_12_PRIVATE_PROPERTY_OFFSET \
+	MyProject_Source_MyProject_MyProjectGameMode_h_12_SPARSE_DATA \
 	MyProject_Source_MyProject_MyProjectGameMode_h_12_RPC_WRAPPERS_NO_PURE_DECLS \
 	MyProject_Source_MyProject_MyProjectGameMode_h_12_INCLASS_NO_PURE_DECLS \
 	MyProject_Source_MyProject_MyProjectGameMode_h_12_ENHANCED_CONSTRUCTORS \

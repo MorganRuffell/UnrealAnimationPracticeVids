@@ -40,6 +40,10 @@ AMyProjectCharacter::AMyProjectCharacter()
 	LowerPitchBound = 0.9f;
 	UpperPitchBound = 1.3f;
 
+	// Set the animation stop delay to a default value
+	AnimationStopDelay = 0.0f;
+	AnimationPlayback = -1.0f;
+
 	// Don't rotate when the controller rotates. Let that just affect the camera.
 	bUseControllerRotationPitch = false;
 	bUseControllerRotationYaw = false;
@@ -134,12 +138,40 @@ AMyProjectCharacter::AMyProjectCharacter()
 	//Go to the project settings and read through this, if you're stuck!
 	LeftFistCollisionBox->SetCollisionProfileName(MeleeCollisionProfile.Disabled);
 	RightFistCollisionBox->SetCollisionProfileName(MeleeCollisionProfile.Disabled);
-
-
-
 }
 
 //Begin play is essentially awake. 
+
+//////////////////////////////////////////////////////////////////////////
+// Input
+
+void AMyProjectCharacter::SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent)
+{
+	// Set up gameplay key bindings
+	check(PlayerInputComponent);
+	PlayerInputComponent->BindAction("Jump", IE_Pressed, this, &ACharacter::Jump);
+	PlayerInputComponent->BindAction("Jump", IE_Released, this, &ACharacter::StopJumping);
+
+	PlayerInputComponent->BindAction("Sprint", IE_Pressed, this, &AMyProjectCharacter::Sprint);
+	PlayerInputComponent->BindAction("Sprint", IE_Released, this, &AMyProjectCharacter::StopSprinting);
+
+	PlayerInputComponent->BindAxis("MoveForward", this, &AMyProjectCharacter::MoveForward);
+	PlayerInputComponent->BindAxis("MoveRight", this, &AMyProjectCharacter::MoveRight);
+
+	//Attack input
+	PlayerInputComponent->BindAction("Attack", IE_Pressed, this, &AMyProjectCharacter::AttackInput);
+	PlayerInputComponent->BindAction("Attack", IE_Released, this, &AMyProjectCharacter::AttackEnd);
+
+
+	// We have 2 versions of the rotation bindings to handle different kinds of devices differently
+	// "turn" handles devices that provide an absolute delta, such as a mouse.
+	// "turnrate" is for devices that we choose to treat as a rate of change, such as an analog joystick
+	PlayerInputComponent->BindAxis("Turn", this, &APawn::AddControllerYawInput);
+	PlayerInputComponent->BindAxis("TurnRate", this, &AMyProjectCharacter::TurnAtRate);
+	PlayerInputComponent->BindAxis("LookUp", this, &APawn::AddControllerPitchInput);
+	PlayerInputComponent->BindAxis("LookUpRate", this, &AMyProjectCharacter::LookUpAtRate);
+}
+
 void AMyProjectCharacter::BeginPlay()
 {
 	//Passing a call to the super class iteration before we start playing.
@@ -178,16 +210,16 @@ void AMyProjectCharacter::BeginPlay()
 	//You can read and write to your data table within code. In this case it allows us to add data through the code to 
 	//the data asset.
 
-	if (PlayerAttackDataTable)
-	{
-		FPlayerAttackMontage AttackMontage;
-		AttackMontage.AnimMontage = NULL;
-		AttackMontage.Description = "Created From BeginPlay";
-		AttackMontage.AnimSectionCount = 3;
+	// In the interests of expanding gameplay, I've commented this out. It's a useful thing to learn to do. though!
+	//if (PlayerAttackDataTable)
+	//{
+	//	FPlayerAttackMontage AttackMontage;
+	//	AttackMontage.AnimMontage = NULL;
+	//	AttackMontage.Description = "Created From BeginPlay";
+	//	AttackMontage.AnimSectionCount = 3;
 
-		PlayerAttackDataTable->AddRow(FName(TEXT("New Row")), AttackMontage);
-
-	}
+	//	PlayerAttackDataTable->AddRow(FName(TEXT("New Row")), AttackMontage);
+	//}
 
 
 	//Linking our sound on begin play rather than in the constructor.
@@ -204,37 +236,6 @@ void AMyProjectCharacter::BeginPlay()
 		PunchThrowAudioComponent->SetSound(PunchThrowSoundCue);
 	}
 }
-
-//////////////////////////////////////////////////////////////////////////
-// Input
-
-void AMyProjectCharacter::SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent)
-{
-	// Set up gameplay key bindings
-	check(PlayerInputComponent);
-	PlayerInputComponent->BindAction("Jump", IE_Pressed, this, &ACharacter::Jump);
-	PlayerInputComponent->BindAction("Jump", IE_Released, this, &ACharacter::StopJumping);
-
-	PlayerInputComponent->BindAction("Sprint", IE_Pressed, this, &AMyProjectCharacter::Sprint);
-	PlayerInputComponent->BindAction("Sprint", IE_Released, this, &AMyProjectCharacter::StopSprinting);
-
-	PlayerInputComponent->BindAxis("MoveForward", this, &AMyProjectCharacter::MoveForward);
-	PlayerInputComponent->BindAxis("MoveRight", this, &AMyProjectCharacter::MoveRight);
-
-	//Attack input
-	PlayerInputComponent->BindAction("Attack", IE_Pressed, this, &AMyProjectCharacter::AttackInput);
-	PlayerInputComponent->BindAction("Attack", IE_Released, this, &AMyProjectCharacter::AttackEnd);
-
-
-	// We have 2 versions of the rotation bindings to handle different kinds of devices differently
-	// "turn" handles devices that provide an absolute delta, such as a mouse.
-	// "turnrate" is for devices that we choose to treat as a rate of change, such as an analog joystick
-	PlayerInputComponent->BindAxis("Turn", this, &APawn::AddControllerYawInput);
-	PlayerInputComponent->BindAxis("TurnRate", this, &AMyProjectCharacter::TurnAtRate);
-	PlayerInputComponent->BindAxis("LookUp", this, &APawn::AddControllerPitchInput);
-	PlayerInputComponent->BindAxis("LookUpRate", this, &AMyProjectCharacter::LookUpAtRate);
-}
-
 
 void AMyProjectCharacter::TurnAtRate(float Rate)
 {
@@ -321,7 +322,6 @@ void AMyProjectCharacter::AttackInput()
 	//You've seen __Function before, this is a helper method that allows us to print out where something is coming from!
 	Log(ELogLevel::INFO, __FUNCTION__);
 
-
 	//This whole section is new, we are taking the values from our data driven asset and passing them in to our
 	//Attack montage. This is allowing us to create a solution to allow data driven gameplay.
 
@@ -335,19 +335,17 @@ void AMyProjectCharacter::AttackInput()
 			//Generate a random number between 1 & whatever is defined in the datatable for this montage
 			int MontageSectionIndex = rand() % AttackMontage->AnimSectionCount + 1;
 
-			//Create a new fstring reference for the animation section
+			//Create a new FString reference for the animation section
 			FString MontageSection = "start_" + FString::FromInt(MontageSectionIndex);
 
 			//Then play the result
 			PlayAnimMontage(AttackMontage->AnimMontage, AnimationMontageSpeed, FName(*MontageSection));
 
-			//Consider using a timer with the animation input.
-
+			AttackEnd();
 		}
 
 	}
 
-	AttackEnd();
 
 }
 
@@ -385,6 +383,7 @@ void AMyProjectCharacter::AttackEnd()
 // 4. A struct that contains the normals of the collider?
 // 5. Contains infomation about impact of a trace.
 
+// This is a multicast delegate, so called because it casts to multiple actors.
 void AMyProjectCharacter::OnAttackHit(UPrimitiveComponent* HitComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, FVector NormalImpulse, const FHitResult& Hit)
 {
 	Log(ELogLevel::TRACE, __FUNCTION__);
@@ -397,7 +396,28 @@ void AMyProjectCharacter::OnAttackHit(UPrimitiveComponent* HitComponent, AActor*
 		PunchAudioComponent->Play(0.1f);
 	}
 
-	//Implement the Animation Instance stuff from an earlier video.
+	//Getting the animation instance, and checking to see if it is valid. We are using an inline-if. If it is not loaded on Attack
+	//Then it will show an error.
+	UAnimInstance* AnimInstance = GetMesh()->GetAnimInstance();
+	if (AnimInstance != NULL)
+	{
+		//Working allows us but the animation still moves through the collision object.
+		//AnimInstance->Montage_Stop(AnimationStopDelay, AttackMontage->AnimMontage);	
+	
+		//This pauses the animation, not quite what we want.
+		//AnimInstance->Montage_Pause(AttackMontage->AnimMontage);
+	
+		//This is pretty good, this stops the animation montage on contact?
+		//AnimInstance->Montage_Stop(AnimationStopDelay,MeleeFistAttackMontage);
+	
+		//Play back the montage in reverse, based on this montages position, and play it backwards. Based on the 
+		AnimInstance->Montage_Play(AttackMontage->AnimMontage, AnimationPlayback, EMontagePlayReturnType::Duration, AnimInstance->Montage_GetPosition(AttackMontage->AnimMontage), true );
+	
+
+		AttackEnd();
+	}
+
+
 
 	//This is a pointer to the InGameHUD Actor which we included in our header file.
 	//We then cast this as AInGameHUD, and get the world, and then access the GetFirstPlayerController method
@@ -421,7 +441,8 @@ void AMyProjectCharacter::OnAttackHit(UPrimitiveComponent* HitComponent, AActor*
 
 	}
 
-	AttackEnd();
+
+
 }
 
 void AMyProjectCharacter::ResetCombo()
