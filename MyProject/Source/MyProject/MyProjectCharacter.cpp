@@ -44,6 +44,12 @@ AMyProjectCharacter::AMyProjectCharacter()
 	AnimationStopDelay = 0.0f;
 	AnimationPlayback = -1.0f;
 
+	//Debug Box & Line paramaters
+	DebugBoxColor = FColor::Cyan;
+	DebugBoxLifeTime = 5.0f;
+	DebugBoxLineThickness = 2.0f;
+
+
 	// Don't rotate when the controller rotates. Let that just affect the camera.
 	bUseControllerRotationPitch = false;
 	bUseControllerRotationYaw = false;
@@ -138,6 +144,10 @@ AMyProjectCharacter::AMyProjectCharacter()
 	//Go to the project settings and read through this, if you're stuck!
 	LeftFistCollisionBox->SetCollisionProfileName(MeleeCollisionProfile.Disabled);
 	RightFistCollisionBox->SetCollisionProfileName(MeleeCollisionProfile.Disabled);
+
+	LineTraceType = ELineTraceType::CAMERA_SINGLE;
+	LineTraceDistance = 100.0f;
+
 }
 
 //Begin play is essentially awake. 
@@ -162,6 +172,8 @@ void AMyProjectCharacter::SetupPlayerInputComponent(class UInputComponent* Playe
 	PlayerInputComponent->BindAction("Attack", IE_Pressed, this, &AMyProjectCharacter::AttackInput);
 	PlayerInputComponent->BindAction("Attack", IE_Released, this, &AMyProjectCharacter::AttackEnd);
 
+	//Line trace firing input bindings
+	PlayerInputComponent->BindAction("FireLineTrace", IE_Pressed, this, &AMyProjectCharacter::FireLineTrace);
 
 	// We have 2 versions of the rotation bindings to handle different kinds of devices differently
 	// "turn" handles devices that provide an absolute delta, such as a mouse.
@@ -184,13 +196,14 @@ void AMyProjectCharacter::BeginPlay()
 	//BaseTurnRate = Cast<UCharacterDataAsset>();
 	//BaseTurnRate = CharacterDataAsset->BaseTurnRate;
 
+	//Line Hit result, cone / Spread system, we are turning the amount created into radians so that those float values can be
+	//properly processed
+
 
 	BaseLookUpRate = CharacterDataAsset->BaseLookUpRate;
 
 	CurrentWalkSpeed = CharacterDataAsset->CurrentWalkSpeed;
 	CurrentSprintSpeed = CharacterDataAsset->CurrentSprintSpeed;
-
-
 
 
 	//Attach Collision Components to sockets based on transformation definitions.
@@ -413,7 +426,6 @@ void AMyProjectCharacter::OnAttackHit(UPrimitiveComponent* HitComponent, AActor*
 		//Play back the montage in reverse, based on this montages position, and play it backwards. Based on the 
 		AnimInstance->Montage_Play(AttackMontage->AnimMontage, AnimationPlayback, EMontagePlayReturnType::Duration, AnimInstance->Montage_GetPosition(AttackMontage->AnimMontage), true );
 	
-
 		AttackEnd();
 	}
 
@@ -457,9 +469,10 @@ void AMyProjectCharacter::ResetCombo()
 	}
 }
 
+
 void AMyProjectCharacter::Sprint()
 {
-	Log(ELogLevel::TRACE, __FUNCTION__);
+	//Log(ELogLevel::TRACE, __FUNCTION__);
 
 	GetCharacterMovement()->MaxWalkSpeed = CurrentSprintSpeed;
 
@@ -471,12 +484,83 @@ void AMyProjectCharacter::Sprint()
 
 void AMyProjectCharacter::StopSprinting()
 {
-	Log(ELogLevel::TRACE, __FUNCTION__);
+	//Log(ELogLevel::TRACE, __FUNCTION__);
 	GetCharacterMovement()->MaxWalkSpeed = CurrentWalkSpeed;
 	CameraBoom->TargetArmLength = FMath::FInterpTo(350.0f, 300.0f, 20.0f, 20.0f);; // The camera follows at this distance behind the character	
 
 }
 
+void AMyProjectCharacter::FireLineTrace()
+{
+	FVector Start;
+	FVector End;
+
+	if (LineTraceType == ELineTraceType::CAMERA_SINGLE || LineTraceType == ELineTraceType::CAMERA_SPREAD)
+	{
+		//Get Camera point of v
+		FVector cameraLocation = FollowCamera->GetComponentLocation();
+		FRotator cameraRotation = FollowCamera->GetComponentRotation();
+
+		Start = cameraLocation;
+		if (LineTraceType == ELineTraceType::CAMERA_SPREAD)
+		{
+			End = cameraLocation + FMath::VRandCone(cameraRotation.Vector(), LineTraceSpread, LineTraceSpread) * LineTraceDistance;
+		}
+		else
+		{
+			//Ending location is where the camera is facing based on the line trace distance.
+			End = cameraLocation + (cameraRotation.Vector() * LineTraceDistance );
+		}
+
+	}
+	else if (LineTraceType == ELineTraceType::PLAYER_SINGLE || LineTraceType == ELineTraceType::PLAYER_SPREAD)
+	{
+		FVector PlayerEyesLocation;
+		FRotator PlayerEyesRotation;
+	
+		//Populates FVectors and FRotators with what the player is currently looking at.
+		GetActorEyesViewPoint(PlayerEyesLocation, PlayerEyesRotation);
+
+		Start = PlayerEyesLocation;
+
+		//42:08 https://www.youtube.com/watch?v=mz9C656dUuY&feature=youtu.be - My math is off
+
+
+		if (LineTraceType == ELineTraceType::PLAYER_SPREAD)
+		{
+			End = PlayerEyesLocation + FMath::VRandCone(PlayerEyesRotation.Vector(), LineTraceSpread, LineTraceSpread) * LineTraceDistance;
+		}
+		else
+		{
+			End = PlayerEyesLocation + (PlayerEyesRotation.Vector() * LineTraceDistance);
+		}
+	}
+
+	FHitResult HitDetails = FHitResult(ForceInit);
+	FCollisionQueryParams TraceParams(FName(TEXT("Line Trace Paramaters")), true, NULL);
+	TraceParams.bTraceComplex = true;
+	TraceParams.bReturnPhysicalMaterial = true;
+
+
+	bool bIsHit = GetWorld()->LineTraceSingleByChannel(HitDetails, Start, End, ECollisionChannel::ECC_WorldDynamic, TraceParams);
+
+	if (bIsHit)
+	{
+		Log(ELogLevel::INFO, "We Hit something!");
+		DrawDebugLine(GetWorld(),Start, End, FColor::Green, true, 5.0f , ECC_WorldStatic, 1.0f);
+		Log(ELogLevel::WARNING, HitDetails.Actor->GetName());
+		Log(ELogLevel::DEBUG, FString::SanitizeFloat(HitDetails.Distance));
+
+		DrawDebugBox(GetWorld(), HitDetails.ImpactPoint, FVector(2.0f,2.0f,2.0f), DebugBoxColor, false , DebugBoxLifeTime , ECC_WorldStatic, DebugBoxLineThickness);
+
+	}
+	else
+	{
+		Log(ELogLevel::INFO, "We Hit Nothing!");
+		DrawDebugLine(GetWorld(), Start, End, FColor::Red, true, 5.0f, ECC_WorldStatic, 1.0f);
+	}
+
+}
 
 
 void AMyProjectCharacter::Log(ELogLevel LogLevel, FString Message)

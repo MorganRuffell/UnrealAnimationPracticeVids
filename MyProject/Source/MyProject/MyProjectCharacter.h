@@ -12,6 +12,17 @@
 
 #include "MyProjectCharacter.generated.h"
 
+UENUM(BlueprintType)
+enum class ELineTraceType : uint8
+{
+	CAMERA_SINGLE UMETA(DisplayName = "Camera - Single Trace"),
+	PLAYER_SINGLE UMETA(DisplayName = "Player - Single Trace"),
+
+	CAMERA_SPREAD UMETA(DisplayName = "Camera - Multi-Trace"),
+	PLAYER_SPREAD UMETA(DisplayName = "Player - Multi-Trace")
+};
+
+
 //Data Tables are essentially structs with more stuff, and they inherit from FTableRowBase.
 //The combonation of these allow unreal to get this infomation from the base implementation and the FTable struct.
 
@@ -162,7 +173,31 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Animation, meta = (AllowPrivateAccess = "true"), meta = (ToolTip = "Negative to rewind animation, postive for normal playback"))
 	float AnimationPlayback;
 
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Line Trace")
+	ELineTraceType LineTraceType;
 	
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Line Trace")
+	float LineTraceDistance;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Line Trace")
+	FColor DebugBoxColor;
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Line Trace")
+	float DebugBoxLifeTime;
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Line Trace")
+	float DebugBoxLineThickness;
+	
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Line Trace")
+	float LineTraceSpread;
+
+	//UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Line Trace", meta = (ToolTip = "These are converted into radians, this number is a degree"))
+	//float LineTraceConeHorizontalSpread;								    
+	//																	   
+	//UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Line Trace", meta = (ToolTip = "These are converted into radians, this number is a degree"))
+	//float LineTraceConeVerticalSpread;
+
+
 protected:
 
 	/** Called for forwards/backward input */
@@ -242,6 +277,9 @@ public:
 
 	UFUNCTION()
 	void ResetCombo();
+
+	UFUNCTION()
+	void FireLineTrace();
 
 	/** Returns CameraBoom subobject **/
 	FORCEINLINE class USpringArmComponent* GetCameraBoom() const { return CameraBoom; }

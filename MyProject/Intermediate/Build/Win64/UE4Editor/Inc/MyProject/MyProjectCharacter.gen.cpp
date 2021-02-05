@@ -17,6 +17,7 @@ void EmptyLinkFunctionForGeneratedCodeMyProjectCharacter() {}
 	UPackage* Z_Construct_UPackage__Script_MyProject();
 	MYPROJECT_API UEnum* Z_Construct_UEnum_MyProject_ELogOutput();
 	MYPROJECT_API UEnum* Z_Construct_UEnum_MyProject_ELogLevel();
+	MYPROJECT_API UEnum* Z_Construct_UEnum_MyProject_ELineTraceType();
 	MYPROJECT_API UScriptStruct* Z_Construct_UScriptStruct_FMeleeCollisionProfile();
 	MYPROJECT_API UScriptStruct* Z_Construct_UScriptStruct_FPlayerAttackMontage();
 	ENGINE_API UScriptStruct* Z_Construct_UScriptStruct_FTableRowBase();
@@ -28,6 +29,7 @@ void EmptyLinkFunctionForGeneratedCodeMyProjectCharacter() {}
 	COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FVector();
 	ENGINE_API UClass* Z_Construct_UClass_UPrimitiveComponent_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_AActor_NoRegister();
+	COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FColor();
 	ENGINE_API UClass* Z_Construct_UClass_UBoxComponent_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_USoundCue_NoRegister();
 	MYPROJECT_API UClass* Z_Construct_UClass_UCharacterDataAsset_NoRegister();
@@ -198,6 +200,67 @@ void EmptyLinkFunctionForGeneratedCodeMyProjectCharacter() {}
 				nullptr,
 				"ELogLevel",
 				"ELogLevel",
+				Enumerators,
+				UE_ARRAY_COUNT(Enumerators),
+				RF_Public|RF_Transient|RF_MarkAsNative,
+				UE4CodeGen_Private::EDynamicType::NotDynamic,
+				(uint8)UEnum::ECppForm::EnumClass,
+				METADATA_PARAMS(Enum_MetaDataParams, UE_ARRAY_COUNT(Enum_MetaDataParams))
+			};
+			UE4CodeGen_Private::ConstructUEnum(ReturnEnum, EnumParams);
+		}
+		return ReturnEnum;
+	}
+	static UEnum* ELineTraceType_StaticEnum()
+	{
+		static UEnum* Singleton = nullptr;
+		if (!Singleton)
+		{
+			Singleton = GetStaticEnum(Z_Construct_UEnum_MyProject_ELineTraceType, Z_Construct_UPackage__Script_MyProject(), TEXT("ELineTraceType"));
+		}
+		return Singleton;
+	}
+	template<> MYPROJECT_API UEnum* StaticEnum<ELineTraceType>()
+	{
+		return ELineTraceType_StaticEnum();
+	}
+	static FCompiledInDeferEnum Z_CompiledInDeferEnum_UEnum_ELineTraceType(ELineTraceType_StaticEnum, TEXT("/Script/MyProject"), TEXT("ELineTraceType"), false, nullptr, nullptr);
+	uint32 Get_Z_Construct_UEnum_MyProject_ELineTraceType_Hash() { return 3402859546U; }
+	UEnum* Z_Construct_UEnum_MyProject_ELineTraceType()
+	{
+#if WITH_HOT_RELOAD
+		UPackage* Outer = Z_Construct_UPackage__Script_MyProject();
+		static UEnum* ReturnEnum = FindExistingEnumIfHotReloadOrDynamic(Outer, TEXT("ELineTraceType"), 0, Get_Z_Construct_UEnum_MyProject_ELineTraceType_Hash(), false);
+#else
+		static UEnum* ReturnEnum = nullptr;
+#endif // WITH_HOT_RELOAD
+		if (!ReturnEnum)
+		{
+			static const UE4CodeGen_Private::FEnumeratorParam Enumerators[] = {
+				{ "ELineTraceType::CAMERA_SINGLE", (int64)ELineTraceType::CAMERA_SINGLE },
+				{ "ELineTraceType::PLAYER_SINGLE", (int64)ELineTraceType::PLAYER_SINGLE },
+				{ "ELineTraceType::CAMERA_SPREAD", (int64)ELineTraceType::CAMERA_SPREAD },
+				{ "ELineTraceType::PLAYER_SPREAD", (int64)ELineTraceType::PLAYER_SPREAD },
+			};
+#if WITH_METADATA
+			const UE4CodeGen_Private::FMetaDataPairParam Enum_MetaDataParams[] = {
+				{ "BlueprintType", "true" },
+				{ "CAMERA_SINGLE.DisplayName", "Camera - Single Trace" },
+				{ "CAMERA_SINGLE.Name", "ELineTraceType::CAMERA_SINGLE" },
+				{ "CAMERA_SPREAD.DisplayName", "Camera - Multi-Trace" },
+				{ "CAMERA_SPREAD.Name", "ELineTraceType::CAMERA_SPREAD" },
+				{ "ModuleRelativePath", "MyProjectCharacter.h" },
+				{ "PLAYER_SINGLE.DisplayName", "Player - Single Trace" },
+				{ "PLAYER_SINGLE.Name", "ELineTraceType::PLAYER_SINGLE" },
+				{ "PLAYER_SPREAD.DisplayName", "Player - Multi-Trace" },
+				{ "PLAYER_SPREAD.Name", "ELineTraceType::PLAYER_SPREAD" },
+			};
+#endif
+			static const UE4CodeGen_Private::FEnumParams EnumParams = {
+				(UObject*(*)())Z_Construct_UPackage__Script_MyProject,
+				nullptr,
+				"ELineTraceType",
+				"ELineTraceType",
 				Enumerators,
 				UE_ARRAY_COUNT(Enumerators),
 				RF_Public|RF_Transient|RF_MarkAsNative,
@@ -421,6 +484,13 @@ static struct FScriptStruct_MyProject_StaticRegisterNativesFPlayerAttackMontage
 		return ReturnStruct;
 	}
 	uint32 Get_Z_Construct_UScriptStruct_FPlayerAttackMontage_Hash() { return 688246799U; }
+	DEFINE_FUNCTION(AMyProjectCharacter::execFireLineTrace)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->FireLineTrace();
+		P_NATIVE_END;
+	}
 	DEFINE_FUNCTION(AMyProjectCharacter::execResetCombo)
 	{
 		P_FINISH;
@@ -482,6 +552,7 @@ static struct FScriptStruct_MyProject_StaticRegisterNativesFPlayerAttackMontage
 			{ "AttackEnd", &AMyProjectCharacter::execAttackEnd },
 			{ "AttackInput", &AMyProjectCharacter::execAttackInput },
 			{ "AttackStart", &AMyProjectCharacter::execAttackStart },
+			{ "FireLineTrace", &AMyProjectCharacter::execFireLineTrace },
 			{ "OnAttackHit", &AMyProjectCharacter::execOnAttackHit },
 			{ "ResetCombo", &AMyProjectCharacter::execResetCombo },
 			{ "Sprint", &AMyProjectCharacter::execSprint },
@@ -558,6 +629,28 @@ static struct FScriptStruct_MyProject_StaticRegisterNativesFPlayerAttackMontage
 		if (!ReturnFunction)
 		{
 			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_AMyProjectCharacter_AttackStart_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_AMyProjectCharacter_FireLineTrace_Statics
+	{
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AMyProjectCharacter_FireLineTrace_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "MyProjectCharacter.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_AMyProjectCharacter_FireLineTrace_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AMyProjectCharacter, nullptr, "FireLineTrace", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AMyProjectCharacter_FireLineTrace_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AMyProjectCharacter_FireLineTrace_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_AMyProjectCharacter_FireLineTrace()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_AMyProjectCharacter_FireLineTrace_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
@@ -713,6 +806,31 @@ static struct FScriptStruct_MyProject_StaticRegisterNativesFPlayerAttackMontage
 		static const UE4CodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
 #endif
 #if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_LineTraceSpread_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_LineTraceSpread;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_DebugBoxLineThickness_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_DebugBoxLineThickness;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_DebugBoxLifeTime_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_DebugBoxLifeTime;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_DebugBoxColor_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FStructPropertyParams NewProp_DebugBoxColor;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_LineTraceDistance_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_LineTraceDistance;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_LineTraceType_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FEnumPropertyParams NewProp_LineTraceType;
+		static const UE4CodeGen_Private::FBytePropertyParams NewProp_LineTraceType_Underlying;
+#if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_AnimationPlayback_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_AnimationPlayback;
@@ -804,6 +922,7 @@ static struct FScriptStruct_MyProject_StaticRegisterNativesFPlayerAttackMontage
 		{ &Z_Construct_UFunction_AMyProjectCharacter_AttackEnd, "AttackEnd" }, // 1624596932
 		{ &Z_Construct_UFunction_AMyProjectCharacter_AttackInput, "AttackInput" }, // 1072727148
 		{ &Z_Construct_UFunction_AMyProjectCharacter_AttackStart, "AttackStart" }, // 4142123483
+		{ &Z_Construct_UFunction_AMyProjectCharacter_FireLineTrace, "FireLineTrace" }, // 3229093942
 		{ &Z_Construct_UFunction_AMyProjectCharacter_OnAttackHit, "OnAttackHit" }, // 3271719125
 		{ &Z_Construct_UFunction_AMyProjectCharacter_ResetCombo, "ResetCombo" }, // 2275941707
 		{ &Z_Construct_UFunction_AMyProjectCharacter_Sprint, "Sprint" }, // 188867682
@@ -816,6 +935,49 @@ static struct FScriptStruct_MyProject_StaticRegisterNativesFPlayerAttackMontage
 		{ "ModuleRelativePath", "MyProjectCharacter.h" },
 	};
 #endif
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AMyProjectCharacter_Statics::NewProp_LineTraceSpread_MetaData[] = {
+		{ "Category", "Line Trace" },
+		{ "ModuleRelativePath", "MyProjectCharacter.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_AMyProjectCharacter_Statics::NewProp_LineTraceSpread = { "LineTraceSpread", nullptr, (EPropertyFlags)0x0010000000010005, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AMyProjectCharacter, LineTraceSpread), METADATA_PARAMS(Z_Construct_UClass_AMyProjectCharacter_Statics::NewProp_LineTraceSpread_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AMyProjectCharacter_Statics::NewProp_LineTraceSpread_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AMyProjectCharacter_Statics::NewProp_DebugBoxLineThickness_MetaData[] = {
+		{ "Category", "Line Trace" },
+		{ "ModuleRelativePath", "MyProjectCharacter.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_AMyProjectCharacter_Statics::NewProp_DebugBoxLineThickness = { "DebugBoxLineThickness", nullptr, (EPropertyFlags)0x0010000000010005, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AMyProjectCharacter, DebugBoxLineThickness), METADATA_PARAMS(Z_Construct_UClass_AMyProjectCharacter_Statics::NewProp_DebugBoxLineThickness_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AMyProjectCharacter_Statics::NewProp_DebugBoxLineThickness_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AMyProjectCharacter_Statics::NewProp_DebugBoxLifeTime_MetaData[] = {
+		{ "Category", "Line Trace" },
+		{ "ModuleRelativePath", "MyProjectCharacter.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_AMyProjectCharacter_Statics::NewProp_DebugBoxLifeTime = { "DebugBoxLifeTime", nullptr, (EPropertyFlags)0x0010000000010005, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AMyProjectCharacter, DebugBoxLifeTime), METADATA_PARAMS(Z_Construct_UClass_AMyProjectCharacter_Statics::NewProp_DebugBoxLifeTime_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AMyProjectCharacter_Statics::NewProp_DebugBoxLifeTime_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AMyProjectCharacter_Statics::NewProp_DebugBoxColor_MetaData[] = {
+		{ "Category", "Line Trace" },
+		{ "ModuleRelativePath", "MyProjectCharacter.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FStructPropertyParams Z_Construct_UClass_AMyProjectCharacter_Statics::NewProp_DebugBoxColor = { "DebugBoxColor", nullptr, (EPropertyFlags)0x0010000000000005, UE4CodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AMyProjectCharacter, DebugBoxColor), Z_Construct_UScriptStruct_FColor, METADATA_PARAMS(Z_Construct_UClass_AMyProjectCharacter_Statics::NewProp_DebugBoxColor_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AMyProjectCharacter_Statics::NewProp_DebugBoxColor_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AMyProjectCharacter_Statics::NewProp_LineTraceDistance_MetaData[] = {
+		{ "Category", "Line Trace" },
+		{ "ModuleRelativePath", "MyProjectCharacter.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_AMyProjectCharacter_Statics::NewProp_LineTraceDistance = { "LineTraceDistance", nullptr, (EPropertyFlags)0x0010000000010015, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AMyProjectCharacter, LineTraceDistance), METADATA_PARAMS(Z_Construct_UClass_AMyProjectCharacter_Statics::NewProp_LineTraceDistance_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AMyProjectCharacter_Statics::NewProp_LineTraceDistance_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AMyProjectCharacter_Statics::NewProp_LineTraceType_MetaData[] = {
+		{ "Category", "Line Trace" },
+		{ "ModuleRelativePath", "MyProjectCharacter.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FEnumPropertyParams Z_Construct_UClass_AMyProjectCharacter_Statics::NewProp_LineTraceType = { "LineTraceType", nullptr, (EPropertyFlags)0x0010000000010015, UE4CodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AMyProjectCharacter, LineTraceType), Z_Construct_UEnum_MyProject_ELineTraceType, METADATA_PARAMS(Z_Construct_UClass_AMyProjectCharacter_Statics::NewProp_LineTraceType_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AMyProjectCharacter_Statics::NewProp_LineTraceType_MetaData)) };
+	const UE4CodeGen_Private::FBytePropertyParams Z_Construct_UClass_AMyProjectCharacter_Statics::NewProp_LineTraceType_Underlying = { "UnderlyingType", nullptr, (EPropertyFlags)0x0000000000000000, UE4CodeGen_Private::EPropertyGenFlags::Byte, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, nullptr, METADATA_PARAMS(nullptr, 0) };
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AMyProjectCharacter_Statics::NewProp_AnimationPlayback_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
@@ -985,6 +1147,13 @@ static struct FScriptStruct_MyProject_StaticRegisterNativesFPlayerAttackMontage
 #endif
 	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AMyProjectCharacter_Statics::NewProp_CameraBoom = { "CameraBoom", nullptr, (EPropertyFlags)0x00400000000a001d, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AMyProjectCharacter, CameraBoom), Z_Construct_UClass_USpringArmComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AMyProjectCharacter_Statics::NewProp_CameraBoom_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AMyProjectCharacter_Statics::NewProp_CameraBoom_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AMyProjectCharacter_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMyProjectCharacter_Statics::NewProp_LineTraceSpread,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMyProjectCharacter_Statics::NewProp_DebugBoxLineThickness,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMyProjectCharacter_Statics::NewProp_DebugBoxLifeTime,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMyProjectCharacter_Statics::NewProp_DebugBoxColor,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMyProjectCharacter_Statics::NewProp_LineTraceDistance,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMyProjectCharacter_Statics::NewProp_LineTraceType,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMyProjectCharacter_Statics::NewProp_LineTraceType_Underlying,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMyProjectCharacter_Statics::NewProp_AnimationPlayback,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMyProjectCharacter_Statics::NewProp_AnimationStopDelay,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMyProjectCharacter_Statics::NewProp_ComboResetDelay,
@@ -1033,7 +1202,7 @@ static struct FScriptStruct_MyProject_StaticRegisterNativesFPlayerAttackMontage
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AMyProjectCharacter, 556624845);
+	IMPLEMENT_CLASS(AMyProjectCharacter, 184474158);
 	template<> MYPROJECT_API UClass* StaticClass<AMyProjectCharacter>()
 	{
 		return AMyProjectCharacter::StaticClass();
