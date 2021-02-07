@@ -22,7 +22,6 @@ enum class ELineTraceType : uint8
 	PLAYER_SPREAD UMETA(DisplayName = "Player - Multi-Trace")
 };
 
-
 //Data Tables are essentially structs with more stuff, and they inherit from FTableRowBase.
 //The combonation of these allow unreal to get this infomation from the base implementation and the FTable struct.
 
@@ -128,13 +127,15 @@ class AMyProjectCharacter : public ACharacter
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Collision, meta = (AllowPrivateAccess = "true"))
 	class UBoxComponent* RightFistCollisionBox;
 	
-
 public:
 	AMyProjectCharacter();
 	
 	//This is declaring the begin play method, this is called when the game begins.
 	//This is how it is declared. This is because Characters inherit from AActor which contains the abstract definition
 	virtual void BeginPlay() override;
+
+	//You can do a lot of stuff with the tick too, not just line casting.
+	virtual void Tick(float DeltaTime) override;
 
 
 	/** Base turn rate, in deg/sec. Other scaling may affect final turn rate. */
@@ -190,6 +191,11 @@ public:
 	
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Line Trace")
 	float LineTraceSpread;
+
+	//Depreceated, was a potential fix to it not hitting the player all the time.
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Line Trace", meta = (ToolTip = "Used for when working with player line tracing."))
+	FVector LineStartOffset;
+
 
 	//UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Line Trace", meta = (ToolTip = "These are converted into radians, this number is a degree"))
 	//float LineTraceConeHorizontalSpread;								    

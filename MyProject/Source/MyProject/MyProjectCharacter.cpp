@@ -147,6 +147,8 @@ AMyProjectCharacter::AMyProjectCharacter()
 
 	LineTraceType = ELineTraceType::CAMERA_SINGLE;
 	LineTraceDistance = 100.0f;
+	LineTraceSpread = 10.0f;
+	
 
 }
 
@@ -248,6 +250,15 @@ void AMyProjectCharacter::BeginPlay()
 	{
 		PunchThrowAudioComponent->SetSound(PunchThrowSoundCue);
 	}
+}
+
+void AMyProjectCharacter::Tick(float DeltaTime)   
+{
+	Super::Tick(DeltaTime);
+	
+	//In this example we are constantly firing line trace. Useful for working out where play is and using those values.
+	FireLineTrace();
+
 }
 
 void AMyProjectCharacter::TurnAtRate(float Rate)
@@ -469,7 +480,6 @@ void AMyProjectCharacter::ResetCombo()
 	}
 }
 
-
 void AMyProjectCharacter::Sprint()
 {
 	//Log(ELogLevel::TRACE, __FUNCTION__);
@@ -492,8 +502,8 @@ void AMyProjectCharacter::StopSprinting()
 
 void AMyProjectCharacter::FireLineTrace()
 {
-	FVector Start;
 	FVector End;
+	FVector Start;
 
 	if (LineTraceType == ELineTraceType::CAMERA_SINGLE || LineTraceType == ELineTraceType::CAMERA_SPREAD)
 	{
@@ -523,8 +533,7 @@ void AMyProjectCharacter::FireLineTrace()
 
 		Start = PlayerEyesLocation;
 
-		//42:08 https://www.youtube.com/watch?v=mz9C656dUuY&feature=youtu.be - My math is off
-
+		//42:08 https://www.youtube.com/watch?v=mz9C656dUuY&feature=youtu.be - My math is off, or the spraed is too wide/
 
 		if (LineTraceType == ELineTraceType::PLAYER_SPREAD)
 		{
