@@ -87,11 +87,22 @@ AMyProjectCharacter::AMyProjectCharacter()
 	//Load player attack montage datatable
 	//You can load the  CSV and JSON implementations of this as well.
 	//As they both come in as datatables. 20:21 on the video.
-	static ConstructorHelpers::FObjectFinder<UDataTable>PlayerAttackMontageDataObject(TEXT("DataTable'/Game/Anim/DataTables/PlayAttackMontageDataTable.PlayAttackMontageDataTable'"));
+	static ConstructorHelpers::FObjectFinder<UDataTable>PlayerAttackMontageDataObject(TEXT("DataTable'/Game/Anim/DataTables/PlayFistAttackMontageDataTable.PlayFistAttackMontageDataTable'"));
 	if (PlayerAttackMontageDataObject.Succeeded())
 	{
-		PlayerAttackDataTable = PlayerAttackMontageDataObject.Object;
+		PlayerFistAttackDataTable = PlayerAttackMontageDataObject.Object;
 	}
+
+	//Load player attack montage datatable
+//You can load the  CSV and JSON implementations of this as well.
+//As they both come in as datatables. 20:21 on the video.
+	static ConstructorHelpers::FObjectFinder<UDataTable>PlayerKickAttackDataTable(TEXT("DataTable'/Game/Anim/DataTables/PlayKickAttackMontageDataTable.PlayKickAttackMontageDataTable'"));
+	if (PlayerAttackMontageDataObject.Succeeded())
+	{
+		PlayerFistAttackDataTable = PlayerAttackMontageDataObject.Object;
+	}
+
+
 
 	//Load the sound Cue Object
 	static ConstructorHelpers::FObjectFinder<USoundCue> PunchSoundCueObject(TEXT("SoundCue'/Game/Anim/Audio/PunchSoundCue.PunchSoundCue'"));
@@ -125,31 +136,43 @@ AMyProjectCharacter::AMyProjectCharacter()
 	//Including intialisation directives for our collision boxes, these are intialised to a subObject	
 	LeftFistCollisionBox = CreateDefaultSubobject<UBoxComponent>(TEXT("LeftFistCollsionBox"));
 	RightFistCollisionBox = CreateDefaultSubobject<UBoxComponent>(TEXT("RightFistCollsionBox"));
+	LeftLegCollisionBox = CreateDefaultSubobject<UBoxComponent>(TEXT("LeftLegCollisionBox"));
+	RightLegCollisionBox = CreateDefaultSubobject<UBoxComponent>(TEXT("RightLegCollisionBox"));
+
 
 	//We like we do with the camera access the setup attachment method through a pointer.
 	LeftFistCollisionBox->SetupAttachment(RootComponent);
 	RightFistCollisionBox->SetupAttachment(RootComponent);
+	LeftLegCollisionBox->SetupAttachment(RootComponent);
+	RightLegCollisionBox->SetupAttachment(RootComponent);
+
 
 
 	//Set both to be hidden in game - No point doing it in BP
 	LeftFistCollisionBox->SetHiddenInGame(false);
 	RightFistCollisionBox->SetHiddenInGame(false);
+	LeftLegCollisionBox->SetHiddenInGame(false);
+	RightLegCollisionBox->SetHiddenInGame(false);
+
 
 	//This is forcing it to ensure that rigidbody collsion notifications are setup correctly.
 	LeftFistCollisionBox->SetNotifyRigidBodyCollision(false);
 	RightFistCollisionBox->SetNotifyRigidBodyCollision(false);
-
+	LeftLegCollisionBox->SetNotifyRigidBodyCollision(false);
+	RightLegCollisionBox->SetNotifyRigidBodyCollision(false);
 
 	//Based on what we set up in project settings we need to add these collision profiles.
 	//Go to the project settings and read through this, if you're stuck!
 	LeftFistCollisionBox->SetCollisionProfileName(MeleeCollisionProfile.Disabled);
 	RightFistCollisionBox->SetCollisionProfileName(MeleeCollisionProfile.Disabled);
+	LeftLegCollisionBox->SetCollisionProfileName(MeleeCollisionProfile.Disabled);
+	RightLegCollisionBox->SetCollisionProfileName(MeleeCollisionProfile.Disabled);
+
 
 	LineTraceType = ELineTraceType::CAMERA_SINGLE;
 	LineTraceDistance = 100.0f;
 	LineTraceSpread = 10.0f;
 	
-
 }
 
 //Begin play is essentially awake. 
@@ -171,8 +194,9 @@ void AMyProjectCharacter::SetupPlayerInputComponent(class UInputComponent* Playe
 	PlayerInputComponent->BindAxis("MoveRight", this, &AMyProjectCharacter::MoveRight);
 
 	//Attack input
-	PlayerInputComponent->BindAction("Attack", IE_Pressed, this, &AMyProjectCharacter::AttackInput);
-	PlayerInputComponent->BindAction("Attack", IE_Released, this, &AMyProjectCharacter::AttackEnd);
+	PlayerInputComponent->BindAction("Attack", IE_Pressed, this, &AMyProjectCharacter::PunchAttack);
+
+	PlayerInputComponent->BindAction("KickAttack", IE_Pressed, this, &AMyProjectCharacter::KickAttack);
 
 	//Line trace firing input bindings
 	PlayerInputComponent->BindAction("FireLineTrace", IE_Pressed, this, &AMyProjectCharacter::FireLineTrace);
@@ -186,26 +210,27 @@ void AMyProjectCharacter::SetupPlayerInputComponent(class UInputComponent* Playe
 	PlayerInputComponent->BindAxis("LookUpRate", this, &AMyProjectCharacter::LookUpAtRate);
 }
 
+void AMyProjectCharacter::GetValues()
+{
+	BaseLookUpRate = CharacterDataAsset->BaseLookUpRate;
+
+	CurrentWalkSpeed = CharacterDataAsset->CurrentWalkSpeed;
+	CurrentSprintSpeed = CharacterDataAsset->CurrentSprintSpeed;
+
+}
 void AMyProjectCharacter::BeginPlay()
 {
 	//Passing a call to the super class iteration before we start playing.
 	Super::BeginPlay();
 
+	GetValues();
+
 	//Setting the Lvalues of our components to be equal to the character data asset lvalues.
 	//Done at begin play so that the game starts with these values.
-
-	//Issue with retrieving values from the data asset.
-	//BaseTurnRate = Cast<UCharacterDataAsset>();
-	//BaseTurnRate = CharacterDataAsset->BaseTurnRate;
 
 	//Line Hit result, cone / Spread system, we are turning the amount created into radians so that those float values can be
 	//properly processed
 
-
-	BaseLookUpRate = CharacterDataAsset->BaseLookUpRate;
-
-	CurrentWalkSpeed = CharacterDataAsset->CurrentWalkSpeed;
-	CurrentSprintSpeed = CharacterDataAsset->CurrentSprintSpeed;
 
 
 	//Attach Collision Components to sockets based on transformation definitions.
@@ -216,24 +241,26 @@ void AMyProjectCharacter::BeginPlay()
 	//Attaching to the sockets that we defined on the skeleton
 	LeftFistCollisionBox->AttachToComponent(GetMesh(), AttachmentRules, "LSocket_Collider");
 	RightFistCollisionBox->AttachToComponent(GetMesh(), AttachmentRules, "RSocket_Collider");
+	LeftLegCollisionBox->AttachToComponent(GetMesh(), AttachmentRules, "LeftLeg_Socket");
+	RightLegCollisionBox->AttachToComponent(GetMesh(), AttachmentRules, "RightLeg_Socket");
+
 
 	//OnComponent hit, similar to bp we are creating this implementation inside our begin play.
 	LeftFistCollisionBox->OnComponentHit.AddDynamic(this, &AMyProjectCharacter::OnAttackHit);
 	RightFistCollisionBox->OnComponentHit.AddDynamic(this, &AMyProjectCharacter::OnAttackHit);
+	LeftLegCollisionBox->OnComponentHit.AddDynamic(this, &AMyProjectCharacter::OnAttackHit); //If you are going to do a custom method you need to alter this
+	RightLegCollisionBox->OnComponentHit.AddDynamic(this, &AMyProjectCharacter::OnAttackHit);
 
-
-	//You can read and write to your data table within code. In this case it allows us to add data through the code to 
-	//the data asset.
 
 	// In the interests of expanding gameplay, I've commented this out. It's a useful thing to learn to do. though!
-	//if (PlayerAttackDataTable)
+	//if (PlayerFistAttackDataTable)
 	//{
 	//	FPlayerAttackMontage AttackMontage;
 	//	AttackMontage.AnimMontage = NULL;
 	//	AttackMontage.Description = "Created From BeginPlay";
 	//	AttackMontage.AnimSectionCount = 3;
 
-	//	PlayerAttackDataTable->AddRow(FName(TEXT("New Row")), AttackMontage);
+	//	PlayerFistAttackDataTable->AddRow(FName(TEXT("New Row")), AttackMontage);
 	//}
 
 
@@ -257,7 +284,7 @@ void AMyProjectCharacter::Tick(float DeltaTime)
 	Super::Tick(DeltaTime);
 	
 	//In this example we are constantly firing line trace. Useful for working out where play is and using those values.
-	FireLineTrace();
+	//FireLineTrace();
 
 }
 
@@ -302,57 +329,56 @@ void AMyProjectCharacter::MoveRight(float Value)
 	}
 }
 
-void AMyProjectCharacter::AttackStart()
+//Depreceated. In favour of using a method for each attack type.
+void AMyProjectCharacter::AttackInput(EAttackType AttackType)
 {
-	//You've seen __Function before, this is a helper method that allows us to print out where something is coming from!
-	Log(ELogLevel::INFO, __FUNCTION__);
+	////You've seen __Function before, this is a helper method that allows us to print out where something is coming from!
+	//Log(ELogLevel::INFO, __FUNCTION__);
 
-	//Before the attack, we also need to set up the onCollsion logic this is a weird thing by epic. Do this if you
-	//want to force simulates hit to be true.
-	LeftFistCollisionBox->SetNotifyRigidBodyCollision(true);
-	RightFistCollisionBox->SetNotifyRigidBodyCollision(true);
+	////Before the attack, we also need to set up the onCollsion logic this is a weird thing by epic. Do this if you
+	////want to force simulates hit to be true.
+	//LeftFistCollisionBox->SetNotifyRigidBodyCollision(true);
+	//RightFistCollisionBox->SetNotifyRigidBodyCollision(true);
 
-	//Whenever the Attack is started the Collision profile is changed to weapon and the colliders are live.	
-	LeftFistCollisionBox->SetCollisionProfileName(MeleeCollisionProfile.Enabled);
-	RightFistCollisionBox->SetCollisionProfileName(MeleeCollisionProfile.Enabled);
+	////Whenever the Attack is started the Collision profile is changed to weapon and the colliders are live.	
+	//LeftFistCollisionBox->SetCollisionProfileName(MeleeCollisionProfile.Enabled);
+	//RightFistCollisionBox->SetCollisionProfileName(MeleeCollisionProfile.Enabled);
 
-	//Collision boxes we are setting this to generate overlap events.
-	LeftFistCollisionBox->SetGenerateOverlapEvents(true);
-	RightFistCollisionBox->SetGenerateOverlapEvents(true);
+	////Collision boxes we are setting this to generate overlap events.
+	//LeftFistCollisionBox->SetGenerateOverlapEvents(true);
+	//RightFistCollisionBox->SetGenerateOverlapEvents(true);
 
-}
+	////In order to solve a weird firing bug we are going to refactor the method to have everything in here. 
 
-void AMyProjectCharacter::AttackInput()
-{
-	//You've seen __Function before, this is a helper method that allows us to print out where something is coming from!
-	Log(ELogLevel::INFO, __FUNCTION__);
-
-	//Before the attack, we also need to set up the onCollsion logic this is a weird thing by epic. Do this if you
-	//want to force simulates hit to be true.
-	LeftFistCollisionBox->SetNotifyRigidBodyCollision(true);
-	RightFistCollisionBox->SetNotifyRigidBodyCollision(true);
-
-	//Whenever the Attack is started the Collision profile is changed to weapon and the colliders are live.	
-	LeftFistCollisionBox->SetCollisionProfileName(MeleeCollisionProfile.Enabled);
-	RightFistCollisionBox->SetCollisionProfileName(MeleeCollisionProfile.Enabled);
-
-	//Collision boxes we are setting this to generate overlap events.
-	LeftFistCollisionBox->SetGenerateOverlapEvents(true);
-	RightFistCollisionBox->SetGenerateOverlapEvents(true);
-
-
-	//In order to solve a weird firing bug we are going to refactor the method to have everything in here. 
-
-	//You've seen __Function before, this is a helper method that allows us to print out where something is coming from!
-	Log(ELogLevel::INFO, __FUNCTION__);
+	////You've seen __Function before, this is a helper method that allows us to print out where something is coming from!
+	//Log(ELogLevel::INFO, __FUNCTION__);
 
 	//This whole section is new, we are taking the values from our data driven asset and passing them in to our
 	//Attack montage. This is allowing us to create a solution to allow data driven gameplay.
+}
 
-	if (PlayerAttackDataTable != NULL)
+void AMyProjectCharacter::PunchAttack()
+{
+	//You've seen __Function before, this is a helper method that allows us to print out where something is coming from!
+	Log(ELogLevel::INFO, __FUNCTION__);
+
+	//Before the attack, we also need to set up the onCollsion logic this is a weird thing by epic. Do this if you
+	//want to force simulates hit to be true.
+	LeftFistCollisionBox->SetNotifyRigidBodyCollision(true);
+	RightFistCollisionBox->SetNotifyRigidBodyCollision(true);
+
+	//Whenever the Attack is started the Collision profile is changed to weapon and the colliders are live.	
+	LeftFistCollisionBox->SetCollisionProfileName(MeleeCollisionProfile.Enabled);
+	RightFistCollisionBox->SetCollisionProfileName(MeleeCollisionProfile.Enabled);
+
+	//Collision boxes we are setting this to generate overlap events.
+	LeftFistCollisionBox->SetGenerateOverlapEvents(true);
+	RightFistCollisionBox->SetGenerateOverlapEvents(true);
+
+	if (PlayerFistAttackDataTable != NULL)
 	{
 		static const FString ContextString(TEXT("Player Attack Montage Context"));
-		AttackMontage = PlayerAttackDataTable->FindRow<FPlayerAttackMontage>(FName(TEXT("AnimationMontage0")), ContextString, true);
+		AttackMontage = PlayerFistAttackDataTable->FindRow<FPlayerAttackMontage>(FName(TEXT("AnimationMontage0")), ContextString, true);
 
 		if (AttackMontage != NULL)
 		{
@@ -367,10 +393,69 @@ void AMyProjectCharacter::AttackInput()
 
 			AttackEnd();
 		}
-
 	}
 
+	//17:07 https://www.youtube.com/watch?v=rJ1JIhfTKJk&t=698s
+}
 
+void AMyProjectCharacter::KickAttack()
+{
+	//You've seen __Function before, this is a helper method that allows us to print out where something is coming from!
+	Log(ELogLevel::INFO, __FUNCTION__);
+
+	//Before the attack, we also need to set up the onCollsion logic this is a weird thing by epic. Do this if you
+	//want to force simulates hit to be true.
+	LeftLegCollisionBox->SetNotifyRigidBodyCollision(true);
+	RightLegCollisionBox->SetNotifyRigidBodyCollision(true);
+
+	//Whenever the Attack is started the Collision profile is changed to weapon and the colliders are live.	
+	LeftLegCollisionBox->SetCollisionProfileName(MeleeCollisionProfile.Enabled);
+	RightLegCollisionBox->SetCollisionProfileName(MeleeCollisionProfile.Enabled);
+
+	//Collision boxes we are setting this to generate overlap events.
+	LeftLegCollisionBox->SetGenerateOverlapEvents(true);
+	RightLegCollisionBox->SetGenerateOverlapEvents(true);
+
+
+	//It doesn't play the kick attack montage, could be something to do with the data asset
+	if (PlayerKickAttackDataTable != NULL)
+	{
+		static const FString ContextString(TEXT("Player Attack Montage Context"));
+		AttackMontage = PlayerKickAttackDataTable->FindRow<FPlayerAttackMontage>(FName(TEXT("AnimationMontage1")), ContextString, true);
+
+		if (AttackMontage != NULL)
+		{
+			//Generate a random number between 1 & whatever is defined in the datatable for this montage
+			int MontageSectionIndex = rand() % AttackMontage->AnimSectionCount + 1;
+
+			//Create a new FString reference for the animation section
+			FString MontageSection = "start_" + FString::FromInt(MontageSectionIndex);
+
+			//Then play the result
+			PlayAnimMontage(AttackMontage->AnimMontage, AnimationMontageSpeed, FName(*MontageSection));
+
+			AttackEnd();
+		}
+	}
+
+}
+
+void AMyProjectCharacter::AttackStart()
+{	
+	Log(ELogLevel::INFO, __FUNCTION__);
+
+	//Before the attack, we also need to set up the onCollsion logic this is a weird thing by epic. Do this if you
+	//want to force simulates hit to be true.
+	LeftFistCollisionBox->SetNotifyRigidBodyCollision(true);
+	RightFistCollisionBox->SetNotifyRigidBodyCollision(true);
+
+	//Whenever the Attack is started the Collision profile is changed to weapon and the colliders are live.	
+	LeftFistCollisionBox->SetCollisionProfileName(MeleeCollisionProfile.Enabled);
+	RightFistCollisionBox->SetCollisionProfileName(MeleeCollisionProfile.Enabled);
+
+	//Collision boxes we are setting this to generate overlap events.
+	LeftFistCollisionBox->SetGenerateOverlapEvents(true);
+	RightFistCollisionBox->SetGenerateOverlapEvents(true);
 }
 
 void AMyProjectCharacter::AttackEnd()
@@ -381,20 +466,23 @@ void AMyProjectCharacter::AttackEnd()
 	//Before the attack, we also need to set up the onCollsion logic this is a weird thing by epic. Do this if you
 	//want to force simulates hit to be true.
 	LeftFistCollisionBox->SetNotifyRigidBodyCollision(false);
+	LeftLegCollisionBox->SetNotifyRigidBodyCollision(false);
 	RightFistCollisionBox->SetNotifyRigidBodyCollision(false);
-
+	RightLegCollisionBox->SetNotifyRigidBodyCollision(false);
 
 	//Then when attack end is called post attack. We then make the colliders not live. Think of them like
 	//live wires, on enemies die. Off Enemies don't die.
 	LeftFistCollisionBox->SetCollisionProfileName(MeleeCollisionProfile.Disabled);
+	LeftLegCollisionBox->SetCollisionProfileName(MeleeCollisionProfile.Disabled);
 	RightFistCollisionBox->SetCollisionProfileName(MeleeCollisionProfile.Disabled);
-
+	RightLegCollisionBox->SetCollisionProfileName(MeleeCollisionProfile.Disabled);
 
 	//Collision boxes we are setting this to generate overlap events.
 	LeftFistCollisionBox->SetGenerateOverlapEvents(false);
+	LeftLegCollisionBox->SetGenerateOverlapEvents(false);
 	RightFistCollisionBox->SetGenerateOverlapEvents(false);
-
-
+	RightLegCollisionBox->SetGenerateOverlapEvents(false);
+	
 }
 
 //This is a delegate method, it takes a pointer to a UPrimative Component, 
@@ -570,6 +658,7 @@ void AMyProjectCharacter::FireLineTrace()
 	}
 
 }
+
 
 
 void AMyProjectCharacter::Log(ELogLevel LogLevel, FString Message)

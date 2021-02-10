@@ -51,7 +51,7 @@ void EmptyLinkFunctionForGeneratedCodeMyProjectCharacter() {}
 		return EAttackType_StaticEnum();
 	}
 	static FCompiledInDeferEnum Z_CompiledInDeferEnum_UEnum_EAttackType(EAttackType_StaticEnum, TEXT("/Script/MyProject"), TEXT("EAttackType"), false, nullptr, nullptr);
-	uint32 Get_Z_Construct_UEnum_MyProject_EAttackType_Hash() { return 1289891744U; }
+	uint32 Get_Z_Construct_UEnum_MyProject_EAttackType_Hash() { return 2813563067U; }
 	UEnum* Z_Construct_UEnum_MyProject_EAttackType()
 	{
 #if WITH_HOT_RELOAD
@@ -64,12 +64,15 @@ void EmptyLinkFunctionForGeneratedCodeMyProjectCharacter() {}
 		{
 			static const UE4CodeGen_Private::FEnumeratorParam Enumerators[] = {
 				{ "EAttackType::MELEE_FIST", (int64)EAttackType::MELEE_FIST },
+				{ "EAttackType::MELEE_KICK", (int64)EAttackType::MELEE_KICK },
 			};
 #if WITH_METADATA
 			const UE4CodeGen_Private::FMetaDataPairParam Enum_MetaDataParams[] = {
 				{ "BlueprintType", "true" },
 				{ "MELEE_FIST.DisplayName", "Melee - Fist" },
 				{ "MELEE_FIST.Name", "EAttackType::MELEE_FIST" },
+				{ "MELEE_KICK.DisplayName", "Melee - Kick" },
+				{ "MELEE_KICK.Name", "EAttackType::MELEE_KICK" },
 				{ "ModuleRelativePath", "MyProjectCharacter.h" },
 			};
 #endif
@@ -540,9 +543,24 @@ static struct FScriptStruct_MyProject_StaticRegisterNativesFPlayerAttackMontage
 	}
 	DEFINE_FUNCTION(AMyProjectCharacter::execAttackInput)
 	{
+		P_GET_ENUM(EAttackType,Z_Param_AttackType);
 		P_FINISH;
 		P_NATIVE_BEGIN;
-		P_THIS->AttackInput();
+		P_THIS->AttackInput(EAttackType(Z_Param_AttackType));
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(AMyProjectCharacter::execKickAttack)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->KickAttack();
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(AMyProjectCharacter::execPunchAttack)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->PunchAttack();
 		P_NATIVE_END;
 	}
 	void AMyProjectCharacter::StaticRegisterNativesAMyProjectCharacter()
@@ -553,7 +571,9 @@ static struct FScriptStruct_MyProject_StaticRegisterNativesFPlayerAttackMontage
 			{ "AttackInput", &AMyProjectCharacter::execAttackInput },
 			{ "AttackStart", &AMyProjectCharacter::execAttackStart },
 			{ "FireLineTrace", &AMyProjectCharacter::execFireLineTrace },
+			{ "KickAttack", &AMyProjectCharacter::execKickAttack },
 			{ "OnAttackHit", &AMyProjectCharacter::execOnAttackHit },
+			{ "PunchAttack", &AMyProjectCharacter::execPunchAttack },
 			{ "ResetCombo", &AMyProjectCharacter::execResetCombo },
 			{ "Sprint", &AMyProjectCharacter::execSprint },
 			{ "StopSprinting", &AMyProjectCharacter::execStopSprinting },
@@ -586,10 +606,23 @@ static struct FScriptStruct_MyProject_StaticRegisterNativesFPlayerAttackMontage
 	}
 	struct Z_Construct_UFunction_AMyProjectCharacter_AttackInput_Statics
 	{
+		struct MyProjectCharacter_eventAttackInput_Parms
+		{
+			EAttackType AttackType;
+		};
+		static const UE4CodeGen_Private::FEnumPropertyParams NewProp_AttackType;
+		static const UE4CodeGen_Private::FBytePropertyParams NewProp_AttackType_Underlying;
+		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
 #if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
 #endif
 		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UE4CodeGen_Private::FEnumPropertyParams Z_Construct_UFunction_AMyProjectCharacter_AttackInput_Statics::NewProp_AttackType = { "AttackType", nullptr, (EPropertyFlags)0x0010000000000080, UE4CodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(MyProjectCharacter_eventAttackInput_Parms, AttackType), Z_Construct_UEnum_MyProject_EAttackType, METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FBytePropertyParams Z_Construct_UFunction_AMyProjectCharacter_AttackInput_Statics::NewProp_AttackType_Underlying = { "UnderlyingType", nullptr, (EPropertyFlags)0x0000000000000000, UE4CodeGen_Private::EPropertyGenFlags::Byte, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, nullptr, METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AMyProjectCharacter_AttackInput_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AMyProjectCharacter_AttackInput_Statics::NewProp_AttackType,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AMyProjectCharacter_AttackInput_Statics::NewProp_AttackType_Underlying,
 	};
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AMyProjectCharacter_AttackInput_Statics::Function_MetaDataParams[] = {
@@ -598,7 +631,7 @@ static struct FScriptStruct_MyProject_StaticRegisterNativesFPlayerAttackMontage
 		{ "ToolTip", "Triggers attack animation based on user input/." },
 	};
 #endif
-	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_AMyProjectCharacter_AttackInput_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AMyProjectCharacter, nullptr, "AttackInput", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AMyProjectCharacter_AttackInput_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AMyProjectCharacter_AttackInput_Statics::Function_MetaDataParams)) };
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_AMyProjectCharacter_AttackInput_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AMyProjectCharacter, nullptr, "AttackInput", nullptr, nullptr, sizeof(MyProjectCharacter_eventAttackInput_Parms), Z_Construct_UFunction_AMyProjectCharacter_AttackInput_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AMyProjectCharacter_AttackInput_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AMyProjectCharacter_AttackInput_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AMyProjectCharacter_AttackInput_Statics::Function_MetaDataParams)) };
 	UFunction* Z_Construct_UFunction_AMyProjectCharacter_AttackInput()
 	{
 		static UFunction* ReturnFunction = nullptr;
@@ -651,6 +684,28 @@ static struct FScriptStruct_MyProject_StaticRegisterNativesFPlayerAttackMontage
 		if (!ReturnFunction)
 		{
 			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_AMyProjectCharacter_FireLineTrace_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_AMyProjectCharacter_KickAttack_Statics
+	{
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AMyProjectCharacter_KickAttack_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "MyProjectCharacter.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_AMyProjectCharacter_KickAttack_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AMyProjectCharacter, nullptr, "KickAttack", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AMyProjectCharacter_KickAttack_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AMyProjectCharacter_KickAttack_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_AMyProjectCharacter_KickAttack()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_AMyProjectCharacter_KickAttack_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
@@ -725,6 +780,28 @@ static struct FScriptStruct_MyProject_StaticRegisterNativesFPlayerAttackMontage
 		if (!ReturnFunction)
 		{
 			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_AMyProjectCharacter_OnAttackHit_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_AMyProjectCharacter_PunchAttack_Statics
+	{
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AMyProjectCharacter_PunchAttack_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "MyProjectCharacter.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_AMyProjectCharacter_PunchAttack_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AMyProjectCharacter, nullptr, "PunchAttack", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AMyProjectCharacter_PunchAttack_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AMyProjectCharacter_PunchAttack_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_AMyProjectCharacter_PunchAttack()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_AMyProjectCharacter_PunchAttack_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
@@ -879,6 +956,14 @@ static struct FScriptStruct_MyProject_StaticRegisterNativesFPlayerAttackMontage
 #endif
 		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_BaseTurnRate;
 #if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_RightLegCollisionBox_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_RightLegCollisionBox;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_LeftLegCollisionBox_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_LeftLegCollisionBox;
+#if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_RightFistCollisionBox_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_RightFistCollisionBox;
@@ -899,9 +984,17 @@ static struct FScriptStruct_MyProject_StaticRegisterNativesFPlayerAttackMontage
 #endif
 		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_CharacterDataAsset;
 #if WITH_METADATA
-		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_PlayerAttackDataTable_MetaData[];
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_PlayerKickAttackDataTable_MetaData[];
 #endif
-		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_PlayerAttackDataTable;
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_PlayerKickAttackDataTable;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_PlayerFistAttackDataTable_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_PlayerFistAttackDataTable;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_KickAttackMontage_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_KickAttackMontage;
 #if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_MeleeFistAttackMontage_MetaData[];
 #endif
@@ -924,10 +1017,12 @@ static struct FScriptStruct_MyProject_StaticRegisterNativesFPlayerAttackMontage
 	};
 	const FClassFunctionLinkInfo Z_Construct_UClass_AMyProjectCharacter_Statics::FuncInfo[] = {
 		{ &Z_Construct_UFunction_AMyProjectCharacter_AttackEnd, "AttackEnd" }, // 1624596932
-		{ &Z_Construct_UFunction_AMyProjectCharacter_AttackInput, "AttackInput" }, // 1072727148
+		{ &Z_Construct_UFunction_AMyProjectCharacter_AttackInput, "AttackInput" }, // 284644826
 		{ &Z_Construct_UFunction_AMyProjectCharacter_AttackStart, "AttackStart" }, // 4142123483
 		{ &Z_Construct_UFunction_AMyProjectCharacter_FireLineTrace, "FireLineTrace" }, // 3229093942
+		{ &Z_Construct_UFunction_AMyProjectCharacter_KickAttack, "KickAttack" }, // 2098591879
 		{ &Z_Construct_UFunction_AMyProjectCharacter_OnAttackHit, "OnAttackHit" }, // 3271719125
+		{ &Z_Construct_UFunction_AMyProjectCharacter_PunchAttack, "PunchAttack" }, // 1474284077
 		{ &Z_Construct_UFunction_AMyProjectCharacter_ResetCombo, "ResetCombo" }, // 2275941707
 		{ &Z_Construct_UFunction_AMyProjectCharacter_Sprint, "Sprint" }, // 188867682
 		{ &Z_Construct_UFunction_AMyProjectCharacter_StopSprinting, "StopSprinting" }, // 3034247332
@@ -1077,6 +1172,24 @@ static struct FScriptStruct_MyProject_StaticRegisterNativesFPlayerAttackMontage
 #endif
 	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_AMyProjectCharacter_Statics::NewProp_BaseTurnRate = { "BaseTurnRate", nullptr, (EPropertyFlags)0x0010000000020005, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AMyProjectCharacter, BaseTurnRate), METADATA_PARAMS(Z_Construct_UClass_AMyProjectCharacter_Statics::NewProp_BaseTurnRate_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AMyProjectCharacter_Statics::NewProp_BaseTurnRate_MetaData)) };
 #if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AMyProjectCharacter_Statics::NewProp_RightLegCollisionBox_MetaData[] = {
+		{ "AllowPrivateAccess", "true" },
+		{ "Category", "Collision" },
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "MyProjectCharacter.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AMyProjectCharacter_Statics::NewProp_RightLegCollisionBox = { "RightLegCollisionBox", nullptr, (EPropertyFlags)0x00400000000a001d, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AMyProjectCharacter, RightLegCollisionBox), Z_Construct_UClass_UBoxComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AMyProjectCharacter_Statics::NewProp_RightLegCollisionBox_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AMyProjectCharacter_Statics::NewProp_RightLegCollisionBox_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AMyProjectCharacter_Statics::NewProp_LeftLegCollisionBox_MetaData[] = {
+		{ "AllowPrivateAccess", "true" },
+		{ "Category", "Collision" },
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "MyProjectCharacter.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AMyProjectCharacter_Statics::NewProp_LeftLegCollisionBox = { "LeftLegCollisionBox", nullptr, (EPropertyFlags)0x00400000000a001d, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AMyProjectCharacter, LeftLegCollisionBox), Z_Construct_UClass_UBoxComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AMyProjectCharacter_Statics::NewProp_LeftLegCollisionBox_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AMyProjectCharacter_Statics::NewProp_LeftLegCollisionBox_MetaData)) };
+#if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AMyProjectCharacter_Statics::NewProp_RightFistCollisionBox_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
 		{ "Category", "Collision" },
@@ -1119,13 +1232,31 @@ static struct FScriptStruct_MyProject_StaticRegisterNativesFPlayerAttackMontage
 #endif
 	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AMyProjectCharacter_Statics::NewProp_CharacterDataAsset = { "CharacterDataAsset", nullptr, (EPropertyFlags)0x0040000000010015, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AMyProjectCharacter, CharacterDataAsset), Z_Construct_UClass_UCharacterDataAsset_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AMyProjectCharacter_Statics::NewProp_CharacterDataAsset_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AMyProjectCharacter_Statics::NewProp_CharacterDataAsset_MetaData)) };
 #if WITH_METADATA
-	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AMyProjectCharacter_Statics::NewProp_PlayerAttackDataTable_MetaData[] = {
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AMyProjectCharacter_Statics::NewProp_PlayerKickAttackDataTable_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
 		{ "Category", "DataTable" },
 		{ "ModuleRelativePath", "MyProjectCharacter.h" },
 	};
 #endif
-	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AMyProjectCharacter_Statics::NewProp_PlayerAttackDataTable = { "PlayerAttackDataTable", nullptr, (EPropertyFlags)0x0040000000010015, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AMyProjectCharacter, PlayerAttackDataTable), Z_Construct_UClass_UDataTable_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AMyProjectCharacter_Statics::NewProp_PlayerAttackDataTable_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AMyProjectCharacter_Statics::NewProp_PlayerAttackDataTable_MetaData)) };
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AMyProjectCharacter_Statics::NewProp_PlayerKickAttackDataTable = { "PlayerKickAttackDataTable", nullptr, (EPropertyFlags)0x0040000000010015, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AMyProjectCharacter, PlayerKickAttackDataTable), Z_Construct_UClass_UDataTable_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AMyProjectCharacter_Statics::NewProp_PlayerKickAttackDataTable_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AMyProjectCharacter_Statics::NewProp_PlayerKickAttackDataTable_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AMyProjectCharacter_Statics::NewProp_PlayerFistAttackDataTable_MetaData[] = {
+		{ "AllowPrivateAccess", "true" },
+		{ "Category", "DataTable" },
+		{ "ModuleRelativePath", "MyProjectCharacter.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AMyProjectCharacter_Statics::NewProp_PlayerFistAttackDataTable = { "PlayerFistAttackDataTable", nullptr, (EPropertyFlags)0x0040000000010015, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AMyProjectCharacter, PlayerFistAttackDataTable), Z_Construct_UClass_UDataTable_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AMyProjectCharacter_Statics::NewProp_PlayerFistAttackDataTable_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AMyProjectCharacter_Statics::NewProp_PlayerFistAttackDataTable_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AMyProjectCharacter_Statics::NewProp_KickAttackMontage_MetaData[] = {
+		{ "AllowPrivateAccess", "true" },
+		{ "Category", "Animation" },
+		{ "Comment", "//Attack Animation Montage\n" },
+		{ "ModuleRelativePath", "MyProjectCharacter.h" },
+		{ "ToolTip", "Attack Animation Montage" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AMyProjectCharacter_Statics::NewProp_KickAttackMontage = { "KickAttackMontage", nullptr, (EPropertyFlags)0x0040000000000005, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AMyProjectCharacter, KickAttackMontage), Z_Construct_UClass_UAnimMontage_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AMyProjectCharacter_Statics::NewProp_KickAttackMontage_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AMyProjectCharacter_Statics::NewProp_KickAttackMontage_MetaData)) };
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AMyProjectCharacter_Statics::NewProp_MeleeFistAttackMontage_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
@@ -1178,12 +1309,16 @@ static struct FScriptStruct_MyProject_StaticRegisterNativesFPlayerAttackMontage
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMyProjectCharacter_Statics::NewProp_BaseLookUpRate,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMyProjectCharacter_Statics::NewProp_AnimationMontageSpeed,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMyProjectCharacter_Statics::NewProp_BaseTurnRate,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMyProjectCharacter_Statics::NewProp_RightLegCollisionBox,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMyProjectCharacter_Statics::NewProp_LeftLegCollisionBox,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMyProjectCharacter_Statics::NewProp_RightFistCollisionBox,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMyProjectCharacter_Statics::NewProp_LeftFistCollisionBox,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMyProjectCharacter_Statics::NewProp_PunchThrowSoundCue,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMyProjectCharacter_Statics::NewProp_PunchSoundCue,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMyProjectCharacter_Statics::NewProp_CharacterDataAsset,
-		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMyProjectCharacter_Statics::NewProp_PlayerAttackDataTable,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMyProjectCharacter_Statics::NewProp_PlayerKickAttackDataTable,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMyProjectCharacter_Statics::NewProp_PlayerFistAttackDataTable,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMyProjectCharacter_Statics::NewProp_KickAttackMontage,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMyProjectCharacter_Statics::NewProp_MeleeFistAttackMontage,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMyProjectCharacter_Statics::NewProp_FollowCamera,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMyProjectCharacter_Statics::NewProp_CameraBoom,
@@ -1215,7 +1350,7 @@ static struct FScriptStruct_MyProject_StaticRegisterNativesFPlayerAttackMontage
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AMyProjectCharacter, 934590334);
+	IMPLEMENT_CLASS(AMyProjectCharacter, 335697146);
 	template<> MYPROJECT_API UClass* StaticClass<AMyProjectCharacter>()
 	{
 		return AMyProjectCharacter::StaticClass();

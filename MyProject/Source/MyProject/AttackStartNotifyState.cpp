@@ -27,11 +27,9 @@ void UAttackStartNotifyState::NotifyBegin(USkeletalMeshComponent* MeshComp, UAni
 		if (Player != NULL)
 		{
 			//Call the AttackStart method on the class called player. Which as we know is of type AMyProjectCharacter.
-			 Player->AttackStart();
+			Player->AttackStart();
 		}
-
 	}
-
 }
 
 

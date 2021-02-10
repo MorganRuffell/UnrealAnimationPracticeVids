@@ -88,7 +88,7 @@ UENUM(BlueprintType)
 enum class EAttackType : uint8
 {
 	MELEE_FIST			UMETA(DisplayName = "Melee - Fist"),
-
+	MELEE_KICK			UMETA(DisplayName = "Melee - Kick")
 };
 
 
@@ -108,9 +108,16 @@ class AMyProjectCharacter : public ACharacter
 	//Attack Animation Montage
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Animation, meta = (AllowPrivateAccess = "true"))
 	class UAnimMontage* MeleeFistAttackMontage;
+	
+	//Attack Animation Montage
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Animation, meta = (AllowPrivateAccess = "true"))
+	class UAnimMontage* KickAttackMontage;
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = DataTable, meta = (AllowPrivateAccess = "true"))
-	class UDataTable* PlayerAttackDataTable;
+	class UDataTable* PlayerFistAttackDataTable;
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = DataTable, meta = (AllowPrivateAccess = "true"))
+	class UDataTable* PlayerKickAttackDataTable;	
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = DataAsset, meta =(AllowPrivateAccess = "true"))
 	class UCharacterDataAsset* CharacterDataAsset;
@@ -127,6 +134,13 @@ class AMyProjectCharacter : public ACharacter
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Collision, meta = (AllowPrivateAccess = "true"))
 	class UBoxComponent* RightFistCollisionBox;
 	
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Collision, meta = (AllowPrivateAccess = "true"))
+	class UBoxComponent* LeftLegCollisionBox;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Collision, meta = (AllowPrivateAccess = "true"))
+	class UBoxComponent* RightLegCollisionBox;
+
+
 public:
 	AMyProjectCharacter();
 	
@@ -233,6 +247,8 @@ protected:
 
 private:
 
+	void GetValues();
+	
 
 	//Log Enum Decleration
 	// param LogLevel affects the color of the log
@@ -255,13 +271,20 @@ public:
 	UAudioComponent* PunchThrowAudioComponent;
 
 	FMeleeCollisionProfile MeleeCollisionProfile;
-
+	
 	FPlayerAttackMontage* AttackMontage;
 
+	EAttackType* CurrentAttackType;
+
+	UFUNCTION()
+	void PunchAttack();
+	
+	UFUNCTION()
+	void KickAttack();
 
 	//Triggers attack animation based on user input/.
 	UFUNCTION()
-	void AttackInput();
+	void AttackInput(EAttackType AttackType);
 
 	//Triggered when the player intiates an attack
 	UFUNCTION()

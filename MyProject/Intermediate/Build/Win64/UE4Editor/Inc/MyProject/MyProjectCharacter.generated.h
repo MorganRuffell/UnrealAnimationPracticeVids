@@ -12,6 +12,7 @@ class UPrimitiveComponent;
 class AActor;
 struct FVector;
 struct FHitResult;
+enum class EAttackType : uint8;
 #ifdef MYPROJECT_MyProjectCharacter_generated_h
 #error "MyProjectCharacter.generated.h already included, missing '#pragma once' in MyProjectCharacter.h"
 #endif
@@ -42,7 +43,9 @@ template<> MYPROJECT_API UScriptStruct* StaticStruct<struct FPlayerAttackMontage
 	DECLARE_FUNCTION(execOnAttackHit); \
 	DECLARE_FUNCTION(execAttackEnd); \
 	DECLARE_FUNCTION(execAttackStart); \
-	DECLARE_FUNCTION(execAttackInput);
+	DECLARE_FUNCTION(execAttackInput); \
+	DECLARE_FUNCTION(execKickAttack); \
+	DECLARE_FUNCTION(execPunchAttack);
 
 
 #define MyProject_Source_MyProject_MyProjectCharacter_h_98_RPC_WRAPPERS_NO_PURE_DECLS \
@@ -54,7 +57,9 @@ template<> MYPROJECT_API UScriptStruct* StaticStruct<struct FPlayerAttackMontage
 	DECLARE_FUNCTION(execOnAttackHit); \
 	DECLARE_FUNCTION(execAttackEnd); \
 	DECLARE_FUNCTION(execAttackStart); \
-	DECLARE_FUNCTION(execAttackInput);
+	DECLARE_FUNCTION(execAttackInput); \
+	DECLARE_FUNCTION(execKickAttack); \
+	DECLARE_FUNCTION(execPunchAttack);
 
 
 #define MyProject_Source_MyProject_MyProjectCharacter_h_98_INCLASS_NO_PURE_DECLS \
@@ -103,12 +108,16 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(AMyProjectCharacter); \
 	FORCEINLINE static uint32 __PPO__CameraBoom() { return STRUCT_OFFSET(AMyProjectCharacter, CameraBoom); } \
 	FORCEINLINE static uint32 __PPO__FollowCamera() { return STRUCT_OFFSET(AMyProjectCharacter, FollowCamera); } \
 	FORCEINLINE static uint32 __PPO__MeleeFistAttackMontage() { return STRUCT_OFFSET(AMyProjectCharacter, MeleeFistAttackMontage); } \
-	FORCEINLINE static uint32 __PPO__PlayerAttackDataTable() { return STRUCT_OFFSET(AMyProjectCharacter, PlayerAttackDataTable); } \
+	FORCEINLINE static uint32 __PPO__KickAttackMontage() { return STRUCT_OFFSET(AMyProjectCharacter, KickAttackMontage); } \
+	FORCEINLINE static uint32 __PPO__PlayerFistAttackDataTable() { return STRUCT_OFFSET(AMyProjectCharacter, PlayerFistAttackDataTable); } \
+	FORCEINLINE static uint32 __PPO__PlayerKickAttackDataTable() { return STRUCT_OFFSET(AMyProjectCharacter, PlayerKickAttackDataTable); } \
 	FORCEINLINE static uint32 __PPO__CharacterDataAsset() { return STRUCT_OFFSET(AMyProjectCharacter, CharacterDataAsset); } \
 	FORCEINLINE static uint32 __PPO__PunchSoundCue() { return STRUCT_OFFSET(AMyProjectCharacter, PunchSoundCue); } \
 	FORCEINLINE static uint32 __PPO__PunchThrowSoundCue() { return STRUCT_OFFSET(AMyProjectCharacter, PunchThrowSoundCue); } \
 	FORCEINLINE static uint32 __PPO__LeftFistCollisionBox() { return STRUCT_OFFSET(AMyProjectCharacter, LeftFistCollisionBox); } \
-	FORCEINLINE static uint32 __PPO__RightFistCollisionBox() { return STRUCT_OFFSET(AMyProjectCharacter, RightFistCollisionBox); }
+	FORCEINLINE static uint32 __PPO__RightFistCollisionBox() { return STRUCT_OFFSET(AMyProjectCharacter, RightFistCollisionBox); } \
+	FORCEINLINE static uint32 __PPO__LeftLegCollisionBox() { return STRUCT_OFFSET(AMyProjectCharacter, LeftLegCollisionBox); } \
+	FORCEINLINE static uint32 __PPO__RightLegCollisionBox() { return STRUCT_OFFSET(AMyProjectCharacter, RightLegCollisionBox); }
 
 
 #define MyProject_Source_MyProject_MyProjectCharacter_h_95_PROLOG
@@ -143,7 +152,8 @@ template<> MYPROJECT_API UClass* StaticClass<class AMyProjectCharacter>();
 
 
 #define FOREACH_ENUM_EATTACKTYPE(op) \
-	op(EAttackType::MELEE_FIST) 
+	op(EAttackType::MELEE_FIST) \
+	op(EAttackType::MELEE_KICK) 
 
 enum class EAttackType : uint8;
 template<> MYPROJECT_API UEnum* StaticEnum<EAttackType>();
