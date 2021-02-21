@@ -218,6 +218,7 @@ void AMyProjectCharacter::GetValues()
 	CurrentSprintSpeed = CharacterDataAsset->CurrentSprintSpeed;
 
 }
+
 void AMyProjectCharacter::BeginPlay()
 {
 	//Passing a call to the super class iteration before we start playing.
@@ -416,6 +417,7 @@ void AMyProjectCharacter::KickAttack()
 	LeftLegCollisionBox->SetGenerateOverlapEvents(true);
 	RightLegCollisionBox->SetGenerateOverlapEvents(true);
 
+	PlayAnimMontage(KickAttackMontage,AnimationMontageSpeed);
 
 	//It doesn't play the kick attack montage, could be something to do with the data asset
 	if (PlayerKickAttackDataTable != NULL)
@@ -423,7 +425,7 @@ void AMyProjectCharacter::KickAttack()
 		static const FString ContextString(TEXT("Player Attack Montage Context"));
 		AttackMontage = PlayerKickAttackDataTable->FindRow<FPlayerAttackMontage>(FName(TEXT("AnimationMontage1")), ContextString, true);
 
-		if (AttackMontage != NULL)
+		if (KickAttackMontage != nullptr)
 		{
 			//Generate a random number between 1 & whatever is defined in the datatable for this montage
 			int MontageSectionIndex = rand() % AttackMontage->AnimSectionCount + 1;
@@ -434,10 +436,8 @@ void AMyProjectCharacter::KickAttack()
 			//Then play the result
 			PlayAnimMontage(AttackMontage->AnimMontage, AnimationMontageSpeed, FName(*MontageSection));
 
-			AttackEnd();
 		}
 	}
-
 }
 
 void AMyProjectCharacter::AttackStart()
@@ -525,10 +525,9 @@ void AMyProjectCharacter::OnAttackHit(UPrimitiveComponent* HitComponent, AActor*
 		//Play back the montage in reverse, based on this montages position, and play it backwards. Based on the 
 		AnimInstance->Montage_Play(AttackMontage->AnimMontage, AnimationPlayback, EMontagePlayReturnType::Duration, AnimInstance->Montage_GetPosition(AttackMontage->AnimMontage), true );
 	
-		AttackEnd();
 	}
 
-
+	AttackEnd();
 
 	//This is a pointer to the InGameHUD Actor which we included in our header file.
 	//We then cast this as AInGameHUD, and get the world, and then access the GetFirstPlayerController method
@@ -549,10 +548,9 @@ void AMyProjectCharacter::OnAttackHit(UPrimitiveComponent* HitComponent, AActor*
 	else {
 		GetWorld()->GetTimerManager().ClearTimer(ComboResetHandle);
 		GetWorld()->GetTimerManager().SetTimer(ComboResetHandle, this, &AMyProjectCharacter::ResetCombo, ComboResetDelay, false);
-
 	}
 
-
+	AttackEnd();
 
 }
 
@@ -593,6 +591,8 @@ void AMyProjectCharacter::FireLineTrace()
 	FVector End;
 	FVector Start;
 
+	const float Spread = FMath::DegreesToRadians(LineTraceSpread * 0.5f);
+
 	if (LineTraceType == ELineTraceType::CAMERA_SINGLE || LineTraceType == ELineTraceType::CAMERA_SPREAD)
 	{
 		//Get Camera point of v
@@ -602,7 +602,7 @@ void AMyProjectCharacter::FireLineTrace()
 		Start = cameraLocation;
 		if (LineTraceType == ELineTraceType::CAMERA_SPREAD)
 		{
-			End = cameraLocation + FMath::VRandCone(cameraRotation.Vector(), LineTraceSpread, LineTraceSpread) * LineTraceDistance;
+			End = cameraLocation + FMath::VRandCone(cameraRotation.Vector(), Spread, Spread) * LineTraceDistance;
 		}
 		else
 		{
@@ -611,6 +611,7 @@ void AMyProjectCharacter::FireLineTrace()
 		}
 
 	}
+
 	else if (LineTraceType == ELineTraceType::PLAYER_SINGLE || LineTraceType == ELineTraceType::PLAYER_SPREAD)
 	{
 		FVector PlayerEyesLocation;
@@ -625,7 +626,7 @@ void AMyProjectCharacter::FireLineTrace()
 
 		if (LineTraceType == ELineTraceType::PLAYER_SPREAD)
 		{
-			End = PlayerEyesLocation + FMath::VRandCone(PlayerEyesRotation.Vector(), LineTraceSpread, LineTraceSpread) * LineTraceDistance;
+			End = PlayerEyesLocation + FMath::VRandCone(PlayerEyesRotation.Vector(), Spread, Spread) * LineTraceDistance;
 		}
 		else
 		{
@@ -658,8 +659,6 @@ void AMyProjectCharacter::FireLineTrace()
 	}
 
 }
-
-
 
 void AMyProjectCharacter::Log(ELogLevel LogLevel, FString Message)
 {
