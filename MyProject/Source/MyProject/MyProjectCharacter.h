@@ -211,13 +211,6 @@ public:
 	FVector LineStartOffset;
 
 
-	//UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Line Trace", meta = (ToolTip = "These are converted into radians, this number is a degree"))
-	//float LineTraceConeHorizontalSpread;								    
-	//																	   
-	//UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Line Trace", meta = (ToolTip = "These are converted into radians, this number is a degree"))
-	//float LineTraceConeVerticalSpread;
-
-
 protected:
 
 	/** Called for forwards/backward input */
