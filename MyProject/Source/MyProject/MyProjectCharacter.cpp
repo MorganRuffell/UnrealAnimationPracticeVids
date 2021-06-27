@@ -224,6 +224,9 @@ void AMyProjectCharacter::BeginPlay()
 	//Passing a call to the super class iteration before we start playing.
 	Super::BeginPlay();
 
+	CurrentSprintSpeed = CharacterDataAsset->CurrentSprintSpeed;
+	CurrentWalkSpeed = CharacterDataAsset->CurrentWalkSpeed;
+
 	GetValues();
 
 	//Setting the Lvalues of our components to be equal to the character data asset lvalues.
